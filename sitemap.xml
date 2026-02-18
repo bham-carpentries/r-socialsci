@@ -1,141 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/00-intro.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/00-intro.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/01-intro-to-r.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/01-intro-to-r.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/02-starting-with-data.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/02-starting-with-data.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/03-dplyr.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/03-dplyr.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/04-tidyr.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/04-tidyr.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/05-ggplot2.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/05-ggplot2.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/06-rmarkdown.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/06-rmarkdown.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/07-json.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/07-json.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/404.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/404.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/CODE_OF_CONDUCT.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/LICENSE.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/R-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/R-handout.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/aio.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/aio.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/data-visualisation-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/data-visualisation-handout.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/data-wrangling-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/data-wrangling-handout.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/images.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/images.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/index.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/index.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/00-intro.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/00-intro.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/01-intro-to-r.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/01-intro-to-r.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/02-starting-with-data.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/02-starting-with-data.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/03-dplyr.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/03-dplyr.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/04-tidyr.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/04-tidyr.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/05-ggplot2.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/05-ggplot2.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/06-rmarkdown.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/06-rmarkdown.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/07-json.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/07-json.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/404.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/404.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/LICENSE.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/R-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/R-handout.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/aio.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/aio.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/data-visualisation-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/data-visualisation-handout.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/data-wrangling-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/data-wrangling-handout.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/images.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/images.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/index.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/index.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/instructor-notes.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/intro-R-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/intro-R-handout.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/key-points.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/key-points.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/profiles.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/profiles.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/reference.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/reference.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor/starting-with-data-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/starting-with-data-handout.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/instructor-notes.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/intro-R-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/intro-R-handout.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/key-points.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/key-points.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/profiles.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/profiles.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/reference.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/reference.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/r-socialsci/starting-with-data-handout.html</loc>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/starting-with-data-handout.html</loc>
   </url>
 </urlset>
