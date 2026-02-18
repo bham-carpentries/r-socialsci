@@ -91,8 +91,4 @@ Cheat sheet of functions used in the lessons
 - `plot_layout()`  # set width and height of individual plots in a patchwork of plots
 - `ggsave()` # save a ggplot
 
-### Lesson 5 -- Processing JSON data
-
-- `read_json()` # load json object to an R object
-
 
