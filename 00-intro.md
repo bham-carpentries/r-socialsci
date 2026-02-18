@@ -7,6 +7,7 @@ source: Rmd
 
 
 
+
 ::: instructor
 
 - The main goal here is to help the learners be comfortable with the RStudio
