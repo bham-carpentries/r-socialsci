@@ -45,7 +45,7 @@ source: Rmd
 
 ## Creating objects in R
 
-You can get output from R simply by typing math in the console:
+You can get output from R simply by **typing math in the console**:
 
 
 ``` r
@@ -64,56 +64,37 @@ You can get output from R simply by typing math in the console:
 [1] 1.714286
 ```
 
-Everything that exists in `R` is an objects: from simple numerical values, to strings, to more complex objects like vectors, matrices, and lists. Even expressions and functions are objects in `R`.
+**Everything that exists in `R` is an objects: from simple numerical values, to strings, to more complex objects like vectors, matrices, and lists. Even expressions and functions are objects in `R`.**
 
-However, to do useful and interesting things, we need to name objects. To do so, we need to give a *name* followed by the assignment operator `<-`, and the *object* we want to be named:
+**However, to do useful and interesting things, we need to name objects.** To do so, we need to give a *name* followed by the assignment operator `<-`, and the *object* we want to be named:
 
 
 ``` r
 area_hectares <- 1.0
 ```
 
-`<-` is the assignment operator. It assigns values (objects) on the right to names (also called *symbols*) on
-the left. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can
-be read as 3 **goes into** `x`.  For historical reasons, you can also use `=`
-for assignments, but not in every context. Because of the
-[slight differences](https://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html)
-in syntax, it is good practice to always use `<-` for assignments. More
-generally we prefer the `<-` syntax over `=` because it makes it clear what
-direction the assignment is operating (left assignment), and it increases the
+**`<-` is the assignment operator. It assigns values (objects) on the right to names (also called *symbols*) on the left**. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can
+be read as 3 **goes into** `x`.  **For historical reasons, you can also use `=` for assignments, but it is good practice to always use `<-` for assignments. More generally we prefer the `<-` syntax over `=` because it makes it clear what direction the assignment is operating (left assignment)**, and it increases the
 read-ability of the code.
 
-In RStudio, typing <kbd>Alt</kbd> + <kbd>\-</kbd> (push <kbd>Alt</kbd> at the
-same time as the <kbd>\-</kbd> key) will write `<- ` in a single keystroke in a
-PC, while typing <kbd>Option</kbd> + <kbd>\-</kbd> (push <kbd>Option</kbd> at the
-same time as the <kbd>\-</kbd> key) does the same in a Mac.
+**In RStudio, typing <kbd>Alt</kbd> + <kbd>\-</kbd> (push <kbd>Alt</kbd> at the same time as the <kbd>\-</kbd> key) will write `<- ` in a single keystroke in a PC, while typing <kbd>Option</kbd> + <kbd>\-</kbd> (push <kbd>Option</kbd> at the same time as the <kbd>\-</kbd> key) does the same in a Mac.**
 
 Objects can be given any name such as `x`, `current_temperature`, or
-`subject_id`. You want your object names to be explicit and not too long. They
-cannot start with a number (`2x` is not valid, but `x2` is). R is case sensitive
-(e.g., `age` is different from `Age`). There are some names that
-cannot be used because they are the names of fundamental objects in R (e.g.,
-`if`, `else`, `for`, see
-[here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
-for a complete list). In general, even if it's allowed, it's best to not use
-them (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). If in
-doubt, check the help to see if the name is already in use. It's also best to
-avoid dots (`.`) within an object name as in `my.dataset`. There are many
-objects in R with dots in their names for historical reasons, but because dots
-have a special meaning in R (for methods) and other programming languages, it's
-best to avoid them. The recommended writing style is called snake\_case, which
-implies using only lowercaseletters and numbers and separating each word with
-underscores (e.g., animals\_weight, average\_income). It is also recommended to use nouns for object names, and
-verbs for function names. It's important to be consistent in the styling of your
+`subject_id`. **You want your object names to be explicit and not too long.** 
+
+Objects's name: 
+
++ **cannot start with a number** (`2x` is not valid, but `x2` is).
++ R is **case sensitive** (e.g., `age` is different from `Age`). 
++ There are **some names that cannot be used** because they are the names of fundamental objects in R (e.g.,`if`, `else`, `for`, see [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) for a complete list).
++ It's also **best to avoid dots (`.`)** within an object name as in `my.dataset`. There are many objects in R with dots in their names for historical reasons, but because dots **have a special meaning in R (for methods)** and other programming languages, it's best to avoid them. 
++ The recommended writing style is **called snake\_case**, which implies using only lowercaseletters and numbers and separating each word with underscores (e.g., animals\_weight, average\_income). 
++ It is also **recommended to use nouns for object names**, and **verbs for function names**. 
+
+It's important to be consistent in the styling of your
 code (where you put spaces, how you name objects, etc.). Using a consistent
 coding style makes your code clearer to read for your future self and your
-collaborators. In R, three popular style guides are
-[Google's](https://google.github.io/styleguide/Rguide.xml), [Jean
-Fan's](https://jef.works/R-style-guide/) and the
-[tidyverse's](https://style.tidyverse.org/). The tidyverse's is very
-comprehensive and may seem overwhelming at first. You can install the
-[**`lintr`**](https://github.com/jimhester/lintr) package to automatically check
-for issues in the styling of your code.
+collaborators.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -134,18 +115,13 @@ To resolve this you can either encourage spacing around operators or parentheses
 
 ## Objects vs. variables
 
-The naming of objects in `R` is somehow related to `variables` in many other
-programming languages. In many programming languages, a variable has three aspects: a name, a memory location, and the current value stored in this location. `R` abstracts from modifiable memory locations. In `R` we only have objects which can be named.
 Depending on the context, `name (of an object)` and `variable` can
 have drastically different meanings. However, in this lesson, the two words
-are used synonymously. For more information see:
-[https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects](https://cran.r-project.org/doc/manuals/r-release/R-lang.html#Objects)
+are used synonymously.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-When assigning an value to a name, R does not print anything. You
-can force R to print the value by using parentheses or by typing
-the object name:
+**When assigning an value to a name, R does not print anything. You can force R to print the value by using parentheses or by typing the object name:**
 
 
 ``` r
@@ -165,8 +141,8 @@ area_hectares         # and so does typing the name of the object
 [1] 1
 ```
 
-Now that R has `area_hectares` in memory, we can do arithmetic with it. For
-instance, we may want to convert this area into acres (area in acres is 2.47 times the area in hectares):
+Now that **R has `area_hectares` in memory**, we can do arithmetic with it. For
+instance, we may want to **convert this area into acres** (area in acres is 2.47 times the area in hectares):
 
 
 ``` r
@@ -177,7 +153,7 @@ instance, we may want to convert this area into acres (area in acres is 2.47 tim
 [1] 2.47
 ```
 
-We can also change an the value assigned to an name by assigning it a new one:
+We can also **change the value assigned to a name** by assigning it a new one:
 
 
 ``` r
@@ -189,8 +165,8 @@ area_hectares <- 2.5
 [1] 6.175
 ```
 
-This means that assigning a value to one name does not change the values of
-other names. For example, let's name the plot's area in acres
+Assigning a value to one name does not change the values of
+other names. For example, let's name the area in acres
 `area_acres`:
 
 
@@ -226,14 +202,15 @@ changing the value of `area_hectares`.
 
 ## Comments
 
-All programming languages allow the programmer to include comments in their code. Including comments to your code has many advantages: it helps you explain your reasoning and it forces you to be tidy. A commented code is also a great tool not only to your collaborators, but to your future self. Comments are the key to a reproducible analysis.
+All programming languages allow the programmer to include comments in their code. Including comments to your code has many advantages: **it helps you explain your reasoning and it forces you to be tidy**. A commented code is also a great tool not only to your collaborators, but to your future self. **Comments are the key to a reproducible analysis.**
 
-To do this in R we use the `#` character.
+To do this **in R we use the `#` character**.
 Anything to the right of the `#` sign and up to the end of the line is treated as a comment and is ignored by R. You can start lines with comments
 or include them after any code on the line.
 
 
 ``` r
+### This is a comment that starts the line. It is ignored by R.
 area_hectares <- 1.0			# land area in hectares
 area_acres <- area_hectares * 2.47	# convert to acres
 area_acres				# print land area in acres.
@@ -244,8 +221,7 @@ area_acres				# print land area in acres.
 ```
 
 RStudio makes it easy to comment or uncomment a paragraph: after selecting the
-lines you  want to comment, press at the same time on your keyboard
-<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>. If you only want to comment
+lines you  want to comment, **press at the same time on your keyboard <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>.** If you only want to comment
 out one line, you can put the cursor at any location of that line (i.e. no need
 to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 <kbd>C</kbd>.
@@ -261,7 +237,7 @@ This is why you might see other programmers abbreviate common words.
 Create a third variable `r_area` and give it a value based on the current values of `r_length`
 and `r_width`.
 Show that changing the values of either `r_length` and `r_width` does not affect the value of
-`r_area`.
+`r_area`. What would you need to do to make sure that `r_area` always reflects the current values of `r_length` and `r_width`?
 
 :::::::::::::::  solution
 
@@ -291,19 +267,23 @@ r_area
 [1] 8
 ```
 
+To make sure that `r_area` always reflects the current values of `r_length` and `r_width`, you would need to re-run the line `r_area <- r_length * r_width` after changing the values of `r_length` and `r_width`.
+
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Functions and their arguments
 
-Functions are "canned scripts" that automate more complicated sets of commands
-including operations assignments, etc. Many functions are predefined, or can be
-made available by importing R *packages* (more on that later). A function
-usually gets one or more inputs called *arguments*. Functions often (but not
-always) return a *value*. A typical example would be the function `sqrt()`. The
-input (the argument) must be a number, and the return value (in fact, the
-output) is the square root of that number. Executing a function ('running it')
++ **Functions are "scripts" that automate more complicated sets of commands**
+including operations assignments, etc.
++ **Many functions are predefined, or can be made available by importing R *packages* (more on that later)**. 
++ A function usually gets **one or more inputs called *arguments*.**
++ Functions **often (but not always) return a *value*.** 
+
+A typical **example would be the function `sqrt()`.** The
+**input** (the argument) must be a number, and the return value (in fact, the
+**output**) is the square root of that number. Executing a function ('running it')
 is called *calling* the function. An example of a function call is:
 
 
@@ -313,22 +293,17 @@ b <- sqrt(a)
 
 Here, the value of `a` is given to the `sqrt()` function, the `sqrt()` function
 calculates the square root, and returns the value which is then assigned to
-the name `b`. This function is very simple, because it takes just one argument.
+the name `b`. **This function is very simple, because it takes just one argument.**
 
-The return 'value' of a function need not be numerical (like that of `sqrt()`),
-and it also does not need to be a single item: it can be a set of things, or
-even a dataset. We'll see that when we read data files into R.
++ **The return 'value' of a function need not be numerical** (like that of `sqrt()`),
+and it also does not need to be a single item: **it can be a set of things, or even a dataset**. We'll see that when we read data files into R.
++ **Arguments can be anything, not only numbers or filenames, but also other objects**. 
++ Exactly what each argument means **differs per function**, and must be
+looked up in the documentation (see below). 
++ Some functions take arguments which may either be **specified by the user**, or, if left out, **take on a *default* value**: these are called *options*. 
+You can **specify a value of your choice which will be used instead of the default**.
 
-Arguments can be anything, not only numbers or filenames, but also other
-objects. Exactly what each argument means differs per function, and must be
-looked up in the documentation (see below). Some functions take arguments which
-may either be specified by the user, or, if left out, take on a *default* value:
-these are called *options*. Options are typically used to alter the way the
-function operates, such as whether it ignores 'bad values', or what symbol to
-use in a plot.  However, if you want something specific, you can specify a value
-of your choice which will be used instead of the default.
-
-Let's try a function that can take multiple arguments: `round()`.
+**Let's try a function that can take multiple arguments: `round()`.**
 
 
 ``` r
@@ -340,8 +315,8 @@ round(3.14159)
 ```
 
 Here, we've called `round()` with just one argument, `3.14159`, and it has
-returned the value `3`.  That's because the default is to round to the nearest
-whole number. If we want more digits we can see how to do that by getting
+returned the value `3`.  That's because the **default is to round to the nearest
+whole number**. If we **want more digits** we can see how to do that by getting
 information about the `round` function.  We can use `args(round)` or look at the
 help for this function using `?round`.
 
@@ -361,7 +336,7 @@ NULL
 ```
 
 We see that if we want a different number of digits, we can
-type `digits=2` or however many we want.
+type `digits=2` or however many we want. We can also see the default value for `digits` is `0`, which is why we got a whole number when we didn't specify it.
 
 
 ``` r
@@ -384,7 +359,7 @@ round(3.14159, 2)
 [1] 3.14
 ```
 
-And if you do name the arguments, you can switch their order:
+**And if you do name the arguments, you can switch their order:**
 
 
 ``` r
@@ -395,9 +370,7 @@ round(digits = 2, x = 3.14159)
 [1] 3.14
 ```
 
-It's good practice to put the non-optional arguments (like the number you're
-rounding) first in your function call, and to specify the names of all optional
-arguments.  If you don't, someone reading your code might have to look up the
+It's **good practice to put the non-optional arguments (like the number you're rounding) first in your function call, and to specify the names of all optional arguments**.  If you don't, someone reading your code might have to look up the
 definition of a function with unfamiliar arguments to understand what you're
 doing.
 
@@ -407,7 +380,6 @@ doing.
 
 Type in `?round` at the console and then look at the output in the Help pane.
 What other functions exist that are similar to `round`?
-How do you use the `digits` parameter in the round function?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -415,9 +387,8 @@ How do you use the `digits` parameter in the round function?
 
 
 
-A vector is the most common and basic data type in R, and is pretty much
-the workhorse of R. A vector is composed by a series of values, which can be
-either numbers or characters. We can assign a series of values to a vector using
+A vector is **the most common and basic data type in R**. 
+**A vector is composed by a series of values, which can be either numbers or characters**. We can assign a series of values to a vector using
 the `c()` function. For example we can create a vector of the number of household
 members for the households we've interviewed and assign
 it to `hh_members`:
@@ -432,7 +403,7 @@ hh_members
 [1]  3  7 10  6
 ```
 
-A vector can also contain characters. For example, we can have
+**A vector can also contain characters**. For example, we can have
 a vector of the building material used to construct our
 interview respondents' walls (`respondent_wall_type`):
 
@@ -446,12 +417,22 @@ respondent_wall_type
 [1] "muddaub"     "burntbricks" "sunbricks"  
 ```
 
-The quotes around "muddaub", etc. are essential here. Without the quotes R
+**The quotes around "muddaub", etc. are essential here**. Without the quotes R
 will assume there are objects called `muddaub`, `burntbricks` and `sunbricks`. As these names
 don't exist in R's memory, there will be an error message.
 
-There are many functions that allow you to inspect the content of a
-vector. `length()` tells you how many elements are in a particular vector:
+
+``` r
+respondent_wall_type <- c(muddaub, "burntbricks", "sunbricks")
+```
+
+``` error
+Error:
+! object 'muddaub' not found
+```
+
+There are **many functions that allow you to inspect the content of a vector.** 
+**`length()` tells you how many elements are in a particular vector:**
 
 
 ``` r
@@ -470,8 +451,7 @@ length(respondent_wall_type)
 [1] 3
 ```
 
-An important feature of a vector, is that all of the elements are the same type of data.
-The function `typeof()` indicates the type of an object:
+An important feature of a vector, is that **all of the elements are the same type of data.** The function `typeof()` indicates the type of an object:
 
 
 ``` r
@@ -490,8 +470,7 @@ typeof(respondent_wall_type)
 [1] "character"
 ```
 
-The function `str()` provides an overview of the structure of an object and its
-elements. It is a useful function when working with large and complex
+The **function `str()` provides an overview of the structure of an object and its elements**. It is a useful function when working with large and complex
 objects:
 
 
@@ -511,7 +490,7 @@ str(respondent_wall_type)
  chr [1:3] "muddaub" "burntbricks" "sunbricks"
 ```
 
-You can use the `c()` function to add other elements to your vector:
+**You can use the `c()` function to add other elements to your vector:**
 
 
 ``` r
@@ -536,8 +515,8 @@ calculating.
 
 An **atomic vector** is the simplest R **data type** and is a linear vector of a single type. Above, we saw
 2 of the 6 main **atomic vector** types  that R
-uses: `"character"` and `"numeric"` (or `"double"`). These are the basic building blocks that
-all R objects are built from. The other 4 **atomic vector** types are:
+uses: `"character"` and `"numeric"` (or `"double"`). 
+**These are the basic building blocks that all R objects are built from.** The other 4 **atomic vector** types are:
 
 - `"logical"` for `TRUE` and `FALSE` (the boolean data type)
 - `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
@@ -545,11 +524,13 @@ all R objects are built from. The other 4 **atomic vector** types are:
   `1 + 4i`) and that's all we're going to say about them
 - `"raw"` for bitstreams that we won't discuss further
 
-You can check the type of your vector using the `typeof()` function and inputting your vector as the argument.
-
-Vectors are one of the many **data structures** that R uses. Other important
-ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`),
-factors (`factor`) and arrays (`array`).
+**Vectors are one of the many data structures that R uses**. Other important
+ones are:
++ lists (`list`),
++ matrices (`matrix`),
++ data frames (`data.frame`),
++ factors (`factor`)
++ and arrays (`array`).
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -619,13 +600,13 @@ call converting objects from one class into another class
 *coercion*. These conversions happen according to a hierarchy,
 whereby some types get preferentially coerced into other
 types. Can you draw a diagram that represents the hierarchy of how
-these data types are coerced?
+these data types are coerced? (Optional)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Subsetting vectors
 
-Subsetting (sometimes referred to as extracting or indexing) involves accessing out one or more values based on their numeric placement or "index" within a vector. If we want to subset one or several values from a vector, we must provide one index or several indices in square brackets.  For instance:
+Subsetting (sometimes referred to as extracting or indexing) involves **accessing out one or more values based on their numeric placement or "index" within a vector.** If we want to subset one or several values from a vector, we must provide one index or several indices in square brackets.  For instance:
 
 
 ``` r
@@ -659,14 +640,14 @@ more_respondent_wall_type
 [6] "sunbricks"  
 ```
 
-R indices start at 1. Programming languages like Fortran, MATLAB, Julia, and R
-start counting at 1, because that's what human beings typically do. Languages in
+**R indices start at 1**. Programming languages like Fortran, MATLAB, Julia, and R
+start counting at 1, **because that's what human beings typically do**. Languages in
 the C family (including C++, Java, Perl, and Python) count from 0 because that's
 simpler for computers to do.
 
 ### Conditional subsetting
 
-Another common way of subsetting is by using a logical vector. `TRUE` will
+Another common way of **subsetting is by using a logical vector**. `TRUE` will
 select the element with the same index, while `FALSE` will not:
 
 
@@ -701,7 +682,7 @@ hh_members[hh_members > 5]
 [1]  7 10  6
 ```
 
-You can combine multiple tests using `&` (both conditions are true, AND) or `|`
+You can combine **multiple tests using `&` (both conditions are true, AND) or `|`**
 (at least one of the conditions is true, OR):
 
 
@@ -721,13 +702,15 @@ hh_members[hh_members >= 4 & hh_members <= 7]
 [1] 7 6
 ```
 
-Here, `<` stands for "less than", `>` for "greater than", `>=` for "greater than
-or equal to", and `==` for "equal to". The double equal sign `==` is a test for
++ `<` stands for "less than",
++ `>` for "greater than",
++ `>=` for "greater than or equal to",
++ `==` for "equal to". The double equal sign `==` is a test for
 numerical equality between the left and right hand sides, and should not be
 confused with the single `=` sign, which performs variable assignment (similar
 to `<-`).
 
-A common task is to search for certain strings in a vector.  One could use the
+A common task is to **search for certain strings in a vector**.  One could use the
 "or" operator `|` to test for equality to multiple values, but this can quickly
 become tedious.
 
@@ -741,7 +724,7 @@ possessions[possessions == "car" | possessions == "bicycle"] # returns both car 
 [1] "car"     "bicycle"
 ```
 
-The function `%in%` allows you to test if any of the elements of a search vector
+The **function `%in%` allows you to test if any** of the elements of a search vector
 (on the left hand side) are found in the target vector (on the right hand side):
 
 
@@ -753,10 +736,17 @@ possessions %in% c("car", "bicycle")
 [1]  TRUE  TRUE FALSE FALSE FALSE
 ```
 
-Note that the output is the same length as the search vector on the left hand
-side, because `%in%` checks whether each element of the search vector is found
-somewhere in the target vector. Thus, you can use `%in%` to select the elements
-in the search vector that appear in your target vector:
+``` r
+c("car", "bicycle") %in% possessions
+```
+
+``` output
+[1] TRUE TRUE
+```
+
+Note that the **output is the same length as the search vector on the left hand side**, because `%in%` checks whether each element of the search vector is found
+somewhere in the target vector. 
+**Thus, you can use `%in%` to select the elements in the search vector that appear in your target vector:**
 
 
 ``` r
@@ -777,13 +767,10 @@ possessions[possessions %in% c("car", "bicycle", "motorcycle", "truck", "boat", 
 
 ## Missing data
 
-As R was designed to analyze datasets, it includes the concept of missing data
-(which is uncommon in other programming languages). Missing data are represented
-in vectors as `NA`.
+As **R was designed to analyze datasets, it includes the concept of missing data** (which is uncommon in other programming languages). **Missing data are represented in vectors as `NA`.**
 
-When doing operations on numbers, most functions will return `NA` if the data
-you are working with include missing values. This feature
-makes it harder to overlook the cases where you are dealing with missing data.
+**When doing operations on numbers, most functions will return `NA` if the data you are working with include missing values.** This feature
+makes it **harder to overlook the cases where you are dealing with missing data**.
 You can add the argument `na.rm=TRUE` to calculate the result while ignoring
 the missing values.
 
@@ -822,7 +809,7 @@ max(rooms, na.rm = TRUE)
 ```
 
 If your data include missing values, you may want to become familiar with the
-functions `is.na()`, `na.omit()`, and `complete.cases()`. See below for
+functions `is.na()` and `complete.cases()`. See below for
 examples.
 
 
@@ -844,19 +831,6 @@ sum(is.na(rooms))
 
 ``` output
 [1] 1
-```
-
-``` r
-## Returns the object with incomplete cases removed. The returned object is an atomic vector of type `"numeric"` (or `"double"`).
-na.omit(rooms)
-```
-
-``` output
-[1] 2 1 1 7
-attr(,"na.action")
-[1] 4
-attr(,"class")
-[1] "omit"
 ```
 
 ``` r
@@ -893,7 +867,7 @@ rooms <- c(1, 2, 1, 1, NA, 3, 1, 3, 2, 1, 1, 8, 3, 1, NA, 1)
 rooms <- c(1, 2, 1, 1, NA, 3, 1, 3, 2, 1, 1, 8, 3, 1, NA, 1)
 rooms_no_na <- rooms[!is.na(rooms)]
 # or
-rooms_no_na <- na.omit(rooms)
+rooms_no_na <- rooms[complete.cases(rooms)]
 # 2.
 median(rooms, na.rm = TRUE)
 ```
@@ -916,19 +890,17 @@ length(rooms_above_2)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Now that we have learned how to write scripts, and the basics of R's data
-structures, we are ready to start working with the SAFI dataset we have been
-using in the other lessons, and learn about data frames.
+**Now that we have learned how to write scripts, and the basics of R's data structures, we are ready to start working with the SAFI dataset we have been using in the other lessons, and learn about data frames.**
 
 ## Getting help
 As mentioned in the [functions and their arguments section](#functions-and-their-arguments), you can use a question mark `?` to know more about a function (for example, typing `?round`).
 
 However, there are several other ways that people often get help when they are stuck with their R code.
 
-* Search the internet: paste the last line of your error message or “R” and a short description of what you want to do into your favorite search engine and you will usually find several examples where other people have encountered the same problem and came looking for help.
-  * Stack Overflow can be particularly helpful for this: answers to questions are presented as a ranked thread ordered according to how useful other users found them to be. You can search using the `[r]` tag. 
+* **Search the internet**: paste the last line of your error message or “R” and a short description of what you want to do into your favorite search engine and you will usually find several examples where other people have encountered the same problem and came looking for help.
+  * **Stack Overflow** can be particularly helpful for this: answers to questions are presented as a ranked thread ordered according to how useful other users found them to be. You can search using the `[r]` tag. 
   * **Take care**: copying and pasting code written by somebody else is risky unless you understand exactly what it is doing!
-* Ask somebody “in the real world”. If you have a colleague or friend with more expertise in R than you have, show them the problem you are having and ask them for help.
+* **Ask somebody “in the real world”**. If you have a colleague or friend with more expertise in R than you have, show them the problem you are having and ask them for help.
 * Sometimes, the act of articulating your question can help you to identify what is going wrong. This is known as [“rubber duck debugging”](https://en.wikipedia.org/wiki/Rubber_duck_debugging) among programmers.
 
 ### Generative AI
@@ -948,24 +920,6 @@ If you are preparing to teach this section and you feel it has become outdated, 
 
 ::::::::::::::::::::::::::::::::::::::::
 
-It is increasingly common for people to use _generative AI_ chatbots such as ChatGPT to get help while coding.
-You will probably receive some useful guidance by presenting your error message to the chatbot and asking it what went wrong.
-
-However, the way this help is provided by the chatbot is different.
-Answers on Stack Overflow have (probably) been given by a human as a direct response to the question asked.
-But generative AI chatbots, which are based on advanced statistical models called Large Language Models (or LLMs), respond by generating the _most likely_ sequence of text that would follow the prompt they are given.
-
-While responses from generative AI tools can often be helpful, they are not always reliable. 
-These tools sometimes generate plausible but incorrect or misleading information, so (just as with an answer found on the internet) it is essential to verify their accuracy.
-You need the knowledge and skills to be able to understand these responses, to judge whether or not they are accurate, and to fix any errors in the code it offers you.
-
-In addition to asking for help, programmers can use generative AI tools to generate code from scratch; extend, improve and reorganize existing code; translate code between programming languages; figure out what terms to use in a search of the internet; and more.
-However, there are drawbacks that you should be aware of.
-
-The models used by these tools have been "trained" on very large volumes of data, much of it taken from the internet, and the responses they produce reflect that training data, and may recapitulate its inaccuracies or biases.
-The environmental costs (energy and water use) of LLMs are a lot higher than other technologies, both during development (known as training) and when an individual user uses one (also called inference). For more information see the [AI Environmental Impact Primer](https://huggingface.co/blog/sasha/ai-environment-primer) developed by researchers at HuggingFace, an AI hosting platform. 
-Concerns also exist about the way the data for this training was obtained, with questions raised about whether the people developing the LLMs had permission to use it.
-Other ethical concerns have also been raised, such as reports that workers were exploited during the training process.
 
 **We recommend that you avoid getting help from generative AI during the workshop** for several reasons:
 

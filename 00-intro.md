@@ -9,15 +9,15 @@ source: Rmd
 
 ## Introduction
 
-### Slides notes 
-
 ::: instructor
+
+### Slides notes 
 
 + It's important to let people know they should have the orientation document opened at this point as well as the etherpad.
 
 + The etherpad will be used rather than asking people questions. That a collab doc which is semi public so please don't share confidential info. If you have it opened please add an answer to the question in day 1.
 
-+ Mention two sources for the course material, with optional lessons to be foung on the official carpentry repository. 
++ Mention two sources for the course material, with optional lessons to be found on the official carpentry repository. 
 
 + Mention the use sticky notes as well
 
@@ -25,13 +25,8 @@ source: Rmd
 
 ### Objective of the two days: 
 
-::::::::::::::::::::::::::::::::::::::: objectives
-
 - No expeience required
 - Information about R syntax, the RStudio interface, and move through how to import CSV files, the structure of data frames, how to add/remove rows and columns, how to calculate summary statistics from a data frame, and a brief introduction to plotting.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 
 ::: instructor
