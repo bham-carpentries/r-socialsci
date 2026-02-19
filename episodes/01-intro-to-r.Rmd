@@ -190,14 +190,14 @@ to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 
 ## Exercise
 
-Create two variables `r_length` and `r_width` and assign them values. It should be noted that,
++ Create two variables `r_length` and `r_width` and assign them values. It should be noted that,
 because `length` is a built-in R function, R Studio might add "()" after you type `length` and
 if you leave the parentheses you will get unexpected results.
 This is why you might see other programmers abbreviate common words.
-Create a third variable `r_area` and give it a value based on the current values of `r_length`
-and `r_width`.
-Show that changing the values of either `r_length` and `r_width` does not affect the value of
-`r_area`. What would you need to do to make sure that `r_area` always reflects the current values of `r_length` and `r_width`?
++ Create a third variable `r_area` and give it a value based on the current values of `r_length` and `r_width`.
++ Show that changing the values of either `r_length` and `r_width` does not affect the value of
+`r_area`. 
++ What would you need to do to make sure that `r_area` always reflects the current values of `r_length` and `r_width`?
 
 :::::::::::::::  solution
 
