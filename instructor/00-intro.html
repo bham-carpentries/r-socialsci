@@ -349,14 +349,12 @@
         
 
 <section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a></h2>
-<hr class="half-width"><div class="section level3">
-<h3 id="slides-notes">Slides notes<a class="anchor" aria-label="anchor" href="#slides-notes"></a></h3>
-<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<hr class="half-width"><div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
-  <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
+  <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Slides notes </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <ul><li><p>It’s important to let people know they should have the
 orientation document opened at this point as well as the
@@ -366,21 +364,25 @@ That a collab doc which is semi public so please don’t share
 confidential info. If you have it opened please add an answer to the
 question in day 1.</p></li>
 <li><p>Mention two sources for the course material, with optional
-lessons to be foung on the official carpentry repository.</p></li>
+lessons to be found on the official carpentry repository.</p></li>
 <li><p>Mention the use sticky notes as well</p></li>
 </ul></div>
 </div>
 </div>
 </div>
-</div>
 <div class="section level3">
 <h3 id="objective-of-the-two-days">Objective of the two days:<a class="anchor" aria-label="anchor" href="#objective-of-the-two-days"></a></h3>
-<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<ul><li>No expeience required</li>
+<li>Information about R syntax, the RStudio interface, and move through
+how to import CSV files, the structure of data frames, how to add/remove
+rows and columns, how to calculate summary statistics from a data frame,
+and a brief introduction to plotting.</li>
+</ul><div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
   <h3 class="accordion-header" id="headingInstructor2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <ul><li>The main goal here is to help the learners be comfortable with the
 RStudio interface.</li>
@@ -549,7 +551,7 @@ what differences you notice?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>You should see that R is a terminal-based interface, while RStudio is
 a graphical user interface (GUI) that provides additional tools and
@@ -622,7 +624,7 @@ now be relative to the project directory.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor3" aria-expanded="false" aria-controls="collapseInstructor3">
   <h3 class="accordion-header" id="headingInstructor3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
 <div class="accordion-body">
 <ul><li>At this point you may want to show in the file explorer where the
 project directory is and where the script.R file is. You can also show
@@ -714,7 +716,7 @@ devices and with other users.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor4" aria-expanded="false" aria-controls="collapseInstructor4">
   <h3 class="accordion-header" id="headingInstructor4">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor4" class="accordion-collapse collapse" aria-labelledby="headingInstructor4" data-bs-parent="#accordionInstructor4">
+<div id="collapseInstructor4" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor4" aria-labelledby="headingInstructor4">
 <div class="accordion-body">
 <ul><li>Show the file pane and the console pane and how they interact with
 the working directory. You can also show how to check the working
@@ -860,7 +862,7 @@ the tidyverse installed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Scroll through packages tab down to ‘tidyverse’. You can also type a
 few characters into the searchbox. The ‘tidyverse’ package is really a
