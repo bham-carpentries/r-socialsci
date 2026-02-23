@@ -1,5 +1,5 @@
 ---
-title: Getting started with Quarto (Optional)
+title: intro to Quarto (Optional)
 teaching: 30
 exercises: 15
 output:
@@ -31,18 +31,15 @@ source("data/download_data.R")
 
 ## Quarto
 
-Quarto is a flexible type of document that allows you to seamlessly
-combine executable R code, and its output, with text in a single
-document. These documents can be readily converted to multiple static
-and dynamic output formats, including PDF (.pdf), Word (.docx), and HTML
+Quarto is a **flexible type of document that allows you to seamlessly combine executable R code, and its output, with text in a single document**. These documents can be readily converted to **multiple static and dynamic output formats**, including PDF (.pdf), Word (.docx), and HTML
 (.html).
 
-The benefit of a well-prepared Quarto document is full reproducibility.
+The benefit of a well-prepared Quarto document is **full reproducibility**.
 This also means that, if you notice a data transcription error, or you
 are able to add more data to your analysis, you will be able to
 recompile the report without making any changes in the actual document.
 
-Quarto comes pre-installed with RStudio (as of v2022.07), so no action
+Quarto comes **pre-installed with RStudio (as of v2022.07)**, so no action
 is necessary.
 
 <figure>
@@ -51,25 +48,24 @@ is necessary.
 knitr::include_graphics("fig/quarto-illustration.png")
 ```
 
-<figcaption>A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, HTML, Word documents, and more) versatility of Quarto. Image source: [Posit](https://rstudio.github.io/cheatsheets/html/quarto.html)</figcaption>
+<figcaption>A schematic representing the multi-language input **(e.g. Python, R Observable, Julia) and multi-format output (e.g. PDF, HTML, Word documents, and more) versatility of Quarto. Image source: [Posit](https://rstudio.github.io/cheatsheets/html/quarto.html)</figcaption>
 
 </figure>
 
 
 ## Creating a Quarto file
 
-To create a new Quarto document in RStudio, click File -> New File ->
-Quarto Document:
+To create a new Quarto document in RStudio, click **File -> New File -> Quarto Document**:
 
 ![](fig/quarto-new.png){alt="Screenshot of the New Quarto file dialogue box in RStudio"}
 
-Then click on 'Create Empty Document'. Normally you could enter the title of
+Then click on '**Create Empty Document**'. Normally you could enter the title of
 your document, your name (Author), and select the type of output, but we will be
 learning how to start from a blank document.
 
 ## Basic components of Quarto
 
-To control the output, a YAML (YAML Ain't Markup Language) header is needed:
+To control the output, a **YAML** (YAML Ain't Markup Language) header is needed:
 
 ```         
 ---
@@ -80,34 +76,31 @@ format: html
 ---
 ```
 
-The header is defined by the three hyphens at the beginning (`---`) and the
+**The header** is defined by the three hyphens at the beginning (`---`) and the
 three hyphens at the end (`---`).
 
-Although not recommended, you can leave the YAML out. Then the output will be 
+Although **not recommended, you can leave the YAML out**. Then the output will be 
 by default a HTML file. It's still better to include the file format in the YAML 
 header by adding the line `format: html`. You can also adapt the `format` of
-the file, to `pdf` or `docx`. We will start with an HTML document and discuss the other
-options later.
+the file, to `pdf` or `docx`. We will start with an HTML document and discuss the other options later.
 
-You can add more information about your document in the YAML header such as `title`, `date` and `author`. This information will be displayed at the top of your document.  There are many more fields that can be added to the YAML header that provide additional information about the document or define the behaviour of the file. But we won't discuss them now. 
+You can add **more information** about your document in the YAML header such as `title`, `date` and `author`. This information will be displayed at the top of your document.  There are **many more fields that can be added to the YAML header** that provide additional information about the document or define the behaviour of the file. But we won't discuss them now. 
 
 After the header, to begin the body of the document, you start typing after the end of the YAML
 header (i.e. after the second `---`).
 
 ## Markdown syntax
 
-Markdown is a popular markup language that allows you to add formatting elements
+**Markdown is a popular markup language** that allows you to add formatting elements
 to text, such as **bold**, *italics*, and `code`. The formatting will not be
 immediately visible in a markdown (.md) document, like you would see in a Word
-document. Rather, you add Markdown syntax to the text, which can then be
-converted to various other files that can translate the Markdown syntax.
-Markdown is useful because it is lightweight, flexible, and platform
-independent.
+document. Rather, **you add Markdown syntax to the text, which can then be converted to various other files that can translate the Markdown syntax**.
+Markdown is useful because it is **lightweight, flexible, and platform independent.**
 
-Some platforms provide a real time preview of the formatting, like RStudio's
+Some platforms provide a **real time preview of the formatting**, like RStudio's
 visual markdown editor (available from version 1.4).
 
-First, let's create a heading! A `#` in front of text indicates to Markdown that
+First, let's create a **heading**! A `#` in front of text indicates to Markdown that
 this text is a heading. Adding more `#`s make the heading smaller, i.e. one `#` is
 a first level heading, two `##`s is a second level heading, etc. up to the 6th level heading.
 
@@ -137,9 +130,9 @@ asterisks, `*italics*`, or single underscores, `_italics_`.
 You can also combine **bold** and *italics* to write something ***really***
 important with triple-asterisks, `***really***`, or underscores, `___really___`;
 and, if you're feeling bold (pun intended), you can also use a combination of
-asterisks and underscores, `**_really_**`, `**_really_**`.
+asterisks and underscores, `**_really_**`, `**_really_**`. You can also use the **keyboard shortcuts** <kbd>Ctrl</kbd>\+<kbd>B</kbd> for bold and <kbd>Ctrl</kbd>\+<kbd>I</kbd> for italics on Windows and Linux, and <kbd>Cmd</kbd>\+<kbd>B</kbd> for bold and <kbd>Cmd</kbd>\+<kbd>I</kbd> for italics on Mac.
 
-To create `code-type` font, surround the word with backticks,
+To create `code-type` font, surround the word with **backticks**,
 ``` `code type` ```.
 
 Now that we've learned a couple of things, it might be useful to implement them:
@@ -151,7 +144,7 @@ This report uses the **tidyverse** package along with the *SAFI* dataset,
 which has columns that include:
 ```
 
-Then we can create a list for the variables using `-`, `+`, or `*` keys.
+Then we can create a **list for the variables** using `-`, `+`, or `*` keys.
 
 ```
 ## Introduction
@@ -197,24 +190,22 @@ And nested items by tab-indenting:
 
 For more Markdown syntax see [the following reference guide](https://quarto.org/docs/authoring/markdown-basics.html).
 
-Now we can render the document into HTML by clicking the **Render** button in the
+Now we can **render the document** into HTML by clicking the **Render** button in the
 top of the Source pane (top left), or use the keyboard shortcut
 <kbd>Ctrl</kbd>\+<kbd>Shift</kbd>\+<kbd>K</kbd> on Windows and Linux, and
 <kbd>Cmd</kbd>\+<kbd>Shift</kbd>\+<kbd>K</kbd> on Mac. If you haven't saved the
 document yet, you will be prompted to do so when you **Render** for the first
 time.
 
-![](fig/rstudio-qmd-how-it-works.png){alt="The 'rendering' process: First, Quarto file is converted to Markdown, which is then converted (via pandoc) to .html, .pdf, .docx, etc."}
+![](fig/rstudio-qmd-how-it-works.png){alt="The 'rendering' process: First, **Quarto file is converted to Markdown, which is then converted** (via pandoc) to .html, .pdf, .docx, etc."}
 
 ## Writing a Quarto report
 
 Now we will add some R code from our previous data wrangling and visualisation,
-which means we need to make sure **tidyverse** is loaded. It is not enough to
-load **tidyverse** from the console, we will need to load it within our Quarto
-document. The same applies to our data. To load these, we will need to create a
+which means we need to make sure **tidyverse** is loaded. **It is not enough to load **tidyverse** from the console, we will need to load it within our Quarto document**. The same applies to our data. To load these, we will need to create a
 'code chunk' at the top of our document (below the YAML header).
 
-A code chunk can be inserted by clicking Code > Insert Chunk, or by using the
+**A code chunk can be inserted by clicking** Code > Insert Chunk, or by using the
 keyboard shortcuts <kbd>Ctrl</kbd>\+<kbd>Alt</kbd>\+<kbd>I</kbd> on Windows and Linux,
 and <kbd>Cmd</kbd>\+<kbd>Option</kbd>\+<kbd>I</kbd> on Mac.
 
@@ -230,7 +221,7 @@ The syntax of a code chunk is:
 A Quarto document knows that this text is not part of the report from the
 ```` ``` ```` that begins and ends the chunk. It also knows that the code
 inside of the chunk is R code from the `r` inside of the curly braces (`{}`).
-Below the curly braces, you can add code chunk options after the `#|` sign. In this way, you can for example add a label for the code chunk. Naming a chunk is optional, but recommended. Each chunk label must be unique, and only contain alphanumeric characters and `-`.
+Below the curly braces, you can add code chunk options after the `#|` sign. In this way, you can for example add a label for the code chunk. **Naming a chunk is optional, but recommended**. Each chunk label must be unique, and only contain alphanumeric characters and `-`.
 
 ```{r}
 #| echo: false
@@ -239,8 +230,14 @@ Below the curly braces, you can add code chunk options after the `#|` sign. In t
 #| purl: false
 
 library(tidyverse)
-interviews <- read_csv("data/SAFI_clean.csv", na = "NULL")
 ```
+
+:::: instructor
+
+At this point you may want to explain the different chunk options used in the above code chunk, and what they do. You can also explain that there are many more options available, and that you can find them in the Quarto documentation.
+Since we have not covered yet how to import data, it would be good to move into the next episode before explaining the code in the chunk, and then come back to it to explain the chunk options.
+
+::::::::::::
 
 To load **tidyverse** and our `SAFI_clean.csv` file, we will insert a chunk and
 call it 'setup'. Since we don't want this code or the output to show in our
@@ -268,7 +265,55 @@ the `here()` function to keep the file paths consistent within your project.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Insert table
+
+## Customising chunk output
+
+We mentioned using `include: false` in a code chunk to prevent the code and
+output from printing in the rendered document. There are additional options
+available to customise how the code-chunks are presented in the output document.
+The options are entered in the code chunk using the 'hash pipe', `#|`.
+
+| Option | Options | Output                                                                                                    | 
+| ------ | ------- | --------------------------------------------------------------------------------------------------------- |
+| `eval`       | `TRUE` or `FALSE`    | Whether or not the code within the code chunk should be run.                                              | 
+| `echo`       | `TRUE` or `FALSE`    | Choose if you want to show your code chunk in the output document. `echo = TRUE` will show the code chunk.                                       | 
+| `include`       | `TRUE` or `FALSE`    | Choose if the output of a code chunk should be included in the document. `FALSE` means that your code will run, but will not show up in the document.                                 | 
+| `warning`       | `TRUE` or `FALSE`    | Whether or not you want your output document to display potential warning messages produced by your code. | 
+| `message`       | `TRUE` or `FALSE`    | Whether or not you want your output document to display potential messages produced by your code.         | 
+| `fig-align`       | `default`, `left`, `right`, `center`      | Where the figure from your R code chunk should be output on the page                                      | 
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Tip
+
+- The default settings for the above chunk options are all `true`.
+- The default settings can be modified per chunk, or with
+  `knitr::opts_chunk$set()`,
+- Entering `knitr::opts_chunk$set(echo = FALSE)` will change the default of
+  value of `echo` to `FALSE` for **every** code chunk in the document.
+
+The defaults can also be changed in the YAML header with:
+
+```
+---
+knitr:
+  opts_chunk:
+    echo: false
+---
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::: instructor
+
+From now on you can advice them to use a quarto document for the subsequent episodes.
+You can briefly discuss the possibility of quarto (see next sections) but not in details. 
+
+::::::::::::
+
+
+## Insert table (self-directed learning)
 
 Next, we will re-create a table from the Data Wrangling episode which
 shows the average household size grouped by `village` and `memb_assoc`.
@@ -287,6 +332,18 @@ to use the `kable()` function from the **knitr** package. The `kable()` function
 takes the output of your R code and renders it into a nice looking HTML table. You
 can also specify different aspects of the table, e.g. the column names, a
 caption, etc.
+
+Load the data and the tidyverse package in a code chunk with `include: false`:
+
+```{r}
+#| echo: false
+#| label: package-data
+#| message: false
+#| purl: false
+
+library(tidyverse)
+interviews <- read_csv("data/SAFI_clean.csv", na = "NULL")
+```
 
 Run the code chunk to make sure you get the desired output.
 
@@ -330,7 +387,7 @@ interviews %>%
 ```
 
 
-Many different R packages can be used to generate tables. Some of the more commonly used options are listed in the table below.
+Many different **R packages can be used to generate tables**. Some of the more commonly used options are listed in the table below.
 
 | Name          | Creator(s)   | Description                              |
 |---------------|--------------|-------------------------------------------|
@@ -350,43 +407,6 @@ Many different R packages can be used to generate tables. Some of the more commo
 | [xtable](https://github.com/cran/xtable) | [Dahl et al. (2019)](https://cran.r-project.org/web/packages/xtable/index.html) | Coerce data to LaTeX and HTML tables. |
 | [ztable](https://github.com/cardiomoon/ztable) | [Moon (2021)](https://cran.r-project.org/web/packages/ztable/index.html) | Makes zebra-striped tables (tables with alternating row colors) in LaTeX and HTML formats easily from a data.frame, matrix, lm, aov, anova, glm, coxph, nls, fitdistr, mytable and cbind.mytable objects. |
 
-## Customising chunk output
-
-We mentioned using `include: false` in a code chunk to prevent the code and
-output from printing in the rendered document. There are additional options
-available to customise how the code-chunks are presented in the output document.
-The options are entered in the code chunk using the 'hash pipe', `#|`.
-
-| Option | Options | Output                                                                                                    | 
-| ------ | ------- | --------------------------------------------------------------------------------------------------------- |
-| `eval`       | `TRUE` or `FALSE`    | Whether or not the code within the code chunk should be run.                                              | 
-| `echo`       | `TRUE` or `FALSE`    | Choose if you want to show your code chunk in the output document. `echo = TRUE` will show the code chunk.                                       | 
-| `include`       | `TRUE` or `FALSE`    | Choose if the output of a code chunk should be included in the document. `FALSE` means that your code will run, but will not show up in the document.                                 | 
-| `warning`       | `TRUE` or `FALSE`    | Whether or not you want your output document to display potential warning messages produced by your code. | 
-| `message`       | `TRUE` or `FALSE`    | Whether or not you want your output document to display potential messages produced by your code.         | 
-| `fig-align`       | `default`, `left`, `right`, `center`      | Where the figure from your R code chunk should be output on the page                                      | 
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Tip
-
-- The default settings for the above chunk options are all `true`.
-- The default settings can be modified per chunk, or with
-  `knitr::opts_chunk$set()`,
-- Entering `knitr::opts_chunk$set(echo = FALSE)` will change the default of
-  value of `echo` to `FALSE` for **every** code chunk in the document.
-
-The defaults can also be changed in the YAML header with:
-
-```
----
-knitr:
-  opts_chunk:
-    echo: false
----
-```
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -413,7 +433,7 @@ doesn't exist in the rendered document as it was never run. Whereas
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## In-line R code
+## In-line R code (self-directed learning)
 
 Now we will use some in-line R code to present some descriptive statistics.
 To use in-line R-code, we use the same backticks that we used in the Markdown
@@ -459,7 +479,7 @@ Because we are using in-line R code instead of the actual values, we have create
 a dynamic document that will automatically update if we make changes to the dataset
 and/or code chunks.
 
-## Plots
+## Plots (self-directed learning)
 
 Finally, we will also include a plot, so our document is a little more colourful
 and a little less boring. We will use the `interview_plotting` data from the
@@ -581,7 +601,7 @@ before it, but since you just need to reference the label, there's no need to
 know what number a specific plot has in a document (especially useful for
 figure-heavy documents).
 
-## Other output options
+## Other output options (self-directed learning)
 
 You can convert Quarto to a PDF or a Word document (among others). Put
 `pdf` or `word` in the initial header of the file to indicate the
