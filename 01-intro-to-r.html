@@ -109,11 +109,11 @@
   R for Social Scientists
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 9%" class="percentage">
-    9%
+<aside class="col-md-12 lesson-progress"><div style="width: 10%" class="percentage">
+    10%
   </div>
   <div class="progress data">
-    <div class="progress-bar data" role="progressbar" style="width: 9%" aria-valuenow="9" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar data" role="progressbar" style="width: 10%" aria-valuenow="10" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -231,7 +231,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-starting-with-data.html">3. Starting with Data</a>
+        <a href="02-quarto.html">3. Getting started with Quarto (Optional)</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -240,7 +240,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="03-dplyr.html">4. Data Wrangling with dplyr</a>
+        <a href="03-starting-with-data.html">4. Starting with Data</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -249,7 +249,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="04-tidyr.html">5. Data Wrangling with tidyr</a>
+        <a href="04-dplyr.html">5. Data Wrangling with dplyr</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -259,15 +259,6 @@
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
         <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush8">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading8">
-        <a href="06-rmarkdown.html">7. Getting started with R Markdown (Optional)</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -316,7 +307,7 @@
   <div class="col-xl-8 col-lg-12 primary-content">
     <nav class="lesson-content mx-md-4" aria-label="Previous and Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="00-intro.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="02-starting-with-data.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="02-quarto.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -324,14 +315,14 @@
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Before we Start
         </a>
-        <a class="chapter-link float-end" href="02-starting-with-data.html" rel="next">
-          Next: Starting with Data...
+        <a class="chapter-link float-end" href="02-quarto.html" rel="next">
+          Next: Getting started with...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Introduction to R</h1>
-        <p>Last updated on 2026-02-19 |
+        <p>Last updated on 2026-02-23 |
 
         <a href="https://bham-carpentries.github.io/2026-02-24-rsocialscientists/edit/main/episodes/01-intro-to-r.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -619,19 +610,22 @@ whole line), then press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
 <div id="exercise-1" class="callout-inner">
 <h3 class="callout-title">Exercise</h3>
 <div class="callout-content">
-<p>Create two variables <code>r_length</code> and <code>r_width</code>
+<ul><li>Create two variables <code>r_length</code> and <code>r_width</code>
 and assign them values. It should be noted that, because
 <code>length</code> is a built-in R function, R Studio might add “()”
 after you type <code>length</code> and if you leave the parentheses you
 will get unexpected results. This is why you might see other programmers
-abbreviate common words. Create a third variable <code>r_area</code> and
-give it a value based on the current values of <code>r_length</code> and
-<code>r_width</code>. Show that changing the values of either
-<code>r_length</code> and <code>r_width</code> does not affect the value
-of <code>r_area</code>. What would you need to do to make sure that
-<code>r_area</code> always reflects the current values of
-<code>r_length</code> and <code>r_width</code>?</p>
-</div>
+abbreviate common words.</li>
+<li>Create a third variable <code>r_area</code> and give it a value
+based on the current values of <code>r_length</code> and
+<code>r_width</code>.</li>
+<li>Show that changing the values of either <code>r_length</code> and
+<code>r_width</code> does not affect the value of
+<code>r_area</code>.</li>
+<li>What would you need to do to make sure that <code>r_area</code>
+always reflects the current values of <code>r_length</code> and
+<code>r_width</code>?</li>
+</ul></div>
 </div>
 </div>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
@@ -1556,7 +1550,7 @@ data.</li>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="00-intro.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
-        <a class="chapter-link float-end" href="02-starting-with-data.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
+        <a class="chapter-link float-end" href="02-quarto.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
       <!-- content for large screens -->
       <div class="d-none d-sm-none d-md-block">
@@ -1564,8 +1558,8 @@ data.</li>
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
           Previous: Before we Start
         </a>
-        <a class="chapter-link float-end" href="02-starting-with-data.html" rel="next">
-          Next: Starting with Data...
+        <a class="chapter-link float-end" href="02-quarto.html" rel="next">
+          Next: Getting started with...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -1613,8 +1607,8 @@ data.</li>
   "url": "https://bham-carpentries.github.io/2026-02-24-rsocialscientists/01-intro-to-r.html",
   "identifier": "https://bham-carpentries.github.io/2026-02-24-rsocialscientists/01-intro-to-r.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2026-02-19",
-  "datePublished": "2026-02-19"
+  "dateModified": "2026-02-23",
+  "datePublished": "2026-02-23"
 }
 
   </script><script>

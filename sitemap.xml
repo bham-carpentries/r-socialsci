@@ -7,10 +7,19 @@
     <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/01-intro-to-r.html</loc>
   </url>
   <url>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/02-quarto.html</loc>
+  </url>
+  <url>
     <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/02-starting-with-data.html</loc>
   </url>
   <url>
     <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/03-dplyr.html</loc>
+  </url>
+  <url>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/03-starting-with-data.html</loc>
+  </url>
+  <url>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/04-dplyr.html</loc>
   </url>
   <url>
     <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/04-tidyr.html</loc>
@@ -58,10 +67,19 @@
     <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/01-intro-to-r.html</loc>
   </url>
   <url>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/02-quarto.html</loc>
+  </url>
+  <url>
     <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/02-starting-with-data.html</loc>
   </url>
   <url>
     <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/03-dplyr.html</loc>
+  </url>
+  <url>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/03-starting-with-data.html</loc>
+  </url>
+  <url>
+    <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/04-dplyr.html</loc>
   </url>
   <url>
     <loc>https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/04-tidyr.html</loc>
