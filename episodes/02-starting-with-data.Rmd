@@ -110,20 +110,16 @@ are aware of them so that we can properly handle them, if we want.
 To do so, we just need the following functions from the conflicted package:  
 
 - `conflicted::conflict_scout()`: Shows us any conflicted functions.  
-- `conflict_prefer("function", "package_prefered")`:  Allows us to choose the
-default function we want from now on.  
-- It is also important to know that we can, at any time, just call the function
-directly from the package we want, such as `stats::filter()`.
+- `conflict_prefer("function", "package_prefered")`:  **Allows us to choose the default function we want from now on**.  
+- It is also important to know that we can, at any time, just **call the function directly from the package we want**, such as `stats::filter()`.
 
 ### Path management
 
-Even with the use of an RStudio project, it can be difficult to learn how to
-specify paths to file locations. The **here** package
-creates paths relative to the top-level directory (your RStudio project). These
-relative paths work *regardless* of where the associated source file lives
-inside your project, like analysis projects with data and reports in different
+Even with the use of an RStudio project, **it can be difficult to learn how to specify paths to file locations**. The **here** package
+creates paths relative to the top-level directory (your RStudio project). **These relative paths work *regardless* of where the associated source file lives inside your project**, like analysis projects with data and reports in different
 subdirectories.  This is an important contrast to using `setwd()`, which
 depends on the way you order your files on your computer.
+
 
 <figure>
 ```{r here-figure, echo = FALSE, fig.show = "hold", fig.alt = "Monsters at a fork in the road, with signs saying here, and not here. One direction, not here, leads to a scary dark forest with spiders and absolute filepaths, while the other leads to a sunny, green meadow, and a city below a rainbow and a world free of absolute filepaths. Art by Allison Horst", out.width="100%"}
@@ -146,6 +142,26 @@ interviews <- read_csv(
   na = "NULL")
 ```
 
+The following code snippets show how the path to the data file would be specified using `setwd()` and `read.csv()`, and how it is specified using `here()` and `read_csv()`: 
+
+```{r, eval=FALSE, message=FALSE, purl=FALSE}
+setwd("../data")
+read.csv("SAFI_clean.csv")
+```
+
+* This works only if your working directory is `scripts/` or `source/`.  
+* If you open the project with *project.Rproj*, your working directory is `project/`, so `setwd("../data")` will fail (there is no `../data` from `project/`).
+
+```{r, eval=FALSE, message=FALSE, purl=FALSE}
+library(here)
+read.csv(here("data", "SAFI_clean.csv"))
+```
+
+* This always works, no matter where the script is located or how you open the project.
+* `here()` finds the project root (where *project.Rproj* is) and builds the path from there.
+* **Your code is portable and reproducible**.
+
+
 In the above code, we notice the `here()` function takes folder and file names
 as inputs (e.g., `"data"`, `"SAFI_clean.csv"`), each enclosed in quotations
 (`""`) and separated by a comma. **The `here()` will accept as many names as are necessary to navigate to a particular file (e.g., `here("analysis", "data", "surveys", "clean", "SAFI_clean.csv)`).**
@@ -154,7 +170,7 @@ The **`here()` function can accept the folder and file names in an alternate for
 using a slash ("/") rather than commas to separate the names. The two methods are
 equivalent, so that `here("data", "SAFI_clean.csv")` and
 `here("data/SAFI_clean.csv")` produce the same result. (The slash is used on all
-operating systems; backslashes are not used.)
+operating systems; **backslashes are not used**.)
 
 If you were to type in the code above, it is likely that the `read.csv()`
 function would appear in the automatically populated list of functions. **This function is different from the `read_csv()` function**, as it is included in the
@@ -193,6 +209,13 @@ to specify more details about the structure of your file.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:::: instructor
+
+Demonstrate how to import data using click as and show the code that is generated in the console.
+
+::::::::::::
+
+
 Note that `read_csv()` actually loads the **data as a tibble**.
 A tibble is an extension of `R` data frames used by the **`tidyverse`**. When
 the data is read using `read_csv()`, it is stored in an object of class
@@ -216,7 +239,7 @@ data stored in each column.
 
 Size:
 
-- `dim(interviews)` - returns a vector with the number of rows as the first
+- `dim(interviews)` - returns a **vector** with the number of rows as the first
   element, and the number of columns as the second element (the **dim**ensions of
   the object)
 - `nrow(interviews)` - returns the number of rows
@@ -234,38 +257,24 @@ Names:
 
 Summary:
 
-- `str(interviews)` - structure of the object and information about the class,
+- `str(interviews)` - **structure of the object and information** about the class,
   length and content of each column
 - `summary(interviews)` - summary statistics for each column
 - `glimpse(interviews)` - returns the number of columns and rows of the tibble,
   the names and class of each column, and previews as many values will fit on the
-  screen. Unlike the other inspecting functions listed above, `glimpse()` is not a
-  "base R" function so you need to have the `dplyr` or `tibble` packages loaded to
+  screen. Unlike the other inspecting functions listed above, `glimpse()` is **not a "base R" function** so you need to have the `dplyr` or `tibble` packages loaded to
   be able to execute it.
 
-Note: most of these functions are "generic." They can be used on other types of
-objects besides data frames or tibbles.
+Note: most of these functions are **"generic." They can be used on other types of objects** besides data frames or tibbles.
 
 ## Subsetting data frames
 
 Our `interviews` data frame has rows and columns (it has 2 dimensions).
-In practice, we may not need the entire data frame; for instance, we may only
-be interested in a subset of the observations (the rows) or a particular set
-of variables (the columns). If we want to
-access some specific data from it, we need to specify the "coordinates" (i.e., indices) we
-want from it. Row numbers come first, followed by column numbers.
+In practice, **we may not need the entire data frame**; for instance, we may only
+be interested in a **subset of the observations (the rows) or a particular set of variables (the columns)**. If we want to
+access some specific data from it, we need to specify the **"coordinates"** (i.e., **indices**) we
+want from it. **Row numbers come first, followed by column numbers**.
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Tip
-
-Subsetting a `tibble` with `[` always results in a `tibble`.
-However, note this is not true in general for data frames, so be careful!
-Different ways of specifying these coordinates can lead to results with
-different classes. This is covered in the Software Carpentry lesson
-[R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/).
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ```{r, purl=FALSE}
 ## first element in the first column of the tibble
@@ -290,10 +299,10 @@ interviews[3, ]
 head_interviews <- interviews[1:6, ]
 ```
 
-`:` is a special function that creates numeric vectors of integers in increasing
+`:` is a **special function that creates numeric vectors of integers** in increasing
 or decreasing order, test `1:10` and `10:1` for instance.
 
-You can also exclude certain indices of a data frame using the "`-`" sign:
+You can also **exclude certain indices** of a data frame using the "`-`" sign:
 
 ```{r, purl=FALSE}
 interviews[, -1]          # The whole tibble, except the first column
@@ -312,9 +321,16 @@ interviews[, "village"]     # Result is a tibble
 interviews[["village"]]     # Result is a vector
 
 interviews$village          # Result is a vector
+
+# Several columns
+interviews[, c("village", "interview_date")]     # Result is a tibble
+# Several columns for a subset of rows 
+interviews[1:10, c("village", "interview_date")]     # Result is a tibble
+# Conditions 
+interviews[, "no_membrs">7]     # Result is a tibble
 ```
 
-In RStudio, you can use the autocompletion feature to get the full and correct
+In RStudio, you can use the **autocompletion feature** to get the full and correct
 names of the columns.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -345,6 +361,11 @@ Now, continue using `interviews` for each of the following activities:
   `head(interviews)`, keeping just the first through 6th rows of the
   interviews dataset.
 
+5. Can you use the `dim()` function to to pull out the last row in the tibble? Write your answer below.
+
+6. Can you select those rows of the data frame with a `years_liv` values above 40? How many are there?
+
+
 :::::::::::::::  solution
 
 ## Solution
@@ -360,29 +381,32 @@ interviews_last <- interviews[n_rows, ]
 interviews_middle <- interviews[median(1:n_rows), ]
 ## 4.
 interviews_head <- interviews[-(7:n_rows), ]
+## 5.
+interviews[dim(interviews)[1],]
+## 6.
+nrow(interviews[interviews$years_liv > 40, ])
+
 ```
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Factors
+## Factors (if time allows)
 
-R has a special data class, called factor, to deal with categorical data that
-you may encounter when creating plots or doing statistical analyses. Factors are
+R has a **special data class, called factor, to deal with categorical data that you may encounter when creating plots or doing statistical analyses**. Factors are
 very useful and actually contribute to making R particularly well suited to
 working with data. So we are going to spend a little time introducing them.
 
-Factors represent categorical data. They are stored as integers associated with
-labels and they can be ordered (ordinal) or unordered (nominal). Factors
+**Factors represent categorical data**. They are stored as integers associated with
+labels and they can be **ordered (ordinal) or unordered (nominal)**. Factors
 create a structured  relation between the different levels (values) of a
 categorical variable, such as days of the week or responses to a question in
 a survey. This can make it easier to see how one element relates to the
-other elements in a column. While factors look (and often behave) like
-character vectors, they are actually treated as integer vectors by `R`. So
+other elements in a column. **While factors look (and often behave) like character vectors, they are actually treated as integer vectors by `R`**. So
 you need to be very careful when treating them as strings.
 
-Once created, factors can only contain a pre-defined set of values, known as
+Once created, factors can only contain a **pre-defined set of values**, known as
 *levels*. By default, R always sorts levels in alphabetical order. For
 instance, if you have a factor with 2 levels:
 
@@ -390,7 +414,7 @@ instance, if you have a factor with 2 levels:
 respondent_floor_type <- factor(c("earth", "cement", "cement", "earth"))
 ```
 
-R will assign `1` to the level `"cement"` and `2` to the level `"earth"`
+R will **assign `1` to the level `"cement"` and `2` to the level `"earth"`**
 (because `c` comes before `e`, even though the first element in this vector is
 `"earth"`). You can see this by using the function `levels()` and you can find
 the number of levels using `nlevels()`:
@@ -401,8 +425,7 @@ levels(respondent_floor_type)
 nlevels(respondent_floor_type)
 ```
 
-Sometimes, the order of the factors does not matter. Other times you might want
-to specify the order because it is meaningful (e.g., "low", "medium", "high").
+Sometimes, the order of the factors does not matter. Other times you might want to specify the **order because it is meaningful (e.g., "low", "medium", "high").**
 It may improve your visualization, or it may be required by a particular type of
 analysis. Here, one way to reorder our levels in the `respondent_floor_type`
 vector would be:
@@ -416,12 +439,11 @@ respondent_floor_type <- factor(respondent_floor_type,
 respondent_floor_type # after re-ordering
 ```
 
-In R's memory, these factors are represented by integers (1, 2), but are more
-informative than integers because factors are self describing: `"cement"`,
+In R's memory, these factors are represented by integers (1, 2), but are **more informative than integers because factors are self describing**: `"cement"`,
 `"earth"` is more descriptive than `1`, and `2`. Which one is "earth"? You
 wouldn't be able to tell just from the integer data. Factors, on the other hand,
 have this information built in. It is particularly helpful when there are many
-levels. It also makes renaming levels easier. Let's say we made a mistake and
+levels. **It also makes renaming levels easier**. Let's say we made a mistake and
 need to recode "cement" to "brick". We can do this using the `fct_recode()`
 function from the **`forcats`** package (included in the **`tidyverse`**) which
 provides some extra tools to work with factors.
@@ -440,7 +462,7 @@ levels(respondent_floor_type)
 respondent_floor_type
 ```
 
-So far, your factor is unordered, like a nominal variable. R does not know the
+So far, **your factor is unordered, like a nominal variable**. R does not know the
 difference between a nominal and an ordinal variable. You make your factor an
 ordered factor by using the `ordered=TRUE` option inside your factor function.
 Note how the reported levels changed from the unordered factor above to the
@@ -478,9 +500,13 @@ as.numeric(year_fct)                     # Wrong! And there is no warning...
 as.numeric(as.character(year_fct))       # Works...
 
 as.numeric(levels(year_fct))[year_fct]   # The recommended way.
+# Uses as.numeric(levels(year_fct)) to get the numeric values of the levels, and then uses the underlying integer vector to subset it.
+as.numeric(levels(year_fct))
+as.numeric(year_fct)        
+
 ```
 
-Notice that in the recommended `levels()` approach, three important steps occur:
+Notice that in the recommended `levels()` approach, **three important steps** occur:
 
 - We obtain all the factor levels using `levels(year_fct)`
 - We convert these levels to numeric values using `as.numeric(levels(year_fct))`
@@ -491,9 +517,7 @@ Notice that in the recommended `levels()` approach, three important steps occur:
 
 When your data is stored as a factor, you can use the `plot()` function to get a
 quick glance at the number of observations represented by each factor level.
-Let's extract the `memb_assoc` column from our data frame, convert it into a
-factor, and use it to look at the number of interview respondents who were or
-were not members of an irrigation association:
+**Let's extract the `memb_assoc` column from our data frame, convert it into a factor, and use it to look at the number of interview respondents who were or were not members of an irrigation association**:
 
 ```{r factor-plot-default-order, fig.alt="Yes/no bar graph showing number of individuals who are members of irrigation association", purl=TRUE}
 ## create a vector from the data frame column "memb_assoc"
@@ -505,16 +529,19 @@ memb_assoc <- as.factor(memb_assoc)
 ## let's see what it looks like
 memb_assoc
 
+# the summary of the factor shows us the number of observations for each level of the factor
+summary(memb_assoc)
+
 ## bar plot of the number of interview respondents who were
 ## members of irrigation association:
 plot(memb_assoc)
 ```
 
-Looking at the plot compared to the output of the vector, we can see that in
+Looking at the **plot compared to the output of the vector**, we can see that in
 addition to "no"s and "yes"s, there are some respondents for whom the
 information about whether they were part of an irrigation association hasn't
 been recorded, and encoded as missing data. These respondents do not appear on the plot.
-Let's encode them differently so they can be counted and visualized in our plot.
+Let's **encode them differently so they can be counted** and visualized in our plot.
 
 ```{r factor-plot-reorder, fig.alt="Bar plot of association membership, showing missing responses.", purl=TRUE}
 ## Let's recreate the vector from the data frame column "memb_assoc"
@@ -528,6 +555,8 @@ memb_assoc <- as.factor(memb_assoc)
 
 ## let's see what it looks like
 memb_assoc
+
+summary(memb_assoc)
 
 ## bar plot of the number of interview respondents who were
 ## members of irrigation association:
@@ -561,105 +590,6 @@ plot(memb_assoc)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Formatting Dates
-
-One of the most common issues that new (and experienced!) R users have is
-converting date and time information into a variable that is appropriate and
-usable during analyses. A best
-practice for dealing with date data is to ensure that each component of your
-date is available as a separate variable. In our dataset, we have a
-column `interview_date` which contains information about the
-year, month, and day that the interview was conducted. Let's
-convert those dates into three separate columns.
-
-```{r, eval=FALSE, purl=FALSE}
-str(interviews)
-```
-
-We are going to use the package **`lubridate`**, , which is included in the **`tidyverse`** installation and should be loaded by default. 
-However, if we deal with older versions of tidyverse (2022 and ealier), we can manually load it by typing `library(lubridate)`.
-
-If necessary, start by loading the required package:
-
-```{r load-package, message=FALSE, purl=FALSE}
-library(lubridate)
-```
-
-The lubridate function `ymd()` takes a vector representing year, month, and day,
-and converts it to a `Date` vector. `Date` is a class of data recognized by R as
-being a date and can be manipulated as such. The argument that the function
-requires is flexible, but, as a best practice, is a character vector formatted
-as "YYYY-MM-DD".
-
-Let's extract our `interview_date` column and inspect the structure:
-
-```{r, purl=FALSE}
-dates <- interviews$interview_date
-str(dates)
-```
-
-When we imported the data in R, `read_csv()` recognized that this column
-contained date information. We can now use the `day()`, `month()` and  `year()`
-functions to extract this information from the date, and create new columns in
-our data frame to store it:
-
-```{r, purl=FALSE}
-interviews$day <- day(dates)
-interviews$month <- month(dates)
-interviews$year <- year(dates)
-interviews
-```
-
-Notice the three new columns at the end of our data frame.
-
-In our example above, the `interview_date` column was read in correctly as a
-`Date` variable but generally that is not the case. Date columns are often read
-in as `character` variables and one can use the `as_date()` function to convert
-them to the appropriate `Date/POSIXct`format.
-
-Let's say we have a vector of dates in character format:
-
-```{r, purl=FALSE}
-char_dates <- c("7/31/2012", "8/9/2014", "4/30/2016")
-str(char_dates)
-```
-
-We can convert this vector to dates as :
-
-```{r, purl=FALSE}
-as_date(char_dates, format = "%m/%d/%Y")
-```
-
-Argument `format` tells the function the order to parse the characters and
-identify the month, day and year. The format above is the equivalent of
-mm/dd/yyyy. A wrong format can lead to parsing errors or incorrect results.
-
-For example, observe what happens when we use a lower case y instead of upper
-case Y for the year.
-
-```{r, purl=FALSE}
-as_date(char_dates, format = "%m/%d/%y")
-```
-
-Here, the `%y` part of the format stands for a two-digit year instead of a
-four-digit year, and this leads to parsing errors.
-
-Or in the following example, observe what happens when the month and day
-elements of the format are switched.
-
-```{r, purl=FALSE}
-as_date(char_dates, format = "%d/%m/%y")
-```
-
-Since there is no month numbered 30 or 31, the first and third dates cannot be
-parsed.
-
-We can also use functions `ymd()`, `mdy()` or `dmy()` to convert character
-variables to date.
-
-```{r, purl=FALSE}
-mdy(char_dates)
-```
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
