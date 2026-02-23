@@ -61,10 +61,10 @@ contact: 'team@carpentries.org'
 episodes: 
 - 00-intro.Rmd
 - 01-intro-to-r.Rmd
-- 02-starting-with-data.Rmd
-- 03-dplyr.Rmd
+- 02-quarto.Rmd
+- 03-starting-with-data.Rmd
+- 04-dplyr.Rmd
 - 05-ggplot2.Rmd
-- 06-rmarkdown.Rmd
 
 # Information for Learners
 learners: 
