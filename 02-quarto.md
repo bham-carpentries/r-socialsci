@@ -1,5 +1,5 @@
 ---
-title: Getting started with R Markdown (Optional)
+title: Getting started with Quarto (Optional)
 teaching: 30
 exercises: 15
 output:
@@ -10,88 +10,82 @@ source: Rmd
 
 
 
-:::: instructor
+::: objectives
+-   Create a .qmd document containing R code, text, and plots
+-   Create a YAML header to control output
+-   Understand basic syntax of Quarto and Markdown
+-   Customise code chunks to control formatting
+-   Use code chunks and in-line code to create dynamic, reproducible
+    documents
+:::
 
-- This is an optional lesson intended to introduce learners to R Markdown.
-- While it is listed after the core lessons, some instructors may prefer to teach it early
-  in the workshop, depending on the audience.
+::: questions
+-   What is Quarto?
+-   How can I integrate my R code with text and plots?
+-   How can I convert .qmd files to .html?
+:::
 
-::::::::::::
+## Quarto
 
-::::::::::::::::::::::::::::::::::::::: objectives
+Quarto is a flexible type of document that allows you to seamlessly
+combine executable R code, and its output, with text in a single
+document. These documents can be readily converted to multiple static
+and dynamic output formats, including PDF (.pdf), Word (.docx), and HTML
+(.html).
 
-- Create a .Rmd document containing R code, text, and plots
-- Create a YAML header to control output
-- Understand basic syntax of (R)Markdown
-- Customise code chunks to control formatting
-- Use code chunks and in-line code to create dynamic, reproducible documents
+The benefit of a well-prepared Quarto document is full reproducibility.
+This also means that, if you notice a data transcription error, or you
+are able to add more data to your analysis, you will be able to
+recompile the report without making any changes in the actual document.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::: questions
-
-- What is R Markdown?
-- How can I integrate my R code with text and plots?
-- How can I convert .Rmd files to .html?
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## R Markdown
-
-R Markdown is a flexible type of document that allows you to seamlessly combine
-executable R code, and its output, with text in a single document. These
-documents can be readily converted to multiple static and dynamic output
-formats, including PDF (.pdf), Word (.docx), and HTML (.html).
-
-The benefit of a well-prepared R Markdown document is full reproducibility. This
-also means that, if you notice a data transcription error, or you are able to
-add more data to your analysis, you will be able to recompile the report without
-making any changes in the actual document.
-
-The **rmarkdown** package comes pre-installed with RStudio, so no action is
-necessary.
+Quarto comes pre-installed with RStudio (as of v2022.07), so no action
+is necessary.
 
 <figure>
-<img src="fig/rmarkdown_wizards.png" alt="R Markdown wizard monsters creating a R Markdown document from a recipe. Art by Allison Horst" width="100%" style="display: block; margin: auto;" />
-<figcaption>
-Image credit: <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a>
-</figcaption>
+
+<img src="fig/quarto-illustration.png" alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, HTML, Word documents, and more) versatility of Quarto." width="100%" style="display: block; margin: auto;" />
+
+<figcaption>A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, HTML, Word documents, and more) versatility of Quarto. Image source: [Posit](https://rstudio.github.io/cheatsheets/html/quarto.html)</figcaption>
+
 </figure>
 
-## Creating an R Markdown file
 
-To create a new R Markdown document in RStudio, click File -> New File ->
-R Markdown:
+## Creating a Quarto file
 
-![](fig/new-rmd.png){alt="Screenshot of the New R Markdown file dialogue box in RStudio"}
+To create a new Quarto document in RStudio, click File -> New File ->
+Quarto Document:
+
+![](fig/quarto-new.png){alt="Screenshot of the New Quarto file dialogue box in RStudio"}
 
 Then click on 'Create Empty Document'. Normally you could enter the title of
 your document, your name (Author), and select the type of output, but we will be
 learning how to start from a blank document.
 
-## Basic components of R Markdown
+## Basic components of Quarto
 
 To control the output, a YAML (YAML Ain't Markup Language) header is needed:
 
-```
+```         
 ---
 title: "My Awesome Report"
 author: "Emmet Brickowski"
 date: ""
-output: html_document
+format: html
 ---
 ```
 
 The header is defined by the three hyphens at the beginning (`---`) and the
 three hyphens at the end (`---`).
 
-In the YAML, the only required field is the `output:`, which specifies the type
-of output you want. This can be an `html_document`, a `pdf_document`, or a
-`word_document`. We will start with an HTML doument and discuss the other
+Although not recommended, you can leave the YAML out. Then the output will be 
+by default a HTML file. It's still better to include the file format in the YAML 
+header by adding the line `format: html`. You can also adapt the `format` of
+the file, to `pdf` or `docx`. We will start with an HTML document and discuss the other
 options later.
 
-The rest of the fields can be deleted, if you don't need them. After the header,
-to begin the body of the document, you start typing after the end of the YAML
+You can add more information about your document in the YAML header such as `title`, `date` and `author`. This information will be displayed at the top of your document.  There are many more fields that can be added to the YAML header that provide additional information about the document or define the behaviour of the file. But we won't discuss them now. 
+
+After the header, to begin the body of the document, you start typing after the end of the YAML
 header (i.e. after the second `---`).
 
 ## Markdown syntax
@@ -109,7 +103,7 @@ visual markdown editor (available from version 1.4).
 
 First, let's create a heading! A `#` in front of text indicates to Markdown that
 this text is a heading. Adding more `#`s make the heading smaller, i.e. one `#` is
-a first level heading, two `##`s is a second level heading, etc. upto the 6th level heading.
+a first level heading, two `##`s is a second level heading, etc. up to the 6th level heading.
 
 ```
 # Title
@@ -125,6 +119,7 @@ a first level heading, two `##`s is a second level heading, etc. upto the 6th le
 Since we have already defined our title in the YAML header, we will use a
 section heading to create an Introduction section.
 
+
 ```
 ## Introduction
 ```
@@ -139,7 +134,7 @@ and, if you're feeling bold (pun intended), you can also use a combination of
 asterisks and underscores, `**_really_**`, `**_really_**`.
 
 To create `code-type` font, surround the word with backticks,
-`` `code-type` ``.
+``` `code type` ```.
 
 Now that we've learned a couple of things, it might be useful to implement them:
 
@@ -194,22 +189,22 @@ And nested items by tab-indenting:
   + Number of rooms in house
 ```
 
-For more Markdown syntax see [the following reference guide](https://www.markdownguide.org/basic-syntax).
+For more Markdown syntax see [the following reference guide](https://quarto.org/docs/authoring/markdown-basics.html).
 
-Now we can render the document into HTML by clicking the **Knit** button in the
+Now we can render the document into HTML by clicking the **Render** button in the
 top of the Source pane (top left), or use the keyboard shortcut
 <kbd>Ctrl</kbd>\+<kbd>Shift</kbd>\+<kbd>K</kbd> on Windows and Linux, and
 <kbd>Cmd</kbd>\+<kbd>Shift</kbd>\+<kbd>K</kbd> on Mac. If you haven't saved the
-document yet, you will be prompted to do so when you **Knit** for the first
+document yet, you will be prompted to do so when you **Render** for the first
 time.
 
-![](fig/rmd-rmd_to_html.png){alt="The 'knitting' process: First, R Markdown is converted to Markdown, which is then converted (via pandoc) to .html, .pdf, .docx, etc."}
+![](fig/rstudio-qmd-how-it-works.png){alt="The 'rendering' process: First, Quarto file is converted to Markdown, which is then converted (via pandoc) to .html, .pdf, .docx, etc."}
 
-## Writing an R Markdown report
+## Writing a Quarto report
 
 Now we will add some R code from our previous data wrangling and visualisation,
 which means we need to make sure **tidyverse** is loaded. It is not enough to
-load **tidyverse** from the console, we will need to load it within our R Markdown
+load **tidyverse** from the console, we will need to load it within our Quarto
 document. The same applies to our data. To load these, we will need to create a
 'code chunk' at the top of our document (below the YAML header).
 
@@ -221,39 +216,40 @@ The syntax of a code chunk is:
 
 
 ```` markdown
-```{r chunk-name}
-"Here is where you place the R code that you want to run."
+```{r}
+#| label: chunk-name
+# Here is where you place the R code that you want to run.
 ```
 ````
 
-An R Markdown document knows that this text is not part of the report from the
+A Quarto document knows that this text is not part of the report from the
 ```` ``` ```` that begins and ends the chunk. It also knows that the code
 inside of the chunk is R code from the `r` inside of the curly braces (`{}`).
-After the `r` you can add a name for the code chunk . Naming a chunk is
-optional, but recommended. Each chunk name must be unique, and only contain
-alphanumeric characters and `-`.
+Below the curly braces, you can add code chunk options after the `#|` sign. In this way, you can for example add a label for the code chunk. Naming a chunk is optional, but recommended. Each chunk label must be unique, and only contain alphanumeric characters and `-`.
 
 
 
 To load **tidyverse** and our `SAFI_clean.csv` file, we will insert a chunk and
 call it 'setup'. Since we don't want this code or the output to show in our
-knitted HTML document, we add an `include = FALSE` option after the code chunk
-name (`{r setup, include = FALSE}`).
+rendered HTML document, we add an `#| include: false` option after the curly braces.
 
 
 ```` markdown
-```{r setup, include = FALSE}
+```{r}
+#| label: setup
+#| include: false
 library(tidyverse)
 library(here)
 interviews <- read_csv(here("data/SAFI_clean.csv"), na = "NULL")
 ```
 ````
+
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Important Note!
 
-The file paths you give in a .Rmd document, e.g. to load a .csv file, are
-relative to the .Rmd document, **not** the project root.
+The file paths you give in a .qmd document, e.g. to load a .csv file, are
+relative to the .qmd document, **not** the project root.
 
 As suggested in the Starting with Data episode, we highly recommend the use of
 the `here()` function to keep the file paths consistent within your project.
@@ -268,7 +264,7 @@ We can do this by creating a new code chunk and calling it 'interview-tbl'.
 Or, you can come up with something more creative (just remember to stick to the
 naming rules).
 
-It isn't necessary to **Knit** your document every time you want to see the
+It isn't necessary to **Render** your document every time you want to see the
 output. Instead you can run the code chunk with the green triangle in the top
 right corner of the the chunk, or with the keyboard shortcuts:
 <kbd>Ctrl</kbd>\+<kbd>Alt</kbd>\+<kbd>C</kbd> on Windows and Linux, or
@@ -276,7 +272,7 @@ right corner of the the chunk, or with the keyboard shortcuts:
 
 To make sure the table is formatted nicely in our output document, we will need
 to use the `kable()` function from the **knitr** package. The `kable()` function
-takes the output of your R code and knits it into a nice looking HTML table. You
+takes the output of your R code and renders it into a nice looking HTML table. You
 can also specify different aspects of the table, e.g. the column names, a
 caption, etc.
 
@@ -288,14 +284,16 @@ interviews %>%
     filter(!is.na(memb_assoc)) %>%
     group_by(village, memb_assoc) %>%
     summarize(mean_no_membrs = mean(no_membrs)) %>%
-  knitr::kable(caption = "We can also add a caption.", 
-               col.names = c("Village", "Member Association", 
+  knitr::kable(col.names = c("Village", "Member Association", 
                              "Mean Number of Members"))
 ```
 
+``` output
+`summarise()` has grouped output by 'village'. You can override using the
+`.groups` argument.
+```
 
 
-Table: We can also add a caption.
 
 |Village  |Member Association | Mean Number of Members|
 |:--------|:------------------|----------------------:|
@@ -305,6 +303,44 @@ Table: We can also add a caption.
 |God      |yes                |               8.000000|
 |Ruaca    |no                 |               7.178571|
 |Ruaca    |yes                |               9.500000|
+
+When you are generating a table in quarto the label should be prefixed with `tbl-`,
+e.g. `tbl-interviews`.
+You can add a caption to the chunk options with `tbl-cap: "Your caption here"`.
+
+
+```` markdown
+```{r}
+#| label: tbl-interviews
+#| tbl-cap: "A useful description about the table."
+interviews %>%
+    filter(!is.na(memb_assoc)) %>%
+    group_by(village, memb_assoc) %>%
+    summarize(mean_no_membrs = mean(no_membrs)) %>%
+  knitr::kable(col.names = c("Village", "Member Association", 
+                             "Mean Number of Members"))
+```
+````
+
+
+``` output
+`summarise()` has grouped output by 'village'. You can override using the
+`.groups` argument.
+```
+
+
+
+Table: A useful description about the table.
+
+|Village  |Member Association | Mean Number of Members|
+|:--------|:------------------|----------------------:|
+|Chirodzo |no                 |               8.062500|
+|Chirodzo |yes                |               7.818182|
+|God      |no                 |               7.133333|
+|God      |yes                |               8.000000|
+|Ruaca    |no                 |               7.178571|
+|Ruaca    |yes                |               9.500000|
+
 
 Many different R packages can be used to generate tables. Some of the more commonly used options are listed in the table below.
 
@@ -328,11 +364,10 @@ Many different R packages can be used to generate tables. Some of the more commo
 
 ## Customising chunk output
 
-We mentioned using `include = FALSE` in a code chunk to prevent the code and
-output from printing in the knitted document. There are additional options
+We mentioned using `include: false` in a code chunk to prevent the code and
+output from printing in the rendered document. There are additional options
 available to customise how the code-chunks are presented in the output document.
-The options are entered in the code chunk after `chunk-name` and separated by
-commas, e.g. `{r chunk-name, eval = FALSE, echo = TRUE}`.
+The options are entered in the code chunk using the 'hash pipe', `#|`.
 
 | Option | Options | Output                                                                                                    | 
 | ------ | ------- | --------------------------------------------------------------------------------------------------------- |
@@ -341,17 +376,27 @@ commas, e.g. `{r chunk-name, eval = FALSE, echo = TRUE}`.
 | `include`       | `TRUE` or `FALSE`    | Choose if the output of a code chunk should be included in the document. `FALSE` means that your code will run, but will not show up in the document.                                 | 
 | `warning`       | `TRUE` or `FALSE`    | Whether or not you want your output document to display potential warning messages produced by your code. | 
 | `message`       | `TRUE` or `FALSE`    | Whether or not you want your output document to display potential messages produced by your code.         | 
-| `fig.align`       | `default`, `left`, `right`, `center`      | Where the figure from your R code chunk should be output on the page                                      | 
+| `fig-align`       | `default`, `left`, `right`, `center`      | Where the figure from your R code chunk should be output on the page                                      | 
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Tip
 
-- The default settings for the above chunk options are all `TRUE`.
+- The default settings for the above chunk options are all `true`.
 - The default settings can be modified per chunk, or with
   `knitr::opts_chunk$set()`,
 - Entering `knitr::opts_chunk$set(echo = FALSE)` will change the default of
   value of `echo` to `FALSE` for **every** code chunk in the document.
+
+The defaults can also be changed in the YAML header with:
+
+```
+---
+knitr:
+  opts_chunk:
+    echo: false
+---
+```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -360,21 +405,21 @@ commas, e.g. `{r chunk-name, eval = FALSE, echo = TRUE}`.
 ## Exercise
 
 Play around with the different options in the chunk with the code for the
-table, and re-**Knit** to see what each option does to the output.
+table, and re-**Render** to see what each option does to the output.
 
-What happens if you use `eval = FALSE` and `echo = FALSE`? What is the
-difference between this and `include = FALSE`?
+What happens if you use `eval: false` and `echo: false`? What is the
+difference between this and `include: false`?
 
 :::::::::::::::  solution
 
 ## Solution to Exercise
 
-Create a chunk with `{r eval = FALSE, echo = FALSE}`, then create another
-chunk with `{r include = FALSE}` to compare.
-`eval = FALSE` and `echo = FALSE` will neither run the code in the chunk,
-nor show the code in the knitted document. The code chunk essentially
-doesn't exist in the knitted document as it was never run. Whereas
-`include = FALSE` will run the code and store the output for later use.
+Create a chunk with `eval: false, echo: false`, then create another
+chunk with `include: false` to compare.
+`eval: false` and `echo: false` will neither run the code in the chunk,
+nor show the code in the rendered document. The code chunk essentially
+doesn't exist in the rendered document as it was never run. Whereas
+`include: false` will run the code and store the output for later use.
 
 :::::::::::::::::::::::::
 
@@ -386,13 +431,13 @@ Now we will use some in-line R code to present some descriptive statistics.
 To use in-line R-code, we use the same backticks that we used in the Markdown
 section, with an `r` to specify that we are generating R-code. The difference
 between in-line code and a code chunk is the number of backticks. In-line R code
-uses one backtick (`` `r` ``), whereas code chunks use three backticks
-(`` ```r``` ``).
+uses one backtick (`r`), whereas code chunks use three backticks
+(``` r ```).
 
 For example, today's date is ``` `r Sys.Date()` ```, will be rendered as:
-today's date is 2026-02-18.  
+today's date is 2026-02-23.  
 The code will display today's date in the output document (well, technically the
-date the document was last knitted).
+date the document was last rendered).
 
 The best way to use in-line R code, is to minimise the amount of code you need
 to produce the in-line output by preparing the output in code chunks. Let's say
@@ -457,6 +502,9 @@ interviews_plotting <- interviews %>%
   mutate(number_items = rowSums(select(., bicycle:car)))
 ```
 
+Plots created in Quarto should have a label prefixed with `fig-`, e.g.
+`#| label: fig-fancy-plot`.
+
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Exercise
@@ -473,111 +521,117 @@ If you are feeling adventurous, you can also create a new plot with the
 ## Solution to Exercise
 
 
-``` r
+```` markdown
+```{r}
+#| label: fig-fancy-plot
+#| answer: true
+#| purl: false
 interviews_plotting %>%
   ggplot(aes(x = respondent_wall_type)) +
   geom_bar(aes(fill = village))
 ```
+````
 
-<img src="fig/06-rmarkdown-rendered-my-fancy-plot-1.png" alt="" style="display: block; margin: auto;" />
+<img src="fig/02-quarto-rendered-fig-fancy-plot-1.png" alt="" style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We can also create a caption with the chunk option `fig.cap`.
+We can also create a caption with the chunk option `fig-cap: "Caption here"`,
+and add some nicer labels using the `labs()` function.
 
 
 ```` markdown
-```{r chunk-name, fig.cap = "I made this plot while attending an
-awesome Data Carpentries workshop where I learned a ton of cool stuff!"}
-Code for plot
-```
-````
+```{r}
+#| label: fig-chunk-name
+#| fig-cap: "I made this plot while attending an awesome Data Carpentries workshop where I learned a ton of cool stuff!"
+#| echo: false
 
-...or, ideally, something more informative.
-
-
-``` r
 interviews_plotting %>%
   ggplot(aes(x = respondent_wall_type)) +
   geom_bar(aes(fill = village), position = "dodge") + 
   labs(x = "Type of Wall in Home", y = "Count", fill = "Village Name") +
   scale_fill_viridis_d() # add colour deficient friendly palette
 ```
+````
 
 <div class="figure" style="text-align: center">
-<img src="fig/06-rmarkdown-rendered-caption-plot-1.png" alt="I made this plot while attending an awesome Data Carpentries workshop where I learned a ton of cool stuff!"  />
+<img src="fig/02-quarto-rendered-fig-captioned-plot-1.png" alt="I made this plot while attending an awesome Data Carpentries workshop where I learned a ton of cool stuff!"  />
 <p class="caption">I made this plot while attending an awesome Data Carpentries workshop where I learned a ton of cool stuff!</p>
 </div>
 
+...or, ideally, something more informative.
+
+Now, you may have been wondering why I insisted that you prefix the labels of
+your tables in figures, but there is a useful reason for this! It allows you to
+cross-reference them in the text of your document, and it requires that the
+label is unique, and that they have the correct prefix.
+
+For example, we can talk about the table we made earlier and reference it using
+the label `@tbl-interview`, which, when rendered, becomes Table 1.
+
+We can do the same with our figures. For example, `@fig-fancy-plot` becomes
+Figure 1. The number will of course depend on whether any plots or figures comes
+before it, but since you just need to reference the label, there's no need to
+know what number a specific plot has in a document (especially useful for
+figure-heavy documents).
+
 ## Other output options
 
-You can convert R Markdown to a PDF or a Word document (among others).
-Click the little triangle next to the **Knit** button to get a drop-down menu.
-Or you could put `pdf_document` or `word_document` in the initial header of the file.
+You can convert Quarto to a PDF or a Word document (among others). Put
+`pdf` or `word` in the initial header of the file to indicate the
+desired output format.
 
 ```
 ---
-title: "My Awesome Report"
-author: "Emmet Brickowski"
-date: ""
-output: word_document
+format: word
 ---
 ```
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
+::: callout
 ## Note: Creating PDF documents
 
-Creating .pdf documents may require installation of some extra software. The R
-package `tinytex` provides some tools to help make this process easier for R users.
-With `tinytex` installed, run `tinytex::install_tinytex()` to install the required
-software (you'll only need to do this once) and then when you **Knit** to pdf `tinytex`
-will automatically detect and install any additional LaTeX packages that are needed to
-produce the pdf document. Visit the [tinytex website](https://yihui.org/tinytex/)
-for more information.
+Creating .pdf documents may require installation of some extra software.
+The R package `tinytex` provides some tools to help make this process
+easier for R users. With `tinytex` installed, run
+`tinytex::install_tinytex()` to install the required software (you'll
+only need to do this once) and then when you render to pdf `tinytex`
+will automatically detect and install any additional LaTeX packages that
+are needed to produce the pdf document. Visit the [tinytex
+website](https://yihui.org/tinytex/) for more information.
+:::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::: callout
+## Note: Inserting citations into a Quarto file
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+It is possible to insert citations into a Quarto file using the editor
+toolbar. The editor toolbar includes commonly seen formatting buttons
+generally seen in text editors (e.g., bold and italic buttons). The
+toolbar is accessible by using the settings dropdown menu (next to the
+'Render' dropdown menu) to select 'Use Visual Editor', also accessible
+through the shortcut 'Crtl+Shift+F4'. From here, clicking 'Insert'
+allows 'Citation' to be selected (shortcut: 'Crtl+Shift+F8'). For
+example, searching '10.1007/978-3-319-24277-4' in 'From DOI' and
+inserting will provide the citation for `ggplot2` [@wickham2016]. This
+will also save the citation(s) in 'references.bib' in the current
+working directory. 
 
-## Note: Inserting citations into an R Markdown file
-
-It is possible to insert citations into an R Markdown file using the
-editor toolbar. The editor toolbar includes commonly seen formatting
-buttons generally seen in text editors (e.g., bold and italic
-buttons). The toolbar is accessible by using the settings dropdown
-menu (next to the 'Knit' dropdown menu) to select 'Use Visual Editor',
-also accessible through the shortcut 'Crtl+Shift+F4'. From here,
-clicking 'Insert' allows 'Citation' to be selected (shortcut:
-'Crtl+Shift+F8'). For example, searching '10.1007/978-3-319-24277-4'
-in 'From DOI' and inserting will provide the citation for `ggplot2`
-[@wickham2016]. This will also save the citation(s) in
-'references.bib' in the current working directory. Visit the [R Studio
+Visit the [R Studio
 website](https://rstudio.github.io/visual-markdown-editing/) for more
-information. Tip: obtaining citation information from relevant
-packages can be done by using `citation("package")`.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+information. Tip: obtaining citation information from relevant packages
+can be done by using `citation("package")`.
+:::
 
 ## Resources
 
-- [Knitr in a knutshell tutorial](https://kbroman.org/knitr_knutshell)
-- [Dynamic Documents with R and knitr](https://www.amazon.com/exec/obidos/ASIN/1482203537/7210-20) (book)
-- [R Markdown documentation](https://rmarkdown.rstudio.com)
-- [R Markdown cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/rmarkdown-2.0.pdf)
-- [Getting started with R Markdown](https://www.rstudio.com/resources/webinars/getting-started-with-r-markdown/)
-- [Markdown tutorial](https://commonmark.org/help/tutorial/)
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) (book by Rstudio team)
-- [Reproducible Reporting](https://www.rstudio.com/resources/webinars/reproducible-reporting/)
-- [Introducing Bookdown](https://www.rstudio.com/resources/webinars/introducing-bookdown/)
+-   [Markdown tutorial](https://commonmark.org/help/tutorial/)
+-   [Official Quarto website](https://quarto.org/) (comprehensive resource of tutorials and documentation)
+-   [Welcome to Quarto](https://www.youtube.com/watch?v=yvi5uXQMvu4&ab_channel=PositPBC) - workshop by Posit (former RStudio)
+-   [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) - book by the RStudio team on R Markdown, the predecessor of Quarto
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
-
-- R Markdown is a useful language for creating reproducible documents combining text and executable R-code.
-- Specify chunk options to control formatting of the output document
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
+::: keypoints
+-  Quarto is useful for creating reproducible documents
+    combining text and executable R code.
+-   Specify chunk options to control formatting of the output document
+:::
