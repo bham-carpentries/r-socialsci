@@ -14,8 +14,7 @@ source: Rmd
   in the `aes()` function, (3) basic customization of the plots.
 - The episode depends on data created in the Data Wrangling with tidyr
   episode. If you did not get to or through all of the tidyr episode,
-  you can have the learners access the data by either downloading it or
-  quickly creating it using the tidyr code below. You will probably want to
+  you can have the learners **access the data by either downloading it or quickly creating it using the tidyr code below**. You will probably want to
   copy the code into the Etherpad.
 - If you did skip the tidyr episode, you might want to go over the exporting
   data section in that episode.
@@ -49,9 +48,10 @@ We start by loading the required package. **`ggplot2`** is also included in the
 
 ``` r
 library(tidyverse)
+# library(ggplot2) # If you don't want to load the whole tidyverse, you can just load ggplot2
 ```
 
-If not still in the workspace, load the data we saved in the previous lesson.
+If not still in the workspace, **load the data** we just downloaded/saved in the previous lesson.
 
 
 ``` r
@@ -111,14 +111,17 @@ interviews_plotting <- interviews %>%
 
 :::
 
+This code takes the original interviews dataset and transforms it to make it easier to analyze and visualize with ggplot2.
+The result is a **dataset where each respondent has columns for each possible item and month**, making it much easier to summarize, count, and plot ownership or food insecurity patterns across the sample
+
 ## Visualization Options in R
 
 Before we start with **`ggplot2`**, it's helpful to know that there are several ways to create visualizations in R. While **`ggplot2`** is great for building complex and highly customizable plots, there are simpler and quicker alternatives that you might encounter or use depending on the context. Let's briefly explore a few of them:
 
 ### R Base Plots
-Base R plots are the simplest form of visualization and are great for quick, exploratory analysis. You can create plots with very little code, but customizing them can be cumbersome compared to **`ggplot2`**.
+Base R plots are the simplest form of visualization and are great for quick, exploratory analysis. **You can create plots with very little code, but customizing them can be cumbersome compared to** **`ggplot2`**.
 
-Example of a simple scatterplot in base R using the `no_membrs` and `liv_count` variables:
+**Example** of a simple scatterplot in base R using the `no_membrs` and `liv_count` variables:
 
 
 ``` r
@@ -130,7 +133,7 @@ plot(interviews_plotting$no_membrs, interviews_plotting$liv_count,
 
 <img src="fig/05-ggplot2-rendered-unnamed-chunk-3-1.png" alt="" style="display: block; margin: auto;" />
 
-### **`Lattice`**
+### **`Lattice`** (optional)
 Lattice is another plotting system in R, which allows for creating multi-panel plots easily. It’s different from ggplot2 because you define the entire plot in a single function call, and modifications after plotting are limited.
 
 Example of a lattice plot using `no_membrs` and `liv_count` split by `village`:
@@ -154,17 +157,16 @@ xyplot(liv_count ~ no_membrs | village, data = interviews_plotting,
 
 **`ggplot2`** is a plotting package that makes it simple to create complex plots
 from data stored in a data frame. It provides a programmatic interface for
-specifying what variables to plot, how they are displayed, and general visual
+**specifying what variables to plot**, **how they are displayed**, and general visual
 properties. Therefore, we only need minimal changes if the underlying data
 change or if we decide to change from a bar plot to a scatterplot. This helps in
 creating publication quality plots with minimal amounts of adjustments and
 tweaking.
 
-**`ggplot2`** functions work best with data in the 'long' format, i.e., a column for every
-dimension, and a row for every observation. Well-structured data will save you
+**`ggplot2`** functions work best with data in the **'long' format**, i.e., **a column for every dimension, and a row for every observation**. Well-structured data will save you
 lots of time when making figures with **`ggplot2`**
 
-ggplot graphics are built step by step by adding new elements. Adding layers in
+**ggplot graphics are built step by step by adding new elements**. Adding layers in
 this fashion allows for extensive flexibility and customization of plots.
 
 Each chart built with ggplot2 must include the following
@@ -285,21 +287,19 @@ interviews_plotting %>%
 
 Then, we start modifying this plot to extract more information from it. For
 instance, when inspecting the plot we notice that points only appear at the
-intersection of whole numbers of `no_membrs` and `number_items`. Also, from a
-rough estimate, it looks like there are far fewer dots on the plot than there
-rows in our dataframe. This should lead us to believe that there may be multiple
+intersection of whole numbers of `no_membrs` and `number_items`. **Also, from a rough estimate, it looks like there are far fewer dots on the plot than there rows in our dataframe.** This should lead us to believe that there may be multiple
 observations plotted on top of each other (e.g. three observations where
 `no_membrs` is 3 and `number_items` is 1).
 
 There are two main ways to alleviate overplotting issues:
 
-1. changing the transparency of the points
+1. changing the **transparency of the points**
 2. jittering the location of the points
 
 Let's first explore option 1, changing the transparency of the points. What we
 mean when we say "transparency" we mean the opacity of point, or your ability to
 see through the point. We can control the transparency of the points with the
-`alpha` argument to `geom_point`. Values of `alpha` range from 0 to 1, with
+`alpha` argument to `geom_point`. Values of `alpha` **range from 0 to 1**, with
 lower values corresponding to more transparent colors (an `alpha` of 1 is the
 default value). Specifically, an alpha of 0.1, would make a point one-tenth as
 opaque as a normal point. Stated differently ten points stacked on top of
@@ -343,7 +343,7 @@ interviews_plotting %>%
 
 The `geom_jitter()` function allows for us to specify the amount of random
 motion in the jitter, using the `width` and `height` arguments. When we don't
-specify values for `width` and `height`, `geom_jitter()` defaults to 40% of the
+specify values for `width` and `height`, `geom_jitter()` **defaults to 40%** of the
 resolution of the data (the smallest change that can be measured). Hence, if we
 would like *less* spread in our jitter than was default, we should pick values
 between 0.1 and 0.4. Experiment with the values to see how your plot changes.
@@ -374,7 +374,7 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-adding-colors-1.png" alt="Scatter plot of number of items owned versus number of household members, showing points as blue." style="display: block; margin: auto;" />
 
-To colour each village in the plot differently, you could use a vector as an input
+To **colour each village in the plot differently**, you could use a vector as an input
 to the argument **`color`**.  However, because we are now mapping features of the
 data to a colour, instead of setting one colour for all points, the colour of the
 points now needs to be set inside a call to the **`aes`** function. When we map
@@ -455,7 +455,7 @@ this relationship better?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Boxplot
+## Boxplot and violin plots
 
 We can use boxplots to visualize the distribution of rooms for each
 wall type:
@@ -490,6 +490,9 @@ burntbrick houses.
 
 Notice how the  boxplot layer is behind the jitter layer? What do you need to
 change in the code to put the boxplot layer in front of the jitter layer?
+
+**Violin plots are another way to visualize the distribution of a variable**. They are similar to boxplots, but they also show the density of the data at different values. This can be useful for understanding the shape of the distribution, especially when there are multiple modes (peaks) in the data.
+
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -569,7 +572,7 @@ interviews_plotting %>%
 
 ## Barplots
 
-Barplots are also useful for visualizing categorical data. By default,
+**Barplots are also useful for visualizing categorical data**. By default,
 `geom_bar` accepts a variable for x, and plots the number of instances each
 value of x (in this case, wall type) appears in the dataset.
 
@@ -594,10 +597,9 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-barplot-stack-1.png" alt="Stacked bar plot of wall types showing each village as a different color." style="display: block; margin: auto;" />
 
-This creates a stacked bar chart. These are generally more difficult to read
+This creates a **stacked bar chart**. These are generally more difficult to read
 than side-by-side bars. We can separate the portions of the stacked bar that
-correspond to each village and put them side-by-side by using the `position`
-argument for `geom_bar()` and setting it to "dodge".
+correspond to each village and put them **side-by-side by using the `position` argument for `geom_bar()` and setting it to "dodge".**
 
 
 ``` r
@@ -608,9 +610,7 @@ interviews_plotting %>%
 
 <img src="fig/05-ggplot2-rendered-barplot-dodge-1.png" alt="Bar plot of respondent wall types with each village as a separate bar." style="display: block; margin: auto;" />
 
-This is a nicer graphic, but we're more likely to be interested in the
-proportion of each housing type in each village than in the actual count of
-number of houses of each type (because we might have sampled different numbers
+This is a nicer graphic, but we're **more likely to be interested in the proportion of each housing type in each village than in the actual count of number of houses of each type** (because we might have sampled different numbers
 of households in each village). To compare proportions, we will first create a
 new data frame (`percent_wall_type`) with a new column named "percent"
 representing the percent of each house type in each village. We will remove
@@ -626,8 +626,7 @@ percent_wall_type <- interviews_plotting %>%
     ungroup()
 ```
 
-Now we can use this new data frame to create our plot showing the
-percentage of each house type in each village.
+Now we can use this **new data frame to create our plot showing the percentage** of each house type in each village.
 
 
 ``` r
@@ -679,8 +678,7 @@ Ruaca had the lowest proportion of members in an irrigation association.
 By default, the axes labels on a plot are determined by the name of the variable
 being plotted. However, **`ggplot2`** offers lots of customization options,
 like specifying the axes labels, and adding a title to the plot with
-relatively few lines of code. We will add more informative x-and y-axis
-labels to our plot, a more explanatory label to the legend, and a plot title.
+relatively few lines of code. **We will add more informative x-and y-axis labels to our plot**, a more explanatory label to the legend, and a plot title.
 
 The `labs` function takes the following arguments:
 
@@ -706,8 +704,7 @@ percent_wall_type %>%
 ## Faceting
 
 Rather than creating a single plot with side-by-side bars for each
-village, we may want to create multiple plot, where each plot shows the
-data for a single village. This would be especially useful if we had
+village, **we may want to create multiple plot, where each plot shows the data for a single village**. This would be especially useful if we had
 a large number of villages that we had sampled, as a large number of
 side-by-side bars will become more difficult to read.
 
@@ -751,6 +748,32 @@ percent_wall_type %>%
 ```
 
 <img src="fig/05-ggplot2-rendered-barplot-theme-bw-1.png" alt="Bar plot showing percent of each wall type in each village, with black and white theme applied." style="display: block; margin: auto;" />
+
+
+* If you want to save the plot, you can also use the `ggsave()` function to save your plot directly from R. For example:
+
+
+``` r
+my_plot <- percent_wall_type %>%
+    ggplot(aes(x = respondent_wall_type, y = percent)) +
+    geom_bar(stat = "identity", position = "dodge") +
+    labs(title="Proportion of wall type by village",
+         x="Wall Type",
+         y="Percent") +
+    facet_wrap(~ village) +
+    theme_bw() +
+    theme(panel.grid = element_blank())
+ggsave("fig_output/name_of_file.png", my_plot, width = 15, height = 10)
+```
+
+``` error
+Error in `ggsave()`:
+! Cannot find directory 'fig_output'.
+ℹ Please supply an existing directory or use `create.dir = TRUE`.
+```
+
+
+## Self paced exercise
 
 What if we wanted to see the proportion of respondents in each village
 who owned a particular item? We can calculate the percent of people
