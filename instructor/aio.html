@@ -260,7 +260,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-quarto.html">3. Getting started with Quarto (Optional)</a>
+        <a href="02-quarto.html">3. intro to Quarto (Optional)</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -297,6 +297,18 @@
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
         <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="06-tidyr.html">7. Data Wrangling with tidyr</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -2327,9 +2339,9 @@ data.</li>
 </div>
 </div>
 </div>
-</section></section><section id="aio-02-quarto"><p>Content from <a href="02-quarto.html">Getting started with Quarto (Optional)</a></p>
+</section></section><section id="aio-02-quarto"><p>Content from <a href="02-quarto.html">intro to Quarto (Optional)</a></p>
 <hr>
-<p>Last updated on 2026-02-23 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://bham-carpentries.github.io/2026-02-24-rsocialscientists/edit/main/episodes/02-quarto.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 45 minutes</p>
@@ -2371,77 +2383,80 @@ documents</li>
 <section><h2 class="section-heading" id="quarto">Quarto<a class="anchor" aria-label="anchor" href="#quarto"></a>
 </h2>
 <hr class="half-width">
-<p>Quarto is a flexible type of document that allows you to seamlessly
-combine executable R code, and its output, with text in a single
-document. These documents can be readily converted to multiple static
-and dynamic output formats, including PDF (.pdf), Word (.docx), and HTML
-(.html).</p>
-<p>The benefit of a well-prepared Quarto document is full
-reproducibility. This also means that, if you notice a data
+<p>Quarto is a <strong>flexible type of document that allows you to
+seamlessly combine executable R code, and its output, with text in a
+single document</strong>. These documents can be readily converted to
+<strong>multiple static and dynamic output formats</strong>, including
+PDF (.pdf), Word (.docx), and HTML (.html).</p>
+<p>The benefit of a well-prepared Quarto document is <strong>full
+reproducibility</strong>. This also means that, if you notice a data
 transcription error, or you are able to add more data to your analysis,
 you will be able to recompile the report without making any changes in
 the actual document.</p>
-<p>Quarto comes pre-installed with RStudio (as of v2022.07), so no
-action is necessary.</p>
+<p>Quarto comes <strong>pre-installed with RStudio (as of
+v2022.07)</strong>, so no action is necessary.</p>
 <figure><figure><img src="../fig/quarto-illustration.png" alt="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, HTML, Word documents, and more) versatility of Quarto." width="100%" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><figcaption>
-A schematic representing the multi-language input (e.g. Python, R,
+A schematic representing the multi-language input **(e.g. Python, R
 Observable, Julia) and multi-format output (e.g. PDF, HTML, Word
 documents, and more) versatility of Quarto. Image source: <a href="https://rstudio.github.io/cheatsheets/html/quarto.html" class="external-link">Posit</a>
 </figcaption></figure></section><section><h2 class="section-heading" id="creating-a-quarto-file">Creating a Quarto file<a class="anchor" aria-label="anchor" href="#creating-a-quarto-file"></a>
 </h2>
 <hr class="half-width">
-<p>To create a new Quarto document in RStudio, click File -&gt; New File
--&gt; Quarto Document:</p>
-<figure><img src="../fig/quarto-new.png" alt="Screenshot of the New Quarto file dialogue box in RStudio" class="figure mx-auto d-block"></figure><p>Then click on ‘Create Empty Document’. Normally you could enter the
-title of your document, your name (Author), and select the type of
-output, but we will be learning how to start from a blank document.</p>
+<p>To create a new Quarto document in RStudio, click <strong>File -&gt;
+New File -&gt; Quarto Document</strong>:</p>
+<figure><img src="../fig/quarto-new.png" alt="Screenshot of the New Quarto file dialogue box in RStudio" class="figure mx-auto d-block"></figure><p>Then click on ‘<strong>Create Empty Document</strong>’. Normally you
+could enter the title of your document, your name (Author), and select
+the type of output, but we will be learning how to start from a blank
+document.</p>
 </section><section><h2 class="section-heading" id="basic-components-of-quarto">Basic components of Quarto<a class="anchor" aria-label="anchor" href="#basic-components-of-quarto"></a>
 </h2>
 <hr class="half-width">
-<p>To control the output, a YAML (YAML Ain’t Markup Language) header is
-needed:</p>
+<p>To control the output, a <strong>YAML</strong> (YAML Ain’t Markup
+Language) header is needed:</p>
 <pre><code>---
 title: "My Awesome Report"
 author: "Emmet Brickowski"
 date: ""
 format: html
 ---</code></pre>
-<p>The header is defined by the three hyphens at the beginning
-(<code>---</code>) and the three hyphens at the end
+<p><strong>The header</strong> is defined by the three hyphens at the
+beginning (<code>---</code>) and the three hyphens at the end
 (<code>---</code>).</p>
-<p>Although not recommended, you can leave the YAML out. Then the output
-will be by default a HTML file. It’s still better to include the file
-format in the YAML header by adding the line <code>format: html</code>.
-You can also adapt the <code>format</code> of the file, to
-<code>pdf</code> or <code>docx</code>. We will start with an HTML
-document and discuss the other options later.</p>
-<p>You can add more information about your document in the YAML header
-such as <code>title</code>, <code>date</code> and <code>author</code>.
-This information will be displayed at the top of your document. There
-are many more fields that can be added to the YAML header that provide
-additional information about the document or define the behaviour of the
-file. But we won’t discuss them now.</p>
+<p>Although <strong>not recommended, you can leave the YAML
+out</strong>. Then the output will be by default a HTML file. It’s still
+better to include the file format in the YAML header by adding the line
+<code>format: html</code>. You can also adapt the <code>format</code> of
+the file, to <code>pdf</code> or <code>docx</code>. We will start with
+an HTML document and discuss the other options later.</p>
+<p>You can add <strong>more information</strong> about your document in
+the YAML header such as <code>title</code>, <code>date</code> and
+<code>author</code>. This information will be displayed at the top of
+your document. There are <strong>many more fields that can be added to
+the YAML header</strong> that provide additional information about the
+document or define the behaviour of the file. But we won’t discuss them
+now.</p>
 <p>After the header, to begin the body of the document, you start typing
 after the end of the YAML header (i.e. after the second
 <code>---</code>).</p>
 </section><section><h2 class="section-heading" id="markdown-syntax">Markdown syntax<a class="anchor" aria-label="anchor" href="#markdown-syntax"></a>
 </h2>
 <hr class="half-width">
-<p>Markdown is a popular markup language that allows you to add
-formatting elements to text, such as <strong>bold</strong>,
+<p><strong>Markdown is a popular markup language</strong> that allows
+you to add formatting elements to text, such as <strong>bold</strong>,
 <em>italics</em>, and <code>code</code>. The formatting will not be
 immediately visible in a markdown (.md) document, like you would see in
-a Word document. Rather, you add Markdown syntax to the text, which can
-then be converted to various other files that can translate the Markdown
-syntax. Markdown is useful because it is lightweight, flexible, and
-platform independent.</p>
-<p>Some platforms provide a real time preview of the formatting, like
-RStudio’s visual markdown editor (available from version 1.4).</p>
-<p>First, let’s create a heading! A <code>#</code> in front of text
-indicates to Markdown that this text is a heading. Adding more
-<code>#</code>s make the heading smaller, i.e. one <code>#</code> is a
-first level heading, two <code>##</code>s is a second level heading,
-etc. up to the 6th level heading.</p>
+a Word document. Rather, <strong>you add Markdown syntax to the text,
+which can then be converted to various other files that can translate
+the Markdown syntax</strong>. Markdown is useful because it is
+<strong>lightweight, flexible, and platform independent.</strong></p>
+<p>Some platforms provide a <strong>real time preview of the
+formatting</strong>, like RStudio’s visual markdown editor (available
+from version 1.4).</p>
+<p>First, let’s create a <strong>heading</strong>! A <code>#</code> in
+front of text indicates to Markdown that this text is a heading. Adding
+more <code>#</code>s make the heading smaller, i.e. one <code>#</code>
+is a first level heading, two <code>##</code>s is a second level
+heading, etc. up to the 6th level heading.</p>
 <pre><code><span><span class="co"># Title</span></span>
 <span><span class="co">## Section</span></span>
 <span><span class="co">### Sub-section</span></span>
@@ -2462,17 +2477,21 @@ write something <strong><em>really</em></strong> important with
 triple-asterisks, <code>***really***</code>, or underscores,
 <code>___really___</code>; and, if you’re feeling bold (pun intended),
 you can also use a combination of asterisks and underscores,
-<code>**_really_**</code>, <code>**_really_**</code>.</p>
+<code>**_really_**</code>, <code>**_really_**</code>. You can also use
+the <strong>keyboard shortcuts</strong> <kbd>Ctrl</kbd>+<kbd>B</kbd> for
+bold and <kbd>Ctrl</kbd>+<kbd>I</kbd> for italics on Windows and Linux,
+and <kbd>Cmd</kbd>+<kbd>B</kbd> for bold and <kbd>Cmd</kbd>+<kbd>I</kbd>
+for italics on Mac.</p>
 <p>To create <code>code-type</code> font, surround the word with
-backticks, <code>`code type`</code>.</p>
+<strong>backticks</strong>, <code>`code type`</code>.</p>
 <p>Now that we’ve learned a couple of things, it might be useful to
 implement them:</p>
 <pre><code>## Introduction
 
 This report uses the **tidyverse** package along with the *SAFI* dataset,
 which has columns that include:</code></pre>
-<p>Then we can create a list for the variables using <code>-</code>,
-<code>+</code>, or <code>*</code> keys.</p>
+<p>Then we can create a <strong>list for the variables</strong> using
+<code>-</code>, <code>+</code>, or <code>*</code> keys.</p>
 <pre><code>## Introduction
 
 This report uses the **tidyverse** package along with the *SAFI* dataset,
@@ -2506,25 +2525,25 @@ which has columns that include:
   + Number of rooms in house</code></pre>
 <p>For more Markdown syntax see <a href="https://quarto.org/docs/authoring/markdown-basics.html" class="external-link">the
 following reference guide</a>.</p>
-<p>Now we can render the document into HTML by clicking the
-<strong>Render</strong> button in the top of the Source pane (top left),
-or use the keyboard shortcut
+<p>Now we can <strong>render the document</strong> into HTML by clicking
+the <strong>Render</strong> button in the top of the Source pane (top
+left), or use the keyboard shortcut
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> on Windows and Linux, and
 <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> on Mac. If you haven’t
 saved the document yet, you will be prompted to do so when you
 <strong>Render</strong> for the first time.</p>
-<figure><img src="../fig/rstudio-qmd-how-it-works.png" alt="The 'rendering' process: First, Quarto file is converted to Markdown, which is then converted (via pandoc) to .html, .pdf, .docx, etc." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="writing-a-quarto-report">Writing a Quarto report<a class="anchor" aria-label="anchor" href="#writing-a-quarto-report"></a>
+<figure><img src="../fig/rstudio-qmd-how-it-works.png" alt="The 'rendering' process: First, **Quarto file is converted to Markdown, which is then converted** (via pandoc) to .html, .pdf, .docx, etc." class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="writing-a-quarto-report">Writing a Quarto report<a class="anchor" aria-label="anchor" href="#writing-a-quarto-report"></a>
 </h2>
 <hr class="half-width">
 <p>Now we will add some R code from our previous data wrangling and
 visualisation, which means we need to make sure
-<strong>tidyverse</strong> is loaded. It is not enough to load
-<strong>tidyverse</strong> from the console, we will need to load it
-within our Quarto document. The same applies to our data. To load these,
-we will need to create a ‘code chunk’ at the top of our document (below
-the YAML header).</p>
-<p>A code chunk can be inserted by clicking Code &gt; Insert Chunk, or
-by using the keyboard shortcuts
+<strong>tidyverse</strong> is loaded. <strong>It is not enough to load
+</strong>tidyverse** from the console, we will need to load it within
+our Quarto document**. The same applies to our data. To load these, we
+will need to create a ‘code chunk’ at the top of our document (below the
+YAML header).</p>
+<p><strong>A code chunk can be inserted by clicking</strong> Code &gt;
+Insert Chunk, or by using the keyboard shortcuts
 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> on Windows and Linux, and
 <kbd>Cmd</kbd>+<kbd>Option</kbd>+<kbd>I</kbd> on Mac.</p>
 <p>The syntax of a code chunk is:</p>
@@ -2541,9 +2560,27 @@ the <code>```</code> that begins and ends the chunk. It also knows that
 the code inside of the chunk is R code from the <code>r</code> inside of
 the curly braces (<code>{}</code>). Below the curly braces, you can add
 code chunk options after the <code>#|</code> sign. In this way, you can
-for example add a label for the code chunk. Naming a chunk is optional,
-but recommended. Each chunk label must be unique, and only contain
-alphanumeric characters and <code>-</code>.</p>
+for example add a label for the code chunk. <strong>Naming a chunk is
+optional, but recommended</strong>. Each chunk label must be unique, and
+only contain alphanumeric characters and <code>-</code>.</p>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
+</button>
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div class="accordion-body">
+<p>At this point you may want to explain the different chunk options
+used in the above code chunk, and what they do. You can also explain
+that there are many more options available, and that you can find them
+in the Quarto documentation. Since we have not covered yet how to import
+data, it would be good to move into the next episode before explaining
+the code in the chunk, and then come back to it to explain the chunk
+options.</p>
+</div>
+</div>
+</div>
+</div>
 <p>To load <strong>tidyverse</strong> and our
 <code>SAFI_clean.csv</code> file, we will insert a chunk and call it
 ‘setup’. Since we don’t want this code or the output to show in our
@@ -2577,7 +2614,118 @@ consistent within your project.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="insert-table">Insert table<a class="anchor" aria-label="anchor" href="#insert-table"></a>
+</section><section><h2 class="section-heading" id="customising-chunk-output">Customising chunk output<a class="anchor" aria-label="anchor" href="#customising-chunk-output"></a>
+</h2>
+<hr class="half-width">
+<p>We mentioned using <code>include: false</code> in a code chunk to
+prevent the code and output from printing in the rendered document.
+There are additional options available to customise how the code-chunks
+are presented in the output document. The options are entered in the
+code chunk using the ‘hash pipe’, <code>#|</code>.</p>
+<table class="table">
+<colgroup>
+<col width="5%">
+<col width="5%">
+<col width="88%">
+</colgroup>
+<thead><tr class="header">
+<th>Option</th>
+<th>Options</th>
+<th>Output</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>eval</code></td>
+<td>
+<code>TRUE</code> or <code>FALSE</code>
+</td>
+<td>Whether or not the code within the code chunk should be run.</td>
+</tr>
+<tr class="even">
+<td><code>echo</code></td>
+<td>
+<code>TRUE</code> or <code>FALSE</code>
+</td>
+<td>Choose if you want to show your code chunk in the output document.
+<code>echo = TRUE</code> will show the code chunk.</td>
+</tr>
+<tr class="odd">
+<td><code>include</code></td>
+<td>
+<code>TRUE</code> or <code>FALSE</code>
+</td>
+<td>Choose if the output of a code chunk should be included in the
+document. <code>FALSE</code> means that your code will run, but will not
+show up in the document.</td>
+</tr>
+<tr class="even">
+<td><code>warning</code></td>
+<td>
+<code>TRUE</code> or <code>FALSE</code>
+</td>
+<td>Whether or not you want your output document to display potential
+warning messages produced by your code.</td>
+</tr>
+<tr class="odd">
+<td><code>message</code></td>
+<td>
+<code>TRUE</code> or <code>FALSE</code>
+</td>
+<td>Whether or not you want your output document to display potential
+messages produced by your code.</td>
+</tr>
+<tr class="even">
+<td><code>fig-align</code></td>
+<td>
+<code>default</code>, <code>left</code>, <code>right</code>,
+<code>center</code>
+</td>
+<td>Where the figure from your R code chunk should be output on the
+page</td>
+</tr>
+</tbody>
+</table>
+<div id="tip" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="tip" class="callout-inner">
+<h3 class="callout-title">Tip</h3>
+<div class="callout-content">
+<ul>
+<li>The default settings for the above chunk options are all
+<code>true</code>.</li>
+<li>The default settings can be modified per chunk, or with
+<code>knitr::opts_chunk$set()</code>,</li>
+<li>Entering <code>knitr::opts_chunk$set(echo = FALSE)</code> will
+change the default of value of <code>echo</code> to <code>FALSE</code>
+for <strong>every</strong> code chunk in the document.</li>
+</ul>
+<p>The defaults can also be changed in the YAML header with:</p>
+<pre><code>---
+knitr:
+  opts_chunk:
+    echo: false
+---</code></pre>
+</div>
+</div>
+</div>
+<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
+  <h3 class="accordion-header" id="headingInstructor2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
+</button>
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div class="accordion-body">
+<p>From now on you can advice them to use a quarto document for the
+subsequent episodes. You can briefly discuss the possibility of quarto
+(see next sections) but not in details.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="insert-table-self-directed-learning">Insert table (self-directed learning)<a class="anchor" aria-label="anchor" href="#insert-table-self-directed-learning"></a>
 </h2>
 <hr class="half-width">
 <p>Next, we will re-create a table from the Data Wrangling episode which
@@ -2597,8 +2745,10 @@ will need to use the <code>kable()</code> function from the
 the output of your R code and renders it into a nice looking HTML table.
 You can also specify different aspects of the table, e.g. the column
 names, a caption, etc.</p>
+<p>Load the data and the tidyverse package in a code chunk with
+<code>include: false</code>:</p>
 <p>Run the code chunk to make sure you get the desired output.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2658,19 +2808,19 @@ names, a caption, etc.</p>
 prefixed with <code>tbl-</code>, e.g. <code>tbl-interviews</code>. You
 can add a caption to the chunk options with
 <code>tbl-cap: "Your caption here"</code>.</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="in">#| label: tbl-interviews</span></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="in">#| tbl-cap: "A useful description about the table."</span></span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="in">interviews %&gt;%</span></span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="in">    filter(!is.na(memb_assoc)) %&gt;%</span></span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="in">    group_by(village, memb_assoc) %&gt;%</span></span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="in">    summarize(mean_no_membrs = mean(no_membrs)) %&gt;%</span></span>
-<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="in">  knitr::kable(col.names = c("Village", "Member Association", </span></span>
-<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="in">                             "Mean Number of Members"))</span></span>
-<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="in">#| label: tbl-interviews</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="in">#| tbl-cap: "A useful description about the table."</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="in">interviews %&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="in">    filter(!is.na(memb_assoc)) %&gt;%</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="in">    group_by(village, memb_assoc) %&gt;%</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="in">    summarize(mean_no_membrs = mean(no_membrs)) %&gt;%</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="in">  knitr::kable(col.names = c("Village", "Member Association", </span></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="in">                             "Mean Number of Members"))</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a><span class="in">```</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2718,8 +2868,9 @@ can add a caption to the chunk options with
 </tr>
 </tbody>
 </table>
-<p>Many different R packages can be used to generate tables. Some of the
-more commonly used options are listed in the table below.</p>
+<p>Many different <strong>R packages can be used to generate
+tables</strong>. Some of the more commonly used options are listed in
+the table below.</p>
 <table class="table">
 <colgroup>
 <col width="20%">
@@ -2859,103 +3010,7 @@ LaTeX and HTML formats easily from a data.frame, matrix, lm, aov, anova,
 glm, coxph, nls, fitdistr, mytable and cbind.mytable objects.</td>
 </tr>
 </tbody>
-</table></section><section><h2 class="section-heading" id="customising-chunk-output">Customising chunk output<a class="anchor" aria-label="anchor" href="#customising-chunk-output"></a>
-</h2>
-<hr class="half-width">
-<p>We mentioned using <code>include: false</code> in a code chunk to
-prevent the code and output from printing in the rendered document.
-There are additional options available to customise how the code-chunks
-are presented in the output document. The options are entered in the
-code chunk using the ‘hash pipe’, <code>#|</code>.</p>
-<table class="table">
-<colgroup>
-<col width="5%">
-<col width="5%">
-<col width="88%">
-</colgroup>
-<thead><tr class="header">
-<th>Option</th>
-<th>Options</th>
-<th>Output</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><code>eval</code></td>
-<td>
-<code>TRUE</code> or <code>FALSE</code>
-</td>
-<td>Whether or not the code within the code chunk should be run.</td>
-</tr>
-<tr class="even">
-<td><code>echo</code></td>
-<td>
-<code>TRUE</code> or <code>FALSE</code>
-</td>
-<td>Choose if you want to show your code chunk in the output document.
-<code>echo = TRUE</code> will show the code chunk.</td>
-</tr>
-<tr class="odd">
-<td><code>include</code></td>
-<td>
-<code>TRUE</code> or <code>FALSE</code>
-</td>
-<td>Choose if the output of a code chunk should be included in the
-document. <code>FALSE</code> means that your code will run, but will not
-show up in the document.</td>
-</tr>
-<tr class="even">
-<td><code>warning</code></td>
-<td>
-<code>TRUE</code> or <code>FALSE</code>
-</td>
-<td>Whether or not you want your output document to display potential
-warning messages produced by your code.</td>
-</tr>
-<tr class="odd">
-<td><code>message</code></td>
-<td>
-<code>TRUE</code> or <code>FALSE</code>
-</td>
-<td>Whether or not you want your output document to display potential
-messages produced by your code.</td>
-</tr>
-<tr class="even">
-<td><code>fig-align</code></td>
-<td>
-<code>default</code>, <code>left</code>, <code>right</code>,
-<code>center</code>
-</td>
-<td>Where the figure from your R code chunk should be output on the
-page</td>
-</tr>
-</tbody>
 </table>
-<div id="tip" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="tip" class="callout-inner">
-<h3 class="callout-title">Tip</h3>
-<div class="callout-content">
-<ul>
-<li>The default settings for the above chunk options are all
-<code>true</code>.</li>
-<li>The default settings can be modified per chunk, or with
-<code>knitr::opts_chunk$set()</code>,</li>
-<li>Entering <code>knitr::opts_chunk$set(echo = FALSE)</code> will
-change the default of value of <code>echo</code> to <code>FALSE</code>
-for <strong>every</strong> code chunk in the document.</li>
-</ul>
-<p>The defaults can also be changed in the YAML header with:</p>
-<pre><code>---
-knitr:
-  opts_chunk:
-    echo: false
----</code></pre>
-</div>
-</div>
-</div>
 <div id="exercise" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -2976,11 +3031,9 @@ to the output.</p>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Solution to Exercise
-  </h4>
+  <h4 class="accordion-header" id="headingSolution1"> Solution to Exercise </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Create a chunk with <code>eval: false, echo: false</code>, then
 create another chunk with <code>include: false</code> to compare.
@@ -2993,7 +3046,7 @@ store the output for later use.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="in-line-r-code">In-line R code<a class="anchor" aria-label="anchor" href="#in-line-r-code"></a>
+</section><section><h2 class="section-heading" id="in-line-r-code-self-directed-learning">In-line R code (self-directed learning)<a class="anchor" aria-label="anchor" href="#in-line-r-code-self-directed-learning"></a>
 </h2>
 <hr class="half-width">
 <p>Now we will use some in-line R code to present some descriptive
@@ -3004,7 +3057,7 @@ chunk is the number of backticks. In-line R code uses one backtick
 (<code>r</code>), whereas code chunks use three backticks
 (<code>r</code>).</p>
 <p>For example, today’s date is <code>`r Sys.Date()`</code>, will be
-rendered as: today’s date is 2026-02-23.<br>
+rendered as: today’s date is 2026-02-24.<br>
 The code will display today’s date in the output document (well,
 technically the date the document was last rendered).</p>
 <p>The best way to use in-line R code, is to minimise the amount of code
@@ -3033,7 +3086,7 @@ village, and include the mean values as in-line R-code. For example:</p>
 <p>Because we are using in-line R code instead of the actual values, we
 have created a dynamic document that will automatically update if we
 make changes to the dataset and/or code chunks.</p>
-</section><section><h2 class="section-heading" id="plots">Plots<a class="anchor" aria-label="anchor" href="#plots"></a>
+</section><section><h2 class="section-heading" id="plots-self-directed-learning">Plots (self-directed learning)<a class="anchor" aria-label="anchor" href="#plots-self-directed-learning"></a>
 </h2>
 <hr class="half-width">
 <p>Finally, we will also include a plot, so our document is a little
@@ -3086,11 +3139,9 @@ the <code>interviews_plotting</code> data frame.</p>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  Solution to Exercise
-  </h4>
+  <h4 class="accordion-header" id="headingSolution2"> Solution to Exercise </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3145,7 +3196,7 @@ depend on whether any plots or figures comes before it, but since you
 just need to reference the label, there’s no need to know what number a
 specific plot has in a document (especially useful for figure-heavy
 documents).</p>
-</section><section><h2 class="section-heading" id="other-output-options">Other output options<a class="anchor" aria-label="anchor" href="#other-output-options"></a>
+</section><section><h2 class="section-heading" id="other-output-options-self-directed-learning">Other output options (self-directed learning)<a class="anchor" aria-label="anchor" href="#other-output-options-self-directed-learning"></a>
 </h2>
 <hr class="half-width">
 <p>You can convert Quarto to a PDF or a Word document (among others).
@@ -4474,7 +4525,7 @@ you recreate the barplot such that “Undetermined” is last (after
 </div>
 </section></section><section id="aio-04-dplyr"><p>Content from <a href="04-dplyr.html">Data Wrangling with dplyr</a></p>
 <hr>
-<p>Last updated on 2026-02-23 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://bham-carpentries.github.io/2026-02-24-rsocialscientists/edit/main/episodes/04-dplyr.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 40 minutes</p>
@@ -4486,7 +4537,7 @@ you recreate the barplot such that “Undetermined” is last (after
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <ul>
 <li>This lesson works better if you have graphics demonstrating dplyr
@@ -4546,73 +4597,27 @@ results.</li>
 </div>
 </div>
 </div>
-<p><strong><code>dplyr</code></strong> is a package for making tabular
-data wrangling easier by using a limited set of functions that can be
-combined to extract and summarize insights from your data.</p>
-<p>Like <strong><code>readr</code></strong>,
-<strong><code>dplyr</code></strong> is a part of the tidyverse. These
-packages were loaded in R’s memory when we called
-<code><a href="https://tidyverse.tidyverse.org" class="external-link">library(tidyverse)</a></code> earlier.</p>
-<div id="note" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="note" class="callout-inner">
-<h3 class="callout-title">Note</h3>
-<div class="callout-content">
-<p>The packages in the tidyverse, namely
-<strong><code>dplyr</code></strong>, <strong><code>tidyr</code></strong>
-and <strong><code>ggplot2</code></strong> accept both the British
-(e.g. <em>summarise</em>) and American (e.g. <em>summarize</em>)
-spelling variants of different function and option names. For this
-lesson, we utilize the American spellings of different functions;
-however, feel free to use the regional variant for where you are
-teaching.</p>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="what-is-an-r-package">What is an R package?<a class="anchor" aria-label="anchor" href="#what-is-an-r-package"></a>
-</h2>
-<hr class="half-width">
-<p>The package <strong><code>dplyr</code></strong> provides easy tools
-for the most common data wrangling tasks. It is built to work directly
-with dataframes, with many common tasks optimized by being written in a
-compiled language (C++) (not all R packages are written in R!).</p>
-<p>There are also packages available for a wide range of tasks including
-building plots (<strong><code>ggplot2</code></strong>, which we’ll see
-later), downloading data from the NCBI database, or performing
-statistical analysis on your data set. Many packages such as these are
-housed on, and downloadable from, the <strong>C</strong>omprehensive
-<strong>R</strong> <strong>A</strong>rchive <strong>N</strong>etwork
-(CRAN) using <code>install.packages</code>. This function makes the
-package accessible by your R installation with the command
-<code>library()</code>, as you did with <code>tidyverse</code>
-earlier.</p>
-<p>To easily access the documentation for a package within R or RStudio,
-use <code><a href="https://rdrr.io/pkg/package_name/man" class="external-link">help(package = "package_name")</a></code>.</p>
-<p>To learn more about <strong><code>dplyr</code></strong> after the
-workshop, you may want to check out this <a href="https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf" class="external-link">handy
-data transformation with <strong><code>dplyr</code></strong>
-cheatsheet</a>.</p>
-<div id="note-1" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="note-1" class="callout-inner">
-<h3 class="callout-title">Note</h3>
-<div class="callout-content">
+<ul>
+<li><p><strong><code>dplyr</code></strong> is a package for making
+tabular data wrangling easier by using a limited set of functions that
+can be combined to extract and summarize insights from your
+data.</p></li>
+<li><p>Like <strong><code>readr</code></strong>,
+<strong><code>dplyr</code></strong> is a <strong>part of the
+tidyverse</strong>. These packages were loaded in R’s memory when we
+called <code><a href="https://tidyverse.tidyverse.org" class="external-link">library(tidyverse)</a></code> earlier.</p></li>
+<li><p>The package <strong><code>dplyr</code></strong> provides easy
+tools for the most common data wrangling tasks. It is built to
+<strong>work directly with dataframes</strong>, with many common tasks
+optimized by being written in a compiled language (C++) (not all R
+packages are written in R!).</p></li>
+</ul>
 <p>There are alternatives to the <code>tidyverse</code> packages for
 data wrangling, including the package <a href="https://rdatatable.gitlab.io/data.table/" class="external-link"><code>data.table</code></a>.
-See this <a href="https://mgimond.github.io/rug_2019_12/Index.html" class="external-link">comparison</a>
-for example to get a sense of the differences between using
-<code>base</code>, <code>tidyverse</code>, and
-<code>data.table</code>.</p>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="learning-dplyr">Learning <strong><code>dplyr</code></strong>
+However, the <code>tidyverse</code> is widely used in the R community
+and has a consistent syntax across its packages, making it a good choice
+for beginners.</p>
+<section><h2 class="section-heading" id="learning-dplyr">Learning <strong><code>dplyr</code></strong>
 <a class="anchor" aria-label="anchor" href="#learning-dplyr"></a>
 </h2>
 <hr class="half-width">
@@ -4654,15 +4659,16 @@ statistics on grouped data</li>
 </ul></section><section><h2 class="section-heading" id="selecting-columns-and-filtering-rows">Selecting columns and filtering rows<a class="anchor" aria-label="anchor" href="#selecting-columns-and-filtering-rows"></a>
 </h2>
 <hr class="half-width">
-<p>To select columns of a dataframe, use <code>select()</code>. The
-first argument to this function is the dataframe
-(<code>interviews</code>), and the subsequent arguments are the columns
-to keep, separated by commas. Alternatively, if you are selecting
-columns adjacent to each other, you can use a <code>:</code> to select a
-range of columns, read as “select columns from ___ to ___.” You may have
-done something similar in the past using subsetting.
-<code>select()</code> is essentially doing the same thing as subsetting,
-using a package (<code>dplyr</code>) instead of R’s base functions.</p>
+<p>To <strong>select columns of a dataframe, use
+<code>select()</code></strong>. The first argument to this function is
+the dataframe (<code>interviews</code>), and the <strong>subsequent
+arguments are the columns to keep</strong>, separated by commas.
+Alternatively, if you are selecting columns adjacent to each other, you
+can use a <code>:</code> to select a range of columns, read as “select
+columns from ___ to ___.” You may have done something similar in the
+past using subsetting. <code>select()</code> is essentially doing the
+same thing as subsetting, using a package (<code>dplyr</code>) instead
+of R’s base functions.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -4674,10 +4680,10 @@ using a package (<code>dplyr</code>) instead of R’s base functions.</p>
 <span><span class="co"># to select a series of connected columns</span></span>
 <span><span class="fu">select</span><span class="op">(</span><span class="va">interviews</span>, <span class="va">village</span><span class="op">:</span><span class="va">respondent_wall_type</span><span class="op">)</span></span></code></pre>
 </div>
-<p>To choose rows based on specific criteria, we can use the
-<code>filter()</code> function. The argument after the dataframe is the
-condition we want our final dataframe to adhere to (e.g. village name is
-Chirodzo):</p>
+<p>To <strong>choose rows based on specific criteria</strong>, we can
+use the <code>filter()</code> function. The argument after the dataframe
+is the condition we want our final dataframe to adhere to (e.g. village
+name is Chirodzo):</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -4706,14 +4712,10 @@ Chirodzo):</p>
 #   liv_count &lt;dbl&gt;, items_owned &lt;chr&gt;, no_meals &lt;dbl&gt;, months_lack_food &lt;chr&gt;,
 #   instanceID &lt;chr&gt;</code></pre>
 </div>
-<p>You may also have noticed that the output from these call doesn’t run
-off the screen anymore. It’s one of the advantages of
-<code>tbl_df</code> (also called tibble), the central data class in the
-tidyverse, compared to normal dataframes in R.</p>
-<p>We can also specify multiple conditions within the
-<code>filter()</code> function. We can combine conditions using either
-“and” or “or” statements. In an “and” statement, an observation (row)
-must meet <strong>every</strong> criteria to be included in the
+<p>We can also specify <strong>multiple conditions within the
+<code>filter()</code> function</strong>. We can combine conditions using
+either “and” or “or” statements. In an “and” statement, an observation
+(row) must meet <strong>every</strong> criteria to be included in the
 resulting dataframe. To form “and” statements within dplyr, we can pass
 our desired conditions as arguments in the <code>filter()</code>
 function, separated by commas:</p>
@@ -4814,9 +4816,9 @@ operator for “or,” which is the vertical bar (|):</p>
 </section><section><h2 class="section-heading" id="pipes">Pipes<a class="anchor" aria-label="anchor" href="#pipes"></a>
 </h2>
 <hr class="half-width">
-<p>What if you want to select and filter at the same time? There are
-three ways to do this: use intermediate steps, nested functions, or
-pipes.</p>
+<p>What if you want <strong>to select and filter at the same
+time?</strong> There are three ways to do this: <strong>use intermediate
+steps, nested functions, or pipes.</strong></p>
 <p>With intermediate steps, you create a temporary dataframe and use
 that as input to the next function, like this:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -4826,9 +4828,9 @@ that as input to the next function, like this:</p>
 <code class="sourceCode R"><span><span class="va">interviews2</span> <span class="op">&lt;-</span> <span class="fu">filter</span><span class="op">(</span><span class="va">interviews</span>, <span class="va">village</span> <span class="op">==</span> <span class="st">"Chirodzo"</span><span class="op">)</span></span>
 <span><span class="va">interviews_ch</span> <span class="op">&lt;-</span> <span class="fu">select</span><span class="op">(</span><span class="va">interviews2</span>, <span class="va">village</span><span class="op">:</span><span class="va">respondent_wall_type</span><span class="op">)</span></span></code></pre>
 </div>
-<p>This is readable, but can clutter up your workspace with lots of
-objects that you have to name individually. With multiple steps, that
-can be hard to keep track of.</p>
+<p>This is readable, but can <strong>clutter up your workspace</strong>
+with lots of objects that you have to name individually. With multiple
+steps, that can be hard to keep track of.</p>
 <p>You can also nest functions (i.e. one function inside of another),
 like this:</p>
 <div class="codewrapper sourceCode" id="cb12">
@@ -4838,22 +4840,13 @@ like this:</p>
 <code class="sourceCode R"><span><span class="va">interviews_ch</span> <span class="op">&lt;-</span> <span class="fu">select</span><span class="op">(</span><span class="fu">filter</span><span class="op">(</span><span class="va">interviews</span>, <span class="va">village</span> <span class="op">==</span> <span class="st">"Chirodzo"</span><span class="op">)</span>,</span>
 <span>                         <span class="va">village</span><span class="op">:</span><span class="va">respondent_wall_type</span><span class="op">)</span></span></code></pre>
 </div>
-<p>This is handy, but can be difficult to read if too many functions are
-nested, as R evaluates the expression from the inside out (in this case,
-filtering, then selecting).</p>
+<p>This is handy, but can be <strong>difficult to read if too many
+functions are nested</strong>, as R evaluates the expression from the
+inside out (in this case, filtering, then selecting).</p>
 <p>The last option, <em>pipes</em>, are a recent addition to R. Pipes
 let you take the output of one function and send it directly to the
 next, which is useful when you need to do many things to the same
-dataset. There are two Pipes in R: 1) <code>%&gt;%</code> (called
-magrittr pipe; made available via the
-<strong><code>magrittr</code></strong> package, installed automatically
-with <strong><code>dplyr</code></strong>) or 2) <code>|&gt;</code>
-(called native R pipe and it comes preinstalled with R v4.1.0 onwards).
-Both the pipes are, by and large, function similarly with a few
-differences (For more information, check: <a href="https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/" class="external-link uri">https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/</a>).
-The choice of which pipe to be used can be changed in the Global
-settings in R studio and once that is done, you can type the pipe
-with:</p>
+dataset. You can type the pipe with:</p>
 <ul>
 <li>
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC
@@ -4904,10 +4897,10 @@ the object on its left and passes it as the first argument to the
 function on its right, we don’t need to explicitly include the dataframe
 as an argument to the <code>filter()</code> and <code>select()</code>
 functions any more.</p>
-<p>Some may find it helpful to read the pipe like the word “then”. For
-instance, in the above example, we take the dataframe
-<code>interviews</code>, <em>then</em> we <code>filter</code> for rows
-with <code>village == "Chirodzo"</code>, <em>then</em> we
+<p>Some may find it helpful to <strong>read the pipe like the word
+“then”</strong>. For instance, in the above example, we take the
+dataframe <code>interviews</code>, <em>then</em> we <code>filter</code>
+for rows with <code>village == "Chirodzo"</code>, <em>then</em> we
 <code>select</code> columns <code>village:respondent_wall_type</code>.
 The <strong><code>dplyr</code></strong> functions by themselves are
 somewhat simple, but by combining them into linear workflows with the
@@ -4965,7 +4958,7 @@ interviews where respondents were members of an irrigation association
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5000,12 +4993,13 @@ interviews where respondents were members of an irrigation association
 </section><section><h2 class="section-heading" id="mutate">Mutate<a class="anchor" aria-label="anchor" href="#mutate"></a>
 </h2>
 <hr class="half-width">
-<p>Frequently you’ll want to create new columns based on the values in
-existing columns, for example to do unit conversions, or to find the
-ratio of values in two columns. For this we’ll use
+<p>Frequently you’ll want to <strong>create new columns based on the
+values in existing columns</strong>, for example to do unit conversions,
+or to find the ratio of values in two columns. For this we’ll use
 <code>mutate()</code>.</p>
 <p>We might be interested in the ratio of number of household members to
-rooms used for sleeping (i.e. avg number of people per room):</p>
+rooms used for sleeping (i.e. <strong>avg number of people per
+room</strong>):</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -5034,49 +5028,6 @@ rooms used for sleeping (i.e. avg number of people per room):</p>
 #   liv_count &lt;dbl&gt;, items_owned &lt;chr&gt;, no_meals &lt;dbl&gt;, months_lack_food &lt;chr&gt;,
 #   instanceID &lt;chr&gt;, people_per_room &lt;dbl&gt;</code></pre>
 </div>
-<p>We may be interested in investigating whether being a member of an
-irrigation association had any effect on the ratio of household members
-to rooms. To look at this relationship, we will first remove data from
-our dataset where the respondent didn’t answer the question of whether
-they were a member of an irrigation association. These cases are
-recorded as “NULL” in the dataset.</p>
-<p>To remove these cases, we could insert a <code>filter()</code> in the
-chain:</p>
-<div class="codewrapper sourceCode" id="cb22">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">interviews</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">filter</span><span class="op">(</span><span class="op">!</span><span class="fu">is.na</span><span class="op">(</span><span class="va">memb_assoc</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">mutate</span><span class="op">(</span>people_per_room <span class="op">=</span> <span class="va">no_membrs</span> <span class="op">/</span> <span class="va">rooms</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code># A tibble: 92 × 15
-   key_ID village  interview_date      no_membrs years_liv respondent_wall_type
-    &lt;dbl&gt; &lt;chr&gt;    &lt;dttm&gt;                  &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
- 1      2 God      2016-11-17 00:00:00         7         9 muddaub
- 2      7 God      2016-11-17 00:00:00         6        38 muddaub
- 3      8 Chirodzo 2016-11-16 00:00:00        12        70 burntbricks
- 4      9 Chirodzo 2016-11-16 00:00:00         8         6 burntbricks
- 5     10 Chirodzo 2016-12-16 00:00:00        12        23 burntbricks
- 6     12 God      2016-11-21 00:00:00         7        20 burntbricks
- 7     13 God      2016-11-21 00:00:00         6         8 burntbricks
- 8     15 God      2016-11-21 00:00:00         5        30 sunbricks
- 9     21 God      2016-11-21 00:00:00         8        20 burntbricks
-10     24 Ruaca    2016-11-21 00:00:00         6         4 burntbricks
-# ℹ 82 more rows
-# ℹ 9 more variables: rooms &lt;dbl&gt;, memb_assoc &lt;chr&gt;, affect_conflicts &lt;chr&gt;,
-#   liv_count &lt;dbl&gt;, items_owned &lt;chr&gt;, no_meals &lt;dbl&gt;, months_lack_food &lt;chr&gt;,
-#   instanceID &lt;chr&gt;, people_per_room &lt;dbl&gt;</code></pre>
-</div>
-<p>The <code>!</code> symbol negates the result of the
-<code>is.na()</code> function. Thus, if <code>is.na()</code> returns a
-value of <code>TRUE</code> (because the <code>memb_assoc</code> is
-missing), the <code>!</code> symbol negates this and says we only want
-values of <code>FALSE</code>, where <code>memb_assoc</code> <strong>is
-not</strong> missing.</p>
 <div id="exercise-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -5102,9 +5053,9 @@ to produce this data frame!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5121,20 +5072,22 @@ to produce this data frame!</p>
 </h2>
 <hr class="half-width">
 <p>Many data analysis tasks can be approached using the
-<em>split-apply-combine</em> paradigm: split the data into groups, apply
-some analysis to each group, and then combine the results.
-<strong><code>dplyr</code></strong> makes this very easy through the use
-of the <code>group_by()</code> function.</p>
+<strong><em>split-apply-combine</em></strong> paradigm: <strong>split
+the data into groups, apply some analysis to each group, and then
+combine the results</strong>. <strong><code>dplyr</code></strong> makes
+this very easy through the use of the <code>group_by()</code>
+function.</p>
 <div class="section level3">
 <h3 id="the-summarize-function">The <code>summarize()</code> function<a class="anchor" aria-label="anchor" href="#the-summarize-function"></a>
 </h3>
 <p><code>group_by()</code> is often used together with
-<code>summarize()</code>, which collapses each group into a single-row
-summary of that group. <code>group_by()</code> takes as arguments the
-column names that contain the <strong>categorical</strong> variables for
-which you want to calculate the summary statistics. So to compute the
-average household size by village:</p>
-<div class="codewrapper sourceCode" id="cb25">
+<code>summarize()</code>, which <strong>collapses each group into a
+single-row summary of that group</strong>. <code>group_by()</code> takes
+as arguments the column names that contain the
+<strong>categorical</strong> variables for which you want to calculate
+the summary statistics. So to compute the average household size by
+village:</p>
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5152,8 +5105,10 @@ average household size by village:</p>
 2 God                6.86
 3 Ruaca              7.57</code></pre>
 </div>
-<p>You can also group by multiple columns:</p>
-<div class="codewrapper sourceCode" id="cb27">
+<p>You can also group by multiple columns: In that case we will get the
+<strong>average household size for each combination of village and
+membership in an irrigation association</strong>:</p>
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5188,7 +5143,7 @@ average household size by village:</p>
 columns which is indicated by the by two first lines with the
 <code>#</code>. To obtain an ungrouped tibble, use the
 <code>ungroup</code> function:</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5222,10 +5177,11 @@ columns which is indicated by the by two first lines with the
 <p>Notice that the second line with the <code>#</code> that previously
 indicated the grouping has disappeared and we now only have a 9x3-tibble
 without grouping. When grouping both by <code>village</code> and
-<code>membr_assoc</code>, we see rows in our table for respondents who
-did not specify whether they were a member of an irrigation association.
-We can exclude those data from our table using a filter step.</p>
-<div class="codewrapper sourceCode" id="cb33">
+<code>membr_assoc</code>, <strong>we see rows in our table for
+respondents who did not specify whether they were a member of an
+irrigation association</strong>. We can exclude those data from our
+table using a filter step.</p>
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5254,12 +5210,12 @@ We can exclude those data from our table using a filter step.</p>
 5 Ruaca    no                   7.18
 6 Ruaca    yes                  9.5 </code></pre>
 </div>
-<p>Once the data are grouped, you can also summarize multiple variables
-at the same time (and not necessarily on the same variable). For
-instance, we could add a column indicating the minimum household size
-for each village for each group (members of an irrigation association vs
-not):</p>
-<div class="codewrapper sourceCode" id="cb36">
+<p>Once the data are grouped, <strong>you can also summarize multiple
+variables at the same time</strong> (and not necessarily on the same
+variable). For instance, we could add a column indicating the
+<strong>minimum household size for each village for each group</strong>
+(members of an irrigation association vs not):</p>
+<div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5290,9 +5246,10 @@ not):</p>
 6 Ruaca    yes                  9.5           5</code></pre>
 </div>
 <p>It is sometimes useful to rearrange the result of a query to inspect
-the values. For instance, we can sort on <code>min_membrs</code> to put
-the group with the smallest household first:</p>
-<div class="codewrapper sourceCode" id="cb39">
+the values. For instance, <strong>we can sort on
+<code>min_membrs</code></strong> to put the group with the smallest
+household first:</p>
+<div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5323,10 +5280,10 @@ the group with the smallest household first:</p>
 5 God      yes                  8             5
 6 Ruaca    yes                  9.5           5</code></pre>
 </div>
-<p>To sort in descending order, we need to add the <code>desc()</code>
-function. If we want to sort the results by decreasing order of minimum
-household size:</p>
-<div class="codewrapper sourceCode" id="cb42">
+<p>To sort in <strong>descending order</strong>, we need to add the
+<code>desc()</code> function. If we want to sort the results by
+decreasing order of minimum household size:</p>
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5361,12 +5318,12 @@ household size:</p>
 <div class="section level3">
 <h3 id="counting">Counting<a class="anchor" aria-label="anchor" href="#counting"></a>
 </h3>
-<p>When working with data, we often want to know the number of
-observations found for each factor or combination of factors. For this
-task, <strong><code>dplyr</code></strong> provides <code>count()</code>.
-For example, if we wanted to count the number of rows of data for each
-village, we would do:</p>
-<div class="codewrapper sourceCode" id="cb45">
+<p>When working with data, we often want to <strong>know the number of
+observations found for each factor or combination of factors</strong>.
+For this task, <strong><code>dplyr</code></strong> provides
+<code>count()</code>. For example, if we wanted to count the number of
+rows of data for each village, we would do:</p>
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5385,7 +5342,7 @@ village, we would do:</p>
 </div>
 <p>For convenience, <code>count()</code> provides the <code>sort</code>
 argument to get results in decreasing order:</p>
-<div class="codewrapper sourceCode" id="cb47">
+<div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5421,9 +5378,9 @@ represented?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb49">
+<div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5463,9 +5420,9 @@ add the number of observations (hint: see <code>?n</code>).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb51">
+<div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5510,9 +5467,9 @@ add the number of observations (hint: see <code>?n</code>).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb53">
+<div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -5569,7 +5526,7 @@ with subsets of data.</li>
 </div>
 </section></section><section id="aio-05-ggplot2"><p>Content from <a href="05-ggplot2.html">Data Visualisation with ggplot2</a></p>
 <hr>
-<p>Last updated on 2026-02-18 |
+<p>Last updated on 2026-02-24 |
 
         <a href="https://bham-carpentries.github.io/2026-02-24-rsocialscientists/edit/main/episodes/05-ggplot2.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 115 minutes</p>
@@ -5590,9 +5547,9 @@ argument <code>group</code> in the <code>aes()</code> function, (3)
 basic customization of the plots.</li>
 <li>The episode depends on data created in the Data Wrangling with tidyr
 episode. If you did not get to or through all of the tidyr episode, you
-can have the learners access the data by either downloading it or
-quickly creating it using the tidyr code below. You will probably want
-to copy the code into the Etherpad.</li>
+can have the learners <strong>access the data by either downloading it
+or quickly creating it using the tidyr code below</strong>. You will
+probably want to copy the code into the Etherpad.</li>
 <li>If you did skip the tidyr episode, you might want to go over the
 exporting data section in that episode.</li>
 </ul>
@@ -5645,10 +5602,11 @@ visualizations.</li>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">tidyverse</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">tidyverse</span><span class="op">)</span></span>
+<span><span class="co"># library(ggplot2) # If you don't want to load the whole tidyverse, you can just load ggplot2</span></span></code></pre>
 </div>
-<p>If not still in the workspace, load the data we saved in the previous
-lesson.</p>
+<p>If not still in the workspace, <strong>load the data</strong> we just
+downloaded/saved in the previous lesson.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -5687,7 +5645,7 @@ the data, then you can create it now. Either download it using
 </button>
 </div>
 </nav><div id="nav-tabContent-1" class="tab-content">
-<div id="nav-tabpanel-1-1" class="tab-pane show active" role="tabpanel" aria-labelledby="nav-tab-1-1">
+<div id="nav-tabpanel-1-1" class="tab-pane show active" aria-labelledby="nav-tab-1-1" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -5695,7 +5653,7 @@ the data, then you can create it now. Either download it using
 <code class="sourceCode R"><span><span class="va">interviews_plotting</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/datacarpentry/r-socialsci/main/episodes/data/interviews_plotting.csv"</span><span class="op">)</span></span></code></pre>
 </div>
 </div>
-<div id="nav-tabpanel-1-2" class="tab-pane" role="tabpanel" aria-labelledby="nav-tab-1-2">
+<div id="nav-tabpanel-1-2" class="tab-pane" aria-labelledby="nav-tab-1-2" role="tabpanel">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -5723,6 +5681,11 @@ the data, then you can create it now. Either download it using
 </div>
 </div>
 </div>
+<p>This code takes the original interviews dataset and transforms it to
+make it easier to analyze and visualize with ggplot2. The result is a
+<strong>dataset where each respondent has columns for each possible item
+and month</strong>, making it much easier to summarize, count, and plot
+ownership or food insecurity patterns across the sample</p>
 <section><h2 class="section-heading" id="visualization-options-in-r">Visualization Options in R<a class="anchor" aria-label="anchor" href="#visualization-options-in-r"></a>
 </h2>
 <hr class="half-width">
@@ -5736,10 +5699,10 @@ Let’s briefly explore a few of them:</p>
 <h3 id="r-base-plots">R Base Plots<a class="anchor" aria-label="anchor" href="#r-base-plots"></a>
 </h3>
 <p>Base R plots are the simplest form of visualization and are great for
-quick, exploratory analysis. You can create plots with very little code,
-but customizing them can be cumbersome compared to
+quick, exploratory analysis. <strong>You can create plots with very
+little code, but customizing them can be cumbersome compared to</strong>
 <strong><code>ggplot2</code></strong>.</p>
-<p>Example of a simple scatterplot in base R using the
+<p><strong>Example</strong> of a simple scatterplot in base R using the
 <code>no_membrs</code> and <code>liv_count</code> variables:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5753,8 +5716,8 @@ but customizing them can be cumbersome compared to
 <figure><img src="../fig/05-ggplot2-rendered-unnamed-chunk-3-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
 <div class="section level3">
-<h3 id="lattice">
-<strong><code>Lattice</code></strong><a class="anchor" aria-label="anchor" href="#lattice"></a>
+<h3 id="lattice-optional">
+<strong><code>Lattice</code></strong> (optional)<a class="anchor" aria-label="anchor" href="#lattice-optional"></a>
 </h3>
 <p>Lattice is another plotting system in R, which allows for creating
 multi-panel plots easily. It’s different from ggplot2 because you define
@@ -5785,19 +5748,20 @@ plotting are limited.</p>
 <hr class="half-width">
 <p><strong><code>ggplot2</code></strong> is a plotting package that
 makes it simple to create complex plots from data stored in a data
-frame. It provides a programmatic interface for specifying what
-variables to plot, how they are displayed, and general visual
-properties. Therefore, we only need minimal changes if the underlying
-data change or if we decide to change from a bar plot to a scatterplot.
-This helps in creating publication quality plots with minimal amounts of
-adjustments and tweaking.</p>
+frame. It provides a programmatic interface for <strong>specifying what
+variables to plot</strong>, <strong>how they are displayed</strong>, and
+general visual properties. Therefore, we only need minimal changes if
+the underlying data change or if we decide to change from a bar plot to
+a scatterplot. This helps in creating publication quality plots with
+minimal amounts of adjustments and tweaking.</p>
 <p><strong><code>ggplot2</code></strong> functions work best with data
-in the ‘long’ format, i.e., a column for every dimension, and a row for
-every observation. Well-structured data will save you lots of time when
-making figures with <strong><code>ggplot2</code></strong></p>
-<p>ggplot graphics are built step by step by adding new elements. Adding
-layers in this fashion allows for extensive flexibility and
-customization of plots.</p>
+in the <strong>‘long’ format</strong>, i.e., <strong>a column for every
+dimension, and a row for every observation</strong>. Well-structured
+data will save you lots of time when making figures with
+<strong><code>ggplot2</code></strong></p>
+<p><strong>ggplot graphics are built step by step by adding new
+elements</strong>. Adding layers in this fashion allows for extensive
+flexibility and customization of plots.</p>
 <p>Each chart built with ggplot2 must include the following</p>
 <ul>
 <li><p>Data</p></li>
@@ -5950,26 +5914,28 @@ use, lay out the axes, and choose a geom:</p>
 <figure><img src="../fig/05-ggplot2-rendered-create-ggplot-object-1.png" alt="Scatter plot of number of items owned versus number of household members." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Then, we start modifying this plot to extract more information from
 it. For instance, when inspecting the plot we notice that points only
 appear at the intersection of whole numbers of <code>no_membrs</code>
-and <code>number_items</code>. Also, from a rough estimate, it looks
-like there are far fewer dots on the plot than there rows in our
-dataframe. This should lead us to believe that there may be multiple
-observations plotted on top of each other (e.g. three observations where
-<code>no_membrs</code> is 3 and <code>number_items</code> is 1).</p>
+and <code>number_items</code>. <strong>Also, from a rough estimate, it
+looks like there are far fewer dots on the plot than there rows in our
+dataframe.</strong> This should lead us to believe that there may be
+multiple observations plotted on top of each other (e.g. three
+observations where <code>no_membrs</code> is 3 and
+<code>number_items</code> is 1).</p>
 <p>There are two main ways to alleviate overplotting issues:</p>
 <ol style="list-style-type: decimal">
-<li>changing the transparency of the points</li>
+<li>changing the <strong>transparency of the points</strong>
+</li>
 <li>jittering the location of the points</li>
 </ol>
 <p>Let’s first explore option 1, changing the transparency of the
 points. What we mean when we say “transparency” we mean the opacity of
 point, or your ability to see through the point. We can control the
 transparency of the points with the <code>alpha</code> argument to
-<code>geom_point</code>. Values of <code>alpha</code> range from 0 to 1,
-with lower values corresponding to more transparent colors (an
-<code>alpha</code> of 1 is the default value). Specifically, an alpha of
-0.1, would make a point one-tenth as opaque as a normal point. Stated
-differently ten points stacked on top of each other would correspond to
-a normal point.</p>
+<code>geom_point</code>. Values of <code>alpha</code> <strong>range from
+0 to 1</strong>, with lower values corresponding to more transparent
+colors (an <code>alpha</code> of 1 is the default value). Specifically,
+an alpha of 0.1, would make a point one-tenth as opaque as a normal
+point. Stated differently ten points stacked on top of each other would
+correspond to a normal point.</p>
 <p>Here, we change the <code>alpha</code> to 0.5, in an attempt to help
 fix the overplotting. While the overplotting isn’t solved, adding
 transparency begins to address this problem, as the points where there
@@ -6009,10 +5975,11 @@ below:</p>
 amount of random motion in the jitter, using the <code>width</code> and
 <code>height</code> arguments. When we don’t specify values for
 <code>width</code> and <code>height</code>, <code>geom_jitter()</code>
-defaults to 40% of the resolution of the data (the smallest change that
-can be measured). Hence, if we would like <em>less</em> spread in our
-jitter than was default, we should pick values between 0.1 and 0.4.
-Experiment with the values to see how your plot changes.</p>
+<strong>defaults to 40%</strong> of the resolution of the data (the
+smallest change that can be measured). Hence, if we would like
+<em>less</em> spread in our jitter than was default, we should pick
+values between 0.1 and 0.4. Experiment with the values to see how your
+plot changes.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -6037,13 +6004,13 @@ specifying a <code>color</code> argument inside the
 <span>                width <span class="op">=</span> <span class="fl">0.2</span>,</span>
 <span>                height <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/05-ggplot2-rendered-adding-colors-1.png" alt="Scatter plot of number of items owned versus number of household members, showing points as blue." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>To colour each village in the plot differently, you could use a
-vector as an input to the argument <strong><code>color</code></strong>.
-However, because we are now mapping features of the data to a colour,
-instead of setting one colour for all points, the colour of the points
-now needs to be set inside a call to the
-<strong><code>aes</code></strong> function. When we map a variable in
-our data to the colour of the points,
+<figure><img src="../fig/05-ggplot2-rendered-adding-colors-1.png" alt="Scatter plot of number of items owned versus number of household members, showing points as blue." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>To <strong>colour each village in the plot differently</strong>, you
+could use a vector as an input to the argument
+<strong><code>color</code></strong>. However, because we are now mapping
+features of the data to a colour, instead of setting one colour for all
+points, the colour of the points now needs to be set inside a call to
+the <strong><code>aes</code></strong> function. When we map a variable
+in our data to the colour of the points,
 <strong><code>ggplot2</code></strong> will provide a different colour
 corresponding to the different values of the variable. We will continue
 to specify the value of <strong><code>alpha</code></strong>,
@@ -6134,7 +6101,7 @@ help you visualize this relationship better?</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="boxplot">Boxplot<a class="anchor" aria-label="anchor" href="#boxplot"></a>
+</section><section><h2 class="section-heading" id="boxplot-and-violin-plots">Boxplot and violin plots<a class="anchor" aria-label="anchor" href="#boxplot-and-violin-plots"></a>
 </h2>
 <hr class="half-width">
 <p>We can use boxplots to visualize the distribution of rooms for each
@@ -6166,6 +6133,11 @@ than burntbrick houses.</p>
 <p>Notice how the boxplot layer is behind the jitter layer? What do you
 need to change in the code to put the boxplot layer in front of the
 jitter layer?</p>
+<p><strong>Violin plots are another way to visualize the distribution of
+a variable</strong>. They are similar to boxplots, but they also show
+the density of the data at different values. This can be useful for
+understanding the shape of the distribution, especially when there are
+multiple modes (peaks) in the data.</p>
 <div id="exercise-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -6294,10 +6266,10 @@ the respondent is a member of an irrigation association
 </section><section><h2 class="section-heading" id="barplots">Barplots<a class="anchor" aria-label="anchor" href="#barplots"></a>
 </h2>
 <hr class="half-width">
-<p>Barplots are also useful for visualizing categorical data. By
-default, <code>geom_bar</code> accepts a variable for x, and plots the
-number of instances each value of x (in this case, wall type) appears in
-the dataset.</p>
+<p><strong>Barplots are also useful for visualizing categorical
+data</strong>. By default, <code>geom_bar</code> accepts a variable for
+x, and plots the number of instances each value of x (in this case, wall
+type) appears in the dataset.</p>
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -6317,11 +6289,11 @@ that is from each village.</p>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">respondent_wall_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_bar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">village</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/05-ggplot2-rendered-barplot-stack-1.png" alt="Stacked bar plot of wall types showing each village as a different color." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This creates a stacked bar chart. These are generally more difficult
-to read than side-by-side bars. We can separate the portions of the
-stacked bar that correspond to each village and put them side-by-side by
-using the <code>position</code> argument for <code>geom_bar()</code> and
-setting it to “dodge”.</p>
+<figure><img src="../fig/05-ggplot2-rendered-barplot-stack-1.png" alt="Stacked bar plot of wall types showing each village as a different color." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This creates a <strong>stacked bar chart</strong>. These are
+generally more difficult to read than side-by-side bars. We can separate
+the portions of the stacked bar that correspond to each village and put
+them <strong>side-by-side by using the <code>position</code> argument
+for <code>geom_bar()</code> and setting it to “dodge”.</strong></p>
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -6330,11 +6302,11 @@ setting it to “dodge”.</p>
 <span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">respondent_wall_type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">geom_bar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">village</span><span class="op">)</span>, position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/05-ggplot2-rendered-barplot-dodge-1.png" alt="Bar plot of respondent wall types with each village as a separate bar." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This is a nicer graphic, but we’re more likely to be interested in
-the proportion of each housing type in each village than in the actual
-count of number of houses of each type (because we might have sampled
-different numbers of households in each village). To compare
-proportions, we will first create a new data frame
+<figure><img src="../fig/05-ggplot2-rendered-barplot-dodge-1.png" alt="Bar plot of respondent wall types with each village as a separate bar." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>This is a nicer graphic, but we’re <strong>more likely to be
+interested in the proportion of each housing type in each village than
+in the actual count of number of houses of each type</strong> (because
+we might have sampled different numbers of households in each village).
+To compare proportions, we will first create a new data frame
 (<code>percent_wall_type</code>) with a new column named “percent”
 representing the percent of each house type in each village. We will
 remove houses with cement walls, as there was only one in the
@@ -6350,8 +6322,8 @@ dataset.</p>
 <span>    <span class="fu">mutate</span><span class="op">(</span>percent <span class="op">=</span> <span class="op">(</span><span class="va">n</span> <span class="op">/</span> <span class="fu">sum</span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>    <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<p>Now we can use this new data frame to create our plot showing the
-percentage of each house type in each village.</p>
+<p>Now we can use this <strong>new data frame to create our plot showing
+the percentage</strong> of each house type in each village.</p>
 <div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -6411,9 +6383,9 @@ association.</p>
 the variable being plotted. However,
 <strong><code>ggplot2</code></strong> offers lots of customization
 options, like specifying the axes labels, and adding a title to the plot
-with relatively few lines of code. We will add more informative x-and
-y-axis labels to our plot, a more explanatory label to the legend, and a
-plot title.</p>
+with relatively few lines of code. <strong>We will add more informative
+x-and y-axis labels to our plot</strong>, a more explanatory label to
+the legend, and a plot title.</p>
 <p>The <code>labs</code> function takes the following arguments:</p>
 <ul>
 <li>
@@ -6444,10 +6416,11 @@ the plot (e.g., <code>x</code>, <code>y</code>, <code>fill</code>,
 </h2>
 <hr class="half-width">
 <p>Rather than creating a single plot with side-by-side bars for each
-village, we may want to create multiple plot, where each plot shows the
-data for a single village. This would be especially useful if we had a
-large number of villages that we had sampled, as a large number of
-side-by-side bars will become more difficult to read.</p>
+village, <strong>we may want to create multiple plot, where each plot
+shows the data for a single village</strong>. This would be especially
+useful if we had a large number of villages that we had sampled, as a
+large number of side-by-side bars will become more difficult to
+read.</p>
 <p><strong><code>ggplot2</code></strong> has a special technique called
 <em>faceting</em> that allows the user to split one plot into multiple
 plots based on a factor included in the dataset. We will use it to split
@@ -6484,13 +6457,43 @@ We can set the background to white using the function
 <span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu">theme</span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/05-ggplot2-rendered-barplot-theme-bw-1.png" alt="Bar plot showing percent of each wall type in each village, with black and white theme applied." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>What if we wanted to see the proportion of respondents in each
+<figure><img src="../fig/05-ggplot2-rendered-barplot-theme-bw-1.png" alt="Bar plot showing percent of each wall type in each village, with black and white theme applied." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><ul>
+<li>If you want to save the plot, you can also use the
+<code>ggsave()</code> function to save your plot directly from R. For
+example:</li>
+</ul>
+<div class="codewrapper sourceCode" id="cb38">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">my_plot</span> <span class="op">&lt;-</span> <span class="va">percent_wall_type</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">respondent_wall_type</span>, y <span class="op">=</span> <span class="va">percent</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">geom_bar</span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>, position <span class="op">=</span> <span class="st">"dodge"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">labs</span><span class="op">(</span>title<span class="op">=</span><span class="st">"Proportion of wall type by village"</span>,</span>
+<span>         x<span class="op">=</span><span class="st">"Wall Type"</span>,</span>
+<span>         y<span class="op">=</span><span class="st">"Percent"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">village</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme_bw</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu">theme</span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">ggsave</span><span class="op">(</span><span class="st">"fig_output/name_of_file.png"</span>, <span class="va">my_plot</span>, width <span class="op">=</span> <span class="fl">15</span>, height <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in `ggsave()`:
+! Cannot find directory 'fig_output'.
+ℹ Please supply an existing directory or use `create.dir = TRUE`.</code></pre>
+</div>
+</section><section><h2 class="section-heading" id="self-paced-exercise">Self paced exercise<a class="anchor" aria-label="anchor" href="#self-paced-exercise"></a>
+</h2>
+<hr class="half-width">
+<p>What if we wanted to see the proportion of respondents in each
 village who owned a particular item? We can calculate the percent of
 people in each village who own each item and then create a faceted
 series of bar plots where each plot is a particular item. First we need
 to calculate the percentage of people in each village who own each
 item:</p>
-<div class="codewrapper sourceCode" id="cb38">
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -6525,7 +6528,7 @@ percentages with each item in its own column, so a
 <code>pivot_longer()</code> is required to transform the table into an
 easier format for plotting. Using this data frame, we can now create a
 multi-paneled bar plot.</p>
-<div class="codewrapper sourceCode" id="cb39">
+<div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -6573,7 +6576,7 @@ plot using each of those themes. Which do you like best?</p>
 cheat sheet</a>, and think of ways you could improve the plot.</p>
 <p>Now, let’s change names of axes to something more informative than
 ‘village’ and ‘percent’ and add a title to the figure:</p>
-<div class="codewrapper sourceCode" id="cb40">
+<div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -6588,7 +6591,7 @@ cheat sheet</a>, and think of ways you could improve the plot.</p>
 </div>
 <figure><img src="../fig/05-ggplot2-rendered-ggplot-customization-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The axes have more informative names, but their readability can be
 improved by increasing the font size:</p>
-<div class="codewrapper sourceCode" id="cb41">
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -6613,7 +6616,7 @@ overlap. You can use a 90-degree angle, or experiment to find the
 appropriate angle for diagonally oriented labels. With a larger font,
 the title also runs off. We can add “\n” in the string for the title to
 insert a new line:</p>
-<div class="codewrapper sourceCode" id="cb42">
+<div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -6635,7 +6638,7 @@ you can save them as an object to be able to easily apply them to other
 plots you may create. We can also add
 <code>plot.title = element_text(hjust = 0.5)</code> to centre the
 title:</p>
-<div class="codewrapper sourceCode" id="cb43">
+<div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -6685,7 +6688,7 @@ appropriate arguments (<code>width</code>, <code>height</code> and
 <code>dpi</code>).</p>
 <p>Make sure you have the <code>fig_output/</code> folder in your
 working directory.</p>
-<div class="codewrapper sourceCode" id="cb44">
+<div class="codewrapper sourceCode" id="cb46">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -6727,6 +6730,611 @@ variable.</li>
 <li>Barplots are useful for visualizing categorical data.</li>
 <li>Faceting allows you to generate multiple plots based on a
 categorical variable.</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="aio-06-tidyr"><p>Content from <a href="06-tidyr.html">Data Wrangling with tidyr</a></p>
+<hr>
+<p>Last updated on 2026-02-24 |
+
+        <a href="https://bham-carpentries.github.io/2026-02-24-rsocialscientists/edit/main/episodes/06-tidyr.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 40 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How can I reformat a data frame to meet my needs?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Describe the concept of a wide and a long table format and for which
+purpose those formats are useful.</li>
+<li>Describe the roles of variable names and their associated values
+when a table is reshaped.</li>
+<li>Reshape a dataframe from long to wide format and back with the
+<code>pivot_wider</code> and <code>pivot_longer</code> commands from the
+<strong><code>tidyr</code></strong> package.</li>
+<li>Export a dataframe to a csv file.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong><code>dplyr</code></strong> pairs nicely with
+<strong><code>tidyr</code></strong> which enables you to swiftly convert
+between different data formats (long vs. wide) for plotting and
+analysis. To learn more about <strong><code>tidyr</code></strong> after
+the workshop, you may want to check out this <a href="https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf" class="external-link">handy
+data tidying with <strong><code>tidyr</code></strong>
+cheatsheet</a>.</p>
+<p>To make sure everyone will use the same dataset for this lesson,
+we’ll read again the SAFI dataset that we downloaded earlier.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## load the tidyverse</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">tidyverse</span><span class="op">)</span></span>
+<span><span class="kw">library</span><span class="op">(</span><span class="va">here</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">interviews</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="fu">here</span><span class="op">(</span><span class="st">"data"</span>, <span class="st">"SAFI_clean.csv"</span><span class="op">)</span>, na <span class="op">=</span> <span class="st">"NULL"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## inspect the data</span></span>
+<span><span class="va">interviews</span></span>
+<span></span>
+<span><span class="co">## preview the data</span></span>
+<span><span class="co"># view(interviews)</span></span></code></pre>
+</div>
+<section><h2 class="section-heading" id="reshaping-with-pivot_wider-and-pivot_longer">Reshaping with pivot_wider() and pivot_longer()<a class="anchor" aria-label="anchor" href="#reshaping-with-pivot_wider-and-pivot_longer"></a>
+</h2>
+<hr class="half-width">
+<p>There are essentially three rules that define a “tidy” dataset:</p>
+<ol style="list-style-type: decimal">
+<li>Each variable has its own column</li>
+<li>Each observation has its own row</li>
+<li>Each value must have its own cell</li>
+</ol>
+<p>This graphic visually represents the three rules that define a “tidy”
+dataset:</p>
+<p><img src="../fig/tidy-data-wickham.png" class="figure"><em>R for Data Science</em>,
+Wickham H and Grolemund G (<a href="https://r4ds.had.co.nz/index.html" class="external-link">https://r4ds.had.co.nz/index.html</a>)
+© Wickham, Grolemund 2017 This image is licenced under
+Attribution-NonCommercial-NoDerivs 3.0 United States (CC-BY-NC-ND 3.0
+US)</p>
+<p>In this section we will explore how these rules are linked to the
+different data formats researchers are often interested in: “wide” and
+“long”. This tutorial will help you efficiently transform your data
+shape regardless of original format. First we will explore qualities of
+the <code>interviews</code> data and how they relate to these different
+types of data formats.</p>
+<div class="section level3">
+<h3 id="long-and-wide-data-formats">Long and wide data formats<a class="anchor" aria-label="anchor" href="#long-and-wide-data-formats"></a>
+</h3>
+<p>In the <code>interviews</code> data, each row contains the values of
+variables associated with each record collected (each interview in the
+villages). It is stated that the <code>key_ID</code> was “added to
+provide a unique Id for each observation” and the
+<code>instanceID</code> “does this as well but it is not as convenient
+to use.”</p>
+<p>Once we have established that <code>key_ID</code> and
+<code>instanceID</code> are both unique we can use either variable as an
+identifier corresponding to the 131 interview records.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">interviews</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">key_ID</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">distinct</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">nrow</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] 131</code></pre>
+</div>
+<p>As seen in the code below, for each interview date in each village no
+<code>instanceID</code>s are the same. Thus, this format is what is
+called a “long” data format, where each observation occupies only one
+row in the dataframe.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">interviews</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">filter</span><span class="op">(</span><span class="va">village</span> <span class="op">==</span> <span class="st">"Chirodzo"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">select</span><span class="op">(</span><span class="va">key_ID</span>, <span class="va">village</span>, <span class="va">interview_date</span>, <span class="va">instanceID</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">sample_n</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code># A tibble: 10 × 4
+   key_ID village  interview_date      instanceID
+    &lt;dbl&gt; &lt;chr&gt;    &lt;dttm&gt;              &lt;chr&gt;
+ 1      8 Chirodzo 2016-11-16 00:00:00 uuid:d6cee930-7be1-4fd9-88c0-82a08f90fb5a
+ 2     66 Chirodzo 2016-11-16 00:00:00 uuid:a457eab8-971b-4417-a971-2e55b8702816
+ 3     61 Chirodzo 2016-11-16 00:00:00 uuid:2401cf50-8859-44d9-bd14-1bf9128766f2
+ 4     60 Chirodzo 2016-11-16 00:00:00 uuid:85465caf-23e4-4283-bb72-a0ef30e30176
+ 5     34 Chirodzo 2016-11-17 00:00:00 uuid:14c78c45-a7cc-4b2a-b765-17c82b43feb4
+ 6     65 Chirodzo 2016-11-16 00:00:00 uuid:143f7478-0126-4fbc-86e0-5d324339206b
+ 7    127 Chirodzo 2016-11-16 00:00:00 uuid:f6d04b41-b539-4e00-868a-0f62b427587d
+ 8     47 Chirodzo 2016-11-17 00:00:00 uuid:2d0b1936-4f82-4ec3-a3b5-7c3c8cd6cc2b
+ 9     68 Chirodzo 2016-11-16 00:00:00 uuid:ef04b3eb-b47d-412e-9b09-4f5e08fc66f9
+10     37 Chirodzo 2016-11-17 00:00:00 uuid:408c6c93-d723-45ef-8dee-1b1bd3fe20cd</code></pre>
+</div>
+<p>We notice that the layout or format of the <code>interviews</code>
+data is in a format that adheres to rules 1-3, where</p>
+<ul>
+<li>each column is a variable</li>
+<li>each row is an observation</li>
+<li>each value has its own cell</li>
+</ul>
+<p>This is called a “long” data format. But, we notice that each column
+represents a different variable. In the “longest” data format there
+would only be three columns, one for the id variable, one for the
+observed variable, and one for the observed value (of that variable).
+This data format is quite unsightly and difficult to work with, so you
+will rarely see it in use.</p>
+<p>Alternatively, in a “wide” data format we see modifications to rule
+1, where each column no longer represents a single variable. Instead,
+columns can represent different levels/values of a variable. For
+instance, in some data you encounter the researchers may have chosen for
+every survey date to be a different column.</p>
+<p>These may sound like dramatically different data layouts, but there
+are some tools that make transitions between these layouts much simpler
+than you might think! The gif below shows how these two formats relate
+to each other, and gives you an idea of how we can use R to shift from
+one format to the other.</p>
+<p><img src="../fig/tidyr-pivot_wider_longer.gif" class="figure"> Long and wide
+dataframe layouts mainly affect readability. You may find that visually
+you may prefer the “wide” format, since you can see more of the data on
+the screen. However, all of the R functions we have used thus far expect
+for your data to be in a “long” data format. This is because the long
+format is more machine readable and is closer to the formatting of
+databases.</p>
+</div>
+<div class="section level3">
+<h3 id="questions-which-warrant-different-data-formats">Questions which warrant different data formats<a class="anchor" aria-label="anchor" href="#questions-which-warrant-different-data-formats"></a>
+</h3>
+<p>In interviews, each row contains the values of variables associated
+with each record (the unit), values such as the village of the
+respondent, the number of household members, or the type of wall their
+house had. This format allows for us to make comparisons across
+individual surveys, but what if we wanted to look at differences in
+households grouped by different types of items owned?</p>
+<p>To facilitate this comparison we would need to create a new table
+where each row (the unit) was comprised of values of variables
+associated with items owned (i.e., <code>items_owned</code>). In
+practical terms this means the values of the items in
+<code>items_owned</code> (e.g. bicycle, radio, table, etc.) would become
+the names of column variables and the cells would contain values of
+<code>TRUE</code> or <code>FALSE</code>, for whether that household had
+that item.</p>
+<p>Once we we’ve created this new table, we can explore the relationship
+within and between villages. The key point here is that we are still
+following a tidy data structure, but we have <strong>reshaped</strong>
+the data according to the observations of interest.</p>
+<p>Alternatively, if the interview dates were spread across multiple
+columns, and we were interested in visualizing, within each village, how
+irrigation conflicts have changed over time. This would require for the
+interview date to be included in a single column rather than spread
+across multiple columns. Thus, we would need to transform the column
+names into values of a variable.</p>
+<p>We can do both of these transformations with two <code>tidyr</code>
+functions, <code>pivot_wider()</code> and
+<code>pivot_longer()</code>.</p>
+</div>
+</section><section><h2 class="section-heading" id="pivoting-wider">Pivoting wider<a class="anchor" aria-label="anchor" href="#pivoting-wider"></a>
+</h2>
+<hr class="half-width">
+<p><code>pivot_wider()</code> takes three principal arguments:</p>
+<ol style="list-style-type: decimal">
+<li>the data</li>
+<li>the <em>names_from</em> column variable whose values will become new
+column names.</li>
+<li>the <em>values_from</em> column variable whose values will fill the
+new column variables.</li>
+</ol>
+<p>Further arguments include <code>values_fill</code> which, if set,
+fills in missing values with the value provided.</p>
+<p>Let’s use <code>pivot_wider()</code> to transform interviews to
+create new columns for each item owned by a household. There are a
+couple of new concepts in this transformation, so let’s walk through it
+line by line. First we create a new object
+(<code>interviews_items_owned</code>) based on the
+<code>interviews</code> data frame.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>interviews_items_owned <span class="ot">&lt;-</span> interviews <span class="sc">%&gt;%</span></span></code></pre>
+</div>
+<p>Then we will actually need to make our data frame longer, because we
+have multiple items in a single cell. We will use a new function,
+<code>separate_longer_delim()</code>, from the
+<strong><code>tidyr</code></strong> package to separate the values of
+<code>items_owned</code> based on the presence of semi-colons
+(<code>;</code>). The values of this variable were multiple items
+separated by semi-colons, so this action creates a row for each item
+listed in a household’s possession. Thus, we end up with a long format
+version of the dataset, with multiple rows for each respondent. For
+example, if a respondent has a television and a solar panel, that
+respondent will now have two rows, one with “television” and the other
+with “solar panel” in the <code>items_owned</code> column.</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">separate_longer_delim</span>(items_owned, <span class="at">delim =</span> <span class="st">";"</span>) <span class="sc">%&gt;%</span></span></code></pre>
+</div>
+<p>After this transformation, you may notice that the
+<code>items_owned</code> column contains <code>NA</code> values. This is
+because some of the respondents did not own any of the items in the
+interviewer’s list. We can use the <code>replace_na()</code> function to
+change these <code>NA</code> values to something more meaningful. The
+<code>replace_na()</code> function expects for you to give it a
+<code>list()</code> of columns that you would like to replace the
+<code>NA</code> values in, and the value that you would like to replace
+the <code>NA</code>s. This ends up looking like this:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">items_owned =</span> <span class="st">"no_listed_items"</span>)) <span class="sc">%&gt;%</span></span></code></pre>
+</div>
+<p>Next, we create a new variable named
+<code>items_owned_logical</code>, which has one value
+(<code>TRUE</code>) for every row. This makes sense, since each item in
+every row was owned by that household. We are constructing this variable
+so that when we spread the <code>items_owned</code> across multiple
+columns, we can fill the values of those columns with logical values
+describing whether the household did (<code>TRUE</code>) or did not
+(<code>FALSE</code>) own that particular item.</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">items_owned_logical =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span></code></pre>
+</div>
+<figure><img src="../fig/separate_longer.png" alt="Two tables shown side-by-side. The first row of the left table is highlighted in blue, and the first four rows of the right table are also highlighted in blue to show how each of the values of 'items owned' are given their own row with the separate longer delim function. The 'items owned logical' column is highlighted in yellow on the right table to show how the mutate function adds a new column." class="figure mx-auto d-block"></figure><p>At this point, we can also count the number of items owned by each
+household, which is equivalent to the number of rows per
+<code>key_ID</code>. We can do this with a <code>group_by()</code> and
+<code>mutate()</code> pipeline that works similar to
+<code>group_by()</code> and <code>summarize()</code> discussed in the
+previous episode but instead of creating a summary table, we will add
+another column called <code>number_items</code>. We use the
+<code>n()</code> function to count the number of rows within each group.
+However, there is one difficulty we need to take into account, namely
+those households that did not list any items. These households now have
+<code>"no_listed_items"</code> under <code>items_owned</code>. We do not
+want to count this as an item but instead show zero items. We can
+accomplish this using <strong><code>dplyr</code>’s</strong>
+<code>if_else()</code> function that evaluates a condition and returns
+one value if true and another if false. Here, if the
+<code>items_owned</code> column is <code>"no_listed_items"</code>, then
+a 0 is returned, otherwise, the number of rows per group is returned
+using <code>n()</code>.</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode r" tabindex="0"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">group_by</span>(key_ID) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">number_items =</span> <span class="fu">if_else</span>(items_owned <span class="sc">==</span> <span class="st">"no_listed_items"</span>, <span class="dv">0</span>, <span class="fu">n</span>())) <span class="sc">%&gt;%</span> </span></code></pre>
+</div>
+<p>Lastly, we use <code>pivot_wider()</code> to switch from long format
+to wide format. This creates a new column for each of the unique values
+in the <code>items_owned</code> column, and fills those columns with the
+values of <code>items_owned_logical</code>. We also declare that for
+items that are missing, we want to fill those cells with the value of
+<code>FALSE</code> instead of <code>NA</code>.</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">items_owned</span>,</span>
+<span>            values_from <span class="op">=</span> <span class="va">items_owned_logical</span>,</span>
+<span>            values_fill <span class="op">=</span> <span class="fu">list</span><span class="op">(</span>items_owned_logical <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="../fig/pivot_wider.png" alt="Two tables shown side-by-side. The 'items owned' column is highlighted in blue on the left table, and the column names are highlighted in blue on the right table to show how the values of the 'items owned' become the column names in the output of the pivot wider function. The 'items owned logical' column is highlighted in yellow on the left table, and the values of the bicycle, television, and solar panel columns are highlighted in yellow on the right table to show how the values of the 'items owned logical' column became the values of all three of the aforementioned columns." class="figure mx-auto d-block"></figure><p>Combining the above steps, the chunk looks like this. Note that two
+new columns are created within the same <code>mutate()</code> call.</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">interviews_items_owned</span> <span class="op">&lt;-</span> <span class="va">interviews</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">separate_longer_delim</span><span class="op">(</span><span class="va">items_owned</span>, delim <span class="op">=</span> <span class="st">";"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">replace_na</span><span class="op">(</span><span class="fu">list</span><span class="op">(</span>items_owned <span class="op">=</span> <span class="st">"no_listed_items"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">key_ID</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>items_owned_logical <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>         number_items <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="va">items_owned</span> <span class="op">==</span> <span class="st">"no_listed_items"</span>, <span class="fl">0</span>, <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">items_owned</span>,</span>
+<span>              values_from <span class="op">=</span> <span class="va">items_owned_logical</span>,</span>
+<span>              values_fill <span class="op">=</span> <span class="fu">list</span><span class="op">(</span>items_owned_logical <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<p>View the <code>interviews_items_owned</code> data frame. It should
+have <code>r nrow(interviews)</code> rows (the same number of rows you
+had originally), but extra columns for each item. How many columns were
+added? Notice that there is no longer a column titled
+<code>items_owned</code>. This is because there is a default parameter
+in <code>pivot_wider()</code> that drops the original column. The values
+that were in that column have now become columns named
+<code>television</code>, <code>solar_panel</code>, <code>table</code>,
+etc. You can use <code>dim(interviews)</code> and
+<code>dim(interviews_wide)</code> to see how the number of columns has
+changed between the two datasets.</p>
+<p>This format of the data allows us to do interesting things, like make
+a table showing the number of respondents in each village who owned a
+particular item:</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">interviews_items_owned</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">filter</span><span class="op">(</span><span class="va">bicycle</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">village</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">count</span><span class="op">(</span><span class="va">bicycle</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code># A tibble: 3 × 3
+# Groups:   village [3]
+  village  bicycle     n
+  &lt;chr&gt;    &lt;lgl&gt;   &lt;int&gt;
+1 Chirodzo TRUE       17
+2 God      TRUE       23
+3 Ruaca    TRUE       20</code></pre>
+</div>
+<p>Or below we calculate the average number of items from the list owned
+by respondents in each village using the <code>number_items</code>
+column we created to count the items listed by each household.</p>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">interviews_items_owned</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">village</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">summarize</span><span class="op">(</span>mean_items <span class="op">=</span> <span class="fu">mean</span><span class="op">(</span><span class="va">number_items</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code># A tibble: 3 × 2
+  village  mean_items
+  &lt;chr&gt;         &lt;dbl&gt;
+1 Chirodzo       4.54
+2 God            3.98
+3 Ruaca          5.57</code></pre>
+</div>
+<div id="exercise" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="exercise" class="callout-inner">
+<h3 class="callout-title">Exercise</h3>
+<div class="callout-content">
+<p>We created <code>interviews_items_owned</code> by reshaping the data:
+first longer and then wider. Replicate this process with the
+<code>months_lack_food</code> column in the <code>interviews</code>
+dataframe. Create a new dataframe with columns for each of the months
+filled with logical vectors (<code>TRUE</code> or <code>FALSE</code>)
+and a summary column called <code>number_months_lack_food</code> that
+calculates the number of months each household reported a lack of
+food.</p>
+<p>Note that if the household did not lack food in the previous 12
+months, the value input was “none”.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">months_lack_food</span> <span class="op">&lt;-</span> <span class="va">interviews</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">separate_longer_delim</span><span class="op">(</span><span class="va">months_lack_food</span>, delim <span class="op">=</span> <span class="st">";"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">key_ID</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>months_lack_food_logical <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>         number_months_lack_food <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="va">months_lack_food</span> <span class="op">==</span> <span class="st">"none"</span>, <span class="fl">0</span>, <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">months_lack_food</span>,</span>
+<span>              values_from <span class="op">=</span> <span class="va">months_lack_food_logical</span>,</span>
+<span>              values_fill <span class="op">=</span> <span class="fu">list</span><span class="op">(</span>months_lack_food_logical <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="pivoting-longer">Pivoting longer<a class="anchor" aria-label="anchor" href="#pivoting-longer"></a>
+</h2>
+<hr class="half-width">
+<p>The opposing situation could occur if we had been provided with data
+in the form of <code>interviews_wide</code>, where the items owned are
+column names, but we wish to treat them as values of an
+<code>items_owned</code> variable instead.</p>
+<p>In this situation we are gathering these columns turning them into a
+pair of new variables. One variable includes the column names as values,
+and the other variable contains the values in each cell previously
+associated with the column names. We will do this in two steps to make
+this process a bit clearer.</p>
+<p><code>pivot_longer()</code> takes four principal arguments:</p>
+<ol style="list-style-type: decimal">
+<li>the data</li>
+<li>
+<em>cols</em> are the names of the columns we use to fill the a new
+values variable (or to drop).</li>
+<li>the <em>names_to</em> column variable we wish to create from the
+<em>cols</em> provided.</li>
+<li>the <em>values_to</em> column variable we wish to create and fill
+with values associated with the <em>cols</em> provided.</li>
+</ol>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">interviews_long</span> <span class="op">&lt;-</span> <span class="va">interviews_items_owned</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="va">bicycle</span><span class="op">:</span><span class="va">car</span>,</span>
+<span>               names_to <span class="op">=</span> <span class="st">"items_owned"</span>,</span>
+<span>               values_to <span class="op">=</span> <span class="st">"items_owned_logical"</span><span class="op">)</span></span></code></pre>
+</div>
+<p>View both <code>interviews_long</code> and
+<code>interviews_items_owned</code> and compare their structure.</p>
+<div id="exercise-1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="exercise-1" class="callout-inner">
+<h3 class="callout-title">Exercise</h3>
+<div class="callout-content">
+<p>We created some summary tables on <code>interviews_items_owned</code>
+using <code>count</code> and <code>summarise</code>. We can create the
+same tables on <code>interviews_long</code>, but this will require a
+different process.</p>
+<p>Make a table showing the number of respondents in each village who
+owned a particular item, and include all items. The difference between
+this format and the wide format is that you can now <code>count</code>
+all the items using the <code>items_owned</code> variable.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb19">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">interviews_long</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">filter</span><span class="op">(</span><span class="va">items_owned_logical</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">village</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">count</span><span class="op">(</span><span class="va">items_owned</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code># A tibble: 47 × 3
+# Groups:   village [3]
+   village  items_owned         n
+   &lt;chr&gt;    &lt;chr&gt;           &lt;int&gt;
+ 1 Chirodzo bicycle            17
+ 2 Chirodzo computer            2
+ 3 Chirodzo cow_cart            6
+ 4 Chirodzo cow_plough         20
+ 5 Chirodzo electricity         1
+ 6 Chirodzo fridge              1
+ 7 Chirodzo lorry               1
+ 8 Chirodzo mobile_phone       25
+ 9 Chirodzo motorcyle          13
+10 Chirodzo no_listed_items     3
+# ℹ 37 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="applying-what-we-learned-to-clean-our-data">Applying what we learned to clean our data<a class="anchor" aria-label="anchor" href="#applying-what-we-learned-to-clean-our-data"></a>
+</h2>
+<hr class="half-width">
+<p>Now we have simultaneously learned about <code>pivot_longer()</code>
+and <code>pivot_wider()</code>, and fixed a problem in the way our data
+is structured. In this dataset, we have another column that stores
+multiple values in a single cell. Some of the cells in the
+<code>months_lack_food</code> column contain multiple months which, as
+before, are separated by semi-colons (<code>;</code>).</p>
+<p>To create a data frame where each of the columns contain only one
+value per cell, we can repeat the steps we applied to
+<code>items_owned</code> and apply them to
+<code>months_lack_food</code>. Since we will be using this data frame
+for the next episode, we will call it
+<code>interviews_plotting</code>.</p>
+<div class="codewrapper sourceCode" id="cb21">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Plotting data ##</span></span>
+<span><span class="va">interviews_plotting</span> <span class="op">&lt;-</span> <span class="va">interviews</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="co">## pivot wider by items_owned</span></span>
+<span>  <span class="fu">separate_longer_delim</span><span class="op">(</span><span class="va">items_owned</span>, delim <span class="op">=</span> <span class="st">";"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">replace_na</span><span class="op">(</span><span class="fu">list</span><span class="op">(</span>items_owned <span class="op">=</span> <span class="st">"no_listed_items"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="co">## Use of grouped mutate to find number of rows</span></span>
+<span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">key_ID</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>items_owned_logical <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>         number_items <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="va">items_owned</span> <span class="op">==</span> <span class="st">"no_listed_items"</span>, <span class="fl">0</span>, <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">items_owned</span>,</span>
+<span>              values_from <span class="op">=</span> <span class="va">items_owned_logical</span>,</span>
+<span>              values_fill <span class="op">=</span> <span class="fu">list</span><span class="op">(</span>items_owned_logical <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
+<span>  <span class="co">## pivot wider by months_lack_food</span></span>
+<span>  <span class="fu">separate_longer_delim</span><span class="op">(</span><span class="va">months_lack_food</span>, delim <span class="op">=</span> <span class="st">";"</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>months_lack_food_logical <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>         number_months_lack_food <span class="op">=</span> <span class="fu">if_else</span><span class="op">(</span><span class="va">months_lack_food</span> <span class="op">==</span> <span class="st">"none"</span>, <span class="fl">0</span>, <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">pivot_wider</span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">months_lack_food</span>,</span>
+<span>              values_from <span class="op">=</span> <span class="va">months_lack_food_logical</span>,</span>
+<span>              values_fill <span class="op">=</span> <span class="fu">list</span><span class="op">(</span>months_lack_food_logical <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+</section><section><h2 class="section-heading" id="exporting-data">Exporting data<a class="anchor" aria-label="anchor" href="#exporting-data"></a>
+</h2>
+<hr class="half-width">
+<p>Now that you have learned how to use
+<strong><code>dplyr</code></strong> and
+<strong><code>tidyr</code></strong> to wrangle your raw data, you may
+want to export these new datasets to share them with your collaborators
+or for archival purposes.</p>
+<p>Similar to the <code>read_csv()</code> function used for reading CSV
+files into R, there is a <code>write_csv()</code> function that
+generates CSV files from data frames.</p>
+<p>Before using <code>write_csv()</code>, we are going to create a new
+folder, <code>data_output</code>, in our working directory that will
+store this generated dataset. We don’t want to write generated datasets
+in the same directory as our raw data. It’s good practice to keep them
+separate. The <code>data</code> folder should only contain the raw,
+unaltered data, and should be left alone to make sure we don’t delete or
+modify it. In contrast, our script will generate the contents of the
+<code>data_output</code> directory, so even if the files it contains are
+deleted, we can always re-generate them.</p>
+<p>In preparation for our next lesson on plotting, we created a version
+of the dataset where each of the columns includes only one data value.
+Now we can save this data frame to our <code>data_output</code>
+directory.</p>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">write_csv</span><span class="op">(</span><span class="va">interviews_plotting</span>, file <span class="op">=</span> <span class="st">"data_output/interviews_plotting.csv"</span><span class="op">)</span></span></code></pre>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul>
+<li>Use the <code>tidyr</code> package to change the layout of data
+frames.</li>
+<li>Use <code>pivot_wider()</code> to go from long to wide format.</li>
+<li>Use <code>pivot_longer()</code> to go from wide to long format.</li>
 </ul>
 </div>
 </div>
@@ -6781,8 +7389,8 @@ categorical variable.</li>
   "url": "https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/aio.html",
   "identifier": "https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/aio.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2026-02-23",
-  "datePublished": "2026-02-23"
+  "dateModified": "2026-02-24",
+  "datePublished": "2026-02-24"
 }
 
   </script><script>

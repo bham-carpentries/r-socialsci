@@ -260,7 +260,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-quarto.html">3. Getting started with Quarto (Optional)</a>
+        <a href="02-quarto.html">3. intro to Quarto (Optional)</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -297,6 +297,18 @@
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
         <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="06-tidyr.html">7. Data Wrangling with tidyr</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -380,7 +392,7 @@
 <h3 id="00-intro-figure-6">Figure 6</h3>
 <p aria-hidden="true">Image 1 of 1: ‘Screenshot of Install Packages Window’</p>
 <figure><img src="../fig/R_00_Rstudio_03.png" alt="Screenshot of Install Packages Window" class="figure mx-auto d-block"></figure><hr></section><section id="01-intro-to-r"><h2 class="section-heading"><a href="01-intro-to-r.html">Introduction to R</a></h2>
-<hr class="half-width"></section><section id="02-quarto"><h2 class="section-heading"><a href="02-quarto.html">Getting started with Quarto (Optional)</a></h2>
+<hr class="half-width"></section><section id="02-quarto"><h2 class="section-heading"><a href="02-quarto.html">intro to Quarto (Optional)</a></h2>
 <hr class="half-width">
 <h3 id="02-quarto-figure-1">Figure 1</h3>
 <p aria-hidden="true">Image 1 of 1: ‘A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, HTML, Word documents, and more) versatility of Quarto.’</p>
@@ -389,8 +401,8 @@
 <p aria-hidden="true">Image 1 of 1: ‘Screenshot of the New Quarto file dialogue box in RStudio’</p>
 <figure><img src="../fig/quarto-new.png" alt="Screenshot of the New Quarto file dialogue box in RStudio" class="figure mx-auto d-block"></figure><hr>
 <h3 id="02-quarto-figure-3">Figure 3</h3>
-<p aria-hidden="true">Image 1 of 1: ‘The 'rendering' process: First, Quarto file is converted to Markdown, which is then converted (via pandoc) to .html, .pdf, .docx, etc.’</p>
-<figure><img src="../fig/rstudio-qmd-how-it-works.png" alt="The 'rendering' process: First, Quarto file is converted to Markdown, which is then converted (via pandoc) to .html, .pdf, .docx, etc." class="figure mx-auto d-block"></figure><hr>
+<p aria-hidden="true">Image 1 of 1: ‘The 'rendering' process: First, **Quarto file is converted to Markdown, which is then converted** (via pandoc) to .html, .pdf, .docx, etc.’</p>
+<figure><img src="../fig/rstudio-qmd-how-it-works.png" alt="The 'rendering' process: First, **Quarto file is converted to Markdown, which is then converted** (via pandoc) to .html, .pdf, .docx, etc." class="figure mx-auto d-block"></figure><hr>
 <h3 id="02-quarto-figure-4">Figure 4</h3>
 <p aria-hidden="true">Image 1 of 1: ‘[decorative]’</p>
 <figure><img src="../fig/02-quarto-rendered-fig-fancy-plot-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
@@ -508,7 +520,30 @@ Horst</a>
 <figure><img src="../fig/05-ggplot2-rendered-ggplot-customization-label-orientation-1.png" alt="Multi-panel bar charts showing percent of respondents in each village and who owned each item, with grids behind the bars." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="05-ggplot2-figure-29">Figure 29</h3>
 <p aria-hidden="true">Image 1 of 1: ‘[decorative]’</p>
-<figure><img src="../fig/05-ggplot2-rendered-ggplot-custom-themes-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr></section>
+<figure><img src="../fig/05-ggplot2-rendered-ggplot-custom-themes-1.png" alt="" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr></section><section id="06-tidyr"><h2 class="section-heading"><a href="06-tidyr.html">Data Wrangling with tidyr</a></h2>
+<hr class="half-width">
+<h3 id="06-tidyr-figure-1">Figure 1</h3>
+<p><img src="../fig/tidy-data-wickham.png" class="figure"><em>R for Data Science</em>,
+Wickham H and Grolemund G (<a href="https://r4ds.had.co.nz/index.html" class="external-link">https://r4ds.had.co.nz/index.html</a>)
+© Wickham, Grolemund 2017 This image is licenced under
+Attribution-NonCommercial-NoDerivs 3.0 United States (CC-BY-NC-ND 3.0
+US)</p>
+<hr>
+<h3 id="06-tidyr-figure-2">Figure 2</h3>
+<p><img src="../fig/tidyr-pivot_wider_longer.gif" class="figure"> Long and wide
+dataframe layouts mainly affect readability. You may find that visually
+you may prefer the “wide” format, since you can see more of the data on
+the screen. However, all of the R functions we have used thus far expect
+for your data to be in a “long” data format. This is because the long
+format is more machine readable and is closer to the formatting of
+databases.</p>
+<hr>
+<h3 id="06-tidyr-figure-3">Figure 3</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Two tables shown side-by-side. The first row of the left table is highlighted in blue, and the first four rows of the right table are also highlighted in blue to show how each of the values of 'items owned' are given their own row with the separate longer delim function. The 'items owned logical' column is highlighted in yellow on the right table to show how the mutate function adds a new column.’</p>
+<figure><img src="../fig/separate_longer.png" alt="Two tables shown side-by-side. The first row of the left table is highlighted in blue, and the first four rows of the right table are also highlighted in blue to show how each of the values of 'items owned' are given their own row with the separate longer delim function. The 'items owned logical' column is highlighted in yellow on the right table to show how the mutate function adds a new column." class="figure mx-auto d-block"></figure><hr>
+<h3 id="06-tidyr-figure-4">Figure 4</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Two tables shown side-by-side. The 'items owned' column is highlighted in blue on the left table, and the column names are highlighted in blue on the right table to show how the values of the 'items owned' become the column names in the output of the pivot wider function. The 'items owned logical' column is highlighted in yellow on the left table, and the values of the bicycle, television, and solar panel columns are highlighted in yellow on the right table to show how the values of the 'items owned logical' column became the values of all three of the aforementioned columns.’</p>
+<figure><img src="../fig/pivot_wider.png" alt="Two tables shown side-by-side. The 'items owned' column is highlighted in blue on the left table, and the column names are highlighted in blue on the right table to show how the values of the 'items owned' become the column names in the output of the pivot wider function. The 'items owned logical' column is highlighted in yellow on the left table, and the values of the bicycle, television, and solar panel columns are highlighted in yellow on the right table to show how the values of the 'items owned logical' column became the values of all three of the aforementioned columns." class="figure mx-auto d-block"></figure><hr></section>
 </div>
     </main>
 </div>
@@ -558,8 +593,8 @@ Horst</a>
   "url": "https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/images.html",
   "identifier": "https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/images.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2026-02-23",
-  "datePublished": "2026-02-23"
+  "dateModified": "2026-02-24",
+  "datePublished": "2026-02-24"
 }
 
   </script><script>

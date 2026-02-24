@@ -109,11 +109,11 @@
   R for Social Scientists
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 61%" class="percentage">
-    61%
+<aside class="col-md-12 lesson-progress"><div style="width: 56%" class="percentage">
+    56%
   </div>
   <div class="progress data">
-    <div class="progress-bar data" role="progressbar" style="width: 61%" aria-valuenow="61" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar data" role="progressbar" style="width: 56%" aria-valuenow="56" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -215,7 +215,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="02-quarto.html">3. Getting started with Quarto (Optional)</a>
+        <a href="02-quarto.html">3. intro to Quarto (Optional)</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -243,8 +243,7 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#what-is-an-r-package">What is an R package?</a></li>
-<li><a href="#learning-dplyr">Learning <strong><code>dplyr</code></strong></a></li>
+        <ul><li><a href="#learning-dplyr">Learning <strong><code>dplyr</code></strong></a></li>
 <li><a href="#selecting-columns-and-filtering-rows">Selecting columns and filtering rows</a></li>
 <li><a href="#pipes">Pipes</a></li>
 <li><a href="#mutate">Mutate</a></li>
@@ -259,6 +258,15 @@
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
         <a href="05-ggplot2.html">6. Data Visualisation with ggplot2</a>
+    </div><!--/div.accordion-header-->
+
+  </div><!--/div.accordion-item-->
+</div><!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush8">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading8">
+        <a href="06-tidyr.html">7. Data Wrangling with tidyr</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -322,7 +330,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Data Wrangling with dplyr</h1>
-        <p>Last updated on 2026-02-23 |
+        <p>Last updated on 2026-02-24 |
 
         <a href="https://bham-carpentries.github.io/2026-02-24-rsocialscientists/edit/main/episodes/04-dplyr.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -341,7 +349,7 @@
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <ul><li>This lesson works better if you have graphics demonstrating dplyr
 commands. You can modify <a href="https://docs.google.com/presentation/d/1A9abypFdFp8urAe9z7GCMjFr4aPeIb8mZAtJA2F7H0w/edit#slide=id.g652714585f_0_114" class="external-link">this
@@ -395,71 +403,25 @@ results.</li>
 </div>
 </div>
 </div>
-<p><strong><code>dplyr</code></strong> is a package for making tabular
-data wrangling easier by using a limited set of functions that can be
-combined to extract and summarize insights from your data.</p>
-<p>Like <strong><code>readr</code></strong>,
-<strong><code>dplyr</code></strong> is a part of the tidyverse. These
-packages were loaded in R’s memory when we called
-<code><a href="https://tidyverse.tidyverse.org" class="external-link">library(tidyverse)</a></code> earlier.</p>
-<div id="note" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="note" class="callout-inner">
-<h3 class="callout-title">Note</h3>
-<div class="callout-content">
-<p>The packages in the tidyverse, namely
-<strong><code>dplyr</code></strong>, <strong><code>tidyr</code></strong>
-and <strong><code>ggplot2</code></strong> accept both the British
-(e.g. <em>summarise</em>) and American (e.g. <em>summarize</em>)
-spelling variants of different function and option names. For this
-lesson, we utilize the American spellings of different functions;
-however, feel free to use the regional variant for where you are
-teaching.</p>
-</div>
-</div>
-</div>
-<section><h2 class="section-heading" id="what-is-an-r-package">What is an R package?<a class="anchor" aria-label="anchor" href="#what-is-an-r-package"></a></h2>
-<hr class="half-width"><p>The package <strong><code>dplyr</code></strong> provides easy tools
-for the most common data wrangling tasks. It is built to work directly
-with dataframes, with many common tasks optimized by being written in a
-compiled language (C++) (not all R packages are written in R!).</p>
-<p>There are also packages available for a wide range of tasks including
-building plots (<strong><code>ggplot2</code></strong>, which we’ll see
-later), downloading data from the NCBI database, or performing
-statistical analysis on your data set. Many packages such as these are
-housed on, and downloadable from, the <strong>C</strong>omprehensive
-<strong>R</strong> <strong>A</strong>rchive <strong>N</strong>etwork
-(CRAN) using <code>install.packages</code>. This function makes the
-package accessible by your R installation with the command
-<code>library()</code>, as you did with <code>tidyverse</code>
-earlier.</p>
-<p>To easily access the documentation for a package within R or RStudio,
-use <code><a href="https://rdrr.io/pkg/package_name/man" class="external-link">help(package = "package_name")</a></code>.</p>
-<p>To learn more about <strong><code>dplyr</code></strong> after the
-workshop, you may want to check out this <a href="https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf" class="external-link">handy
-data transformation with <strong><code>dplyr</code></strong>
-cheatsheet</a>.</p>
-<div id="note-1" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="note-1" class="callout-inner">
-<h3 class="callout-title">Note</h3>
-<div class="callout-content">
-<p>There are alternatives to the <code>tidyverse</code> packages for
+<ul><li><p><strong><code>dplyr</code></strong> is a package for making
+tabular data wrangling easier by using a limited set of functions that
+can be combined to extract and summarize insights from your
+data.</p></li>
+<li><p>Like <strong><code>readr</code></strong>,
+<strong><code>dplyr</code></strong> is a <strong>part of the
+tidyverse</strong>. These packages were loaded in R’s memory when we
+called <code><a href="https://tidyverse.tidyverse.org" class="external-link">library(tidyverse)</a></code> earlier.</p></li>
+<li><p>The package <strong><code>dplyr</code></strong> provides easy
+tools for the most common data wrangling tasks. It is built to
+<strong>work directly with dataframes</strong>, with many common tasks
+optimized by being written in a compiled language (C++) (not all R
+packages are written in R!).</p></li>
+</ul><p>There are alternatives to the <code>tidyverse</code> packages for
 data wrangling, including the package <a href="https://rdatatable.gitlab.io/data.table/" class="external-link"><code>data.table</code></a>.
-See this <a href="https://mgimond.github.io/rug_2019_12/Index.html" class="external-link">comparison</a>
-for example to get a sense of the differences between using
-<code>base</code>, <code>tidyverse</code>, and
-<code>data.table</code>.</p>
-</div>
-</div>
-</div>
-</section><section><h2 class="section-heading" id="learning-dplyr">Learning <strong><code>dplyr</code></strong>
+However, the <code>tidyverse</code> is widely used in the R community
+and has a consistent syntax across its packages, making it a good choice
+for beginners.</p>
+<section><h2 class="section-heading" id="learning-dplyr">Learning <strong><code>dplyr</code></strong>
 <a class="anchor" aria-label="anchor" href="#learning-dplyr"></a></h2>
 <hr class="half-width"><p>To make sure everyone will use the same dataset for this lesson,
 we’ll read again the SAFI dataset that we downloaded earlier.</p>
@@ -496,15 +458,16 @@ statistics on grouped data</li>
 <li>
 <code>count()</code>: count discrete values</li>
 </ul></section><section><h2 class="section-heading" id="selecting-columns-and-filtering-rows">Selecting columns and filtering rows<a class="anchor" aria-label="anchor" href="#selecting-columns-and-filtering-rows"></a></h2>
-<hr class="half-width"><p>To select columns of a dataframe, use <code>select()</code>. The
-first argument to this function is the dataframe
-(<code>interviews</code>), and the subsequent arguments are the columns
-to keep, separated by commas. Alternatively, if you are selecting
-columns adjacent to each other, you can use a <code>:</code> to select a
-range of columns, read as “select columns from ___ to ___.” You may have
-done something similar in the past using subsetting.
-<code>select()</code> is essentially doing the same thing as subsetting,
-using a package (<code>dplyr</code>) instead of R’s base functions.</p>
+<hr class="half-width"><p>To <strong>select columns of a dataframe, use
+<code>select()</code></strong>. The first argument to this function is
+the dataframe (<code>interviews</code>), and the <strong>subsequent
+arguments are the columns to keep</strong>, separated by commas.
+Alternatively, if you are selecting columns adjacent to each other, you
+can use a <code>:</code> to select a range of columns, read as “select
+columns from ___ to ___.” You may have done something similar in the
+past using subsetting. <code>select()</code> is essentially doing the
+same thing as subsetting, using a package (<code>dplyr</code>) instead
+of R’s base functions.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -516,10 +479,10 @@ using a package (<code>dplyr</code>) instead of R’s base functions.</p>
 <span><span class="co"># to select a series of connected columns</span></span>
 <span><span class="fu">select</span><span class="op">(</span><span class="va">interviews</span>, <span class="va">village</span><span class="op">:</span><span class="va">respondent_wall_type</span><span class="op">)</span></span></code></pre>
 </div>
-<p>To choose rows based on specific criteria, we can use the
-<code>filter()</code> function. The argument after the dataframe is the
-condition we want our final dataframe to adhere to (e.g. village name is
-Chirodzo):</p>
+<p>To <strong>choose rows based on specific criteria</strong>, we can
+use the <code>filter()</code> function. The argument after the dataframe
+is the condition we want our final dataframe to adhere to (e.g. village
+name is Chirodzo):</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -548,14 +511,10 @@ Chirodzo):</p>
 #   liv_count &lt;dbl&gt;, items_owned &lt;chr&gt;, no_meals &lt;dbl&gt;, months_lack_food &lt;chr&gt;,
 #   instanceID &lt;chr&gt;</code></pre>
 </div>
-<p>You may also have noticed that the output from these call doesn’t run
-off the screen anymore. It’s one of the advantages of
-<code>tbl_df</code> (also called tibble), the central data class in the
-tidyverse, compared to normal dataframes in R.</p>
-<p>We can also specify multiple conditions within the
-<code>filter()</code> function. We can combine conditions using either
-“and” or “or” statements. In an “and” statement, an observation (row)
-must meet <strong>every</strong> criteria to be included in the
+<p>We can also specify <strong>multiple conditions within the
+<code>filter()</code> function</strong>. We can combine conditions using
+either “and” or “or” statements. In an “and” statement, an observation
+(row) must meet <strong>every</strong> criteria to be included in the
 resulting dataframe. To form “and” statements within dplyr, we can pass
 our desired conditions as arguments in the <code>filter()</code>
 function, separated by commas:</p>
@@ -654,9 +613,9 @@ operator for “or,” which is the vertical bar (|):</p>
 #   instanceID &lt;chr&gt;</code></pre>
 </div>
 </section><section><h2 class="section-heading" id="pipes">Pipes<a class="anchor" aria-label="anchor" href="#pipes"></a></h2>
-<hr class="half-width"><p>What if you want to select and filter at the same time? There are
-three ways to do this: use intermediate steps, nested functions, or
-pipes.</p>
+<hr class="half-width"><p>What if you want <strong>to select and filter at the same
+time?</strong> There are three ways to do this: <strong>use intermediate
+steps, nested functions, or pipes.</strong></p>
 <p>With intermediate steps, you create a temporary dataframe and use
 that as input to the next function, like this:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -666,9 +625,9 @@ that as input to the next function, like this:</p>
 <code class="sourceCode R"><span><span class="va">interviews2</span> <span class="op">&lt;-</span> <span class="fu">filter</span><span class="op">(</span><span class="va">interviews</span>, <span class="va">village</span> <span class="op">==</span> <span class="st">"Chirodzo"</span><span class="op">)</span></span>
 <span><span class="va">interviews_ch</span> <span class="op">&lt;-</span> <span class="fu">select</span><span class="op">(</span><span class="va">interviews2</span>, <span class="va">village</span><span class="op">:</span><span class="va">respondent_wall_type</span><span class="op">)</span></span></code></pre>
 </div>
-<p>This is readable, but can clutter up your workspace with lots of
-objects that you have to name individually. With multiple steps, that
-can be hard to keep track of.</p>
+<p>This is readable, but can <strong>clutter up your workspace</strong>
+with lots of objects that you have to name individually. With multiple
+steps, that can be hard to keep track of.</p>
 <p>You can also nest functions (i.e. one function inside of another),
 like this:</p>
 <div class="codewrapper sourceCode" id="cb12">
@@ -678,22 +637,13 @@ like this:</p>
 <code class="sourceCode R"><span><span class="va">interviews_ch</span> <span class="op">&lt;-</span> <span class="fu">select</span><span class="op">(</span><span class="fu">filter</span><span class="op">(</span><span class="va">interviews</span>, <span class="va">village</span> <span class="op">==</span> <span class="st">"Chirodzo"</span><span class="op">)</span>,</span>
 <span>                         <span class="va">village</span><span class="op">:</span><span class="va">respondent_wall_type</span><span class="op">)</span></span></code></pre>
 </div>
-<p>This is handy, but can be difficult to read if too many functions are
-nested, as R evaluates the expression from the inside out (in this case,
-filtering, then selecting).</p>
+<p>This is handy, but can be <strong>difficult to read if too many
+functions are nested</strong>, as R evaluates the expression from the
+inside out (in this case, filtering, then selecting).</p>
 <p>The last option, <em>pipes</em>, are a recent addition to R. Pipes
 let you take the output of one function and send it directly to the
 next, which is useful when you need to do many things to the same
-dataset. There are two Pipes in R: 1) <code>%&gt;%</code> (called
-magrittr pipe; made available via the
-<strong><code>magrittr</code></strong> package, installed automatically
-with <strong><code>dplyr</code></strong>) or 2) <code>|&gt;</code>
-(called native R pipe and it comes preinstalled with R v4.1.0 onwards).
-Both the pipes are, by and large, function similarly with a few
-differences (For more information, check: <a href="https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/" class="external-link uri">https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/</a>).
-The choice of which pipe to be used can be changed in the Global
-settings in R studio and once that is done, you can type the pipe
-with:</p>
+dataset. You can type the pipe with:</p>
 <ul><li>
 <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a PC
 or <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd> if you have a
@@ -742,10 +692,10 @@ the object on its left and passes it as the first argument to the
 function on its right, we don’t need to explicitly include the dataframe
 as an argument to the <code>filter()</code> and <code>select()</code>
 functions any more.</p>
-<p>Some may find it helpful to read the pipe like the word “then”. For
-instance, in the above example, we take the dataframe
-<code>interviews</code>, <em>then</em> we <code>filter</code> for rows
-with <code>village == "Chirodzo"</code>, <em>then</em> we
+<p>Some may find it helpful to <strong>read the pipe like the word
+“then”</strong>. For instance, in the above example, we take the
+dataframe <code>interviews</code>, <em>then</em> we <code>filter</code>
+for rows with <code>village == "Chirodzo"</code>, <em>then</em> we
 <code>select</code> columns <code>village:respondent_wall_type</code>.
 The <strong><code>dplyr</code></strong> functions by themselves are
 somewhat simple, but by combining them into linear workflows with the
@@ -803,7 +753,7 @@ interviews where respondents were members of an irrigation association
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -836,12 +786,13 @@ interviews where respondents were members of an irrigation association
 </div>
 </div>
 </section><section><h2 class="section-heading" id="mutate">Mutate<a class="anchor" aria-label="anchor" href="#mutate"></a></h2>
-<hr class="half-width"><p>Frequently you’ll want to create new columns based on the values in
-existing columns, for example to do unit conversions, or to find the
-ratio of values in two columns. For this we’ll use
+<hr class="half-width"><p>Frequently you’ll want to <strong>create new columns based on the
+values in existing columns</strong>, for example to do unit conversions,
+or to find the ratio of values in two columns. For this we’ll use
 <code>mutate()</code>.</p>
 <p>We might be interested in the ratio of number of household members to
-rooms used for sleeping (i.e. avg number of people per room):</p>
+rooms used for sleeping (i.e. <strong>avg number of people per
+room</strong>):</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -870,49 +821,6 @@ rooms used for sleeping (i.e. avg number of people per room):</p>
 #   liv_count &lt;dbl&gt;, items_owned &lt;chr&gt;, no_meals &lt;dbl&gt;, months_lack_food &lt;chr&gt;,
 #   instanceID &lt;chr&gt;, people_per_room &lt;dbl&gt;</code></pre>
 </div>
-<p>We may be interested in investigating whether being a member of an
-irrigation association had any effect on the ratio of household members
-to rooms. To look at this relationship, we will first remove data from
-our dataset where the respondent didn’t answer the question of whether
-they were a member of an irrigation association. These cases are
-recorded as “NULL” in the dataset.</p>
-<p>To remove these cases, we could insert a <code>filter()</code> in the
-chain:</p>
-<div class="codewrapper sourceCode" id="cb22">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">interviews</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">filter</span><span class="op">(</span><span class="op">!</span><span class="fu">is.na</span><span class="op">(</span><span class="va">memb_assoc</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
-<span>    <span class="fu">mutate</span><span class="op">(</span>people_per_room <span class="op">=</span> <span class="va">no_membrs</span> <span class="op">/</span> <span class="va">rooms</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code># A tibble: 92 × 15
-   key_ID village  interview_date      no_membrs years_liv respondent_wall_type
-    &lt;dbl&gt; &lt;chr&gt;    &lt;dttm&gt;                  &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
- 1      2 God      2016-11-17 00:00:00         7         9 muddaub
- 2      7 God      2016-11-17 00:00:00         6        38 muddaub
- 3      8 Chirodzo 2016-11-16 00:00:00        12        70 burntbricks
- 4      9 Chirodzo 2016-11-16 00:00:00         8         6 burntbricks
- 5     10 Chirodzo 2016-12-16 00:00:00        12        23 burntbricks
- 6     12 God      2016-11-21 00:00:00         7        20 burntbricks
- 7     13 God      2016-11-21 00:00:00         6         8 burntbricks
- 8     15 God      2016-11-21 00:00:00         5        30 sunbricks
- 9     21 God      2016-11-21 00:00:00         8        20 burntbricks
-10     24 Ruaca    2016-11-21 00:00:00         6         4 burntbricks
-# ℹ 82 more rows
-# ℹ 9 more variables: rooms &lt;dbl&gt;, memb_assoc &lt;chr&gt;, affect_conflicts &lt;chr&gt;,
-#   liv_count &lt;dbl&gt;, items_owned &lt;chr&gt;, no_meals &lt;dbl&gt;, months_lack_food &lt;chr&gt;,
-#   instanceID &lt;chr&gt;, people_per_room &lt;dbl&gt;</code></pre>
-</div>
-<p>The <code>!</code> symbol negates the result of the
-<code>is.na()</code> function. Thus, if <code>is.na()</code> returns a
-value of <code>TRUE</code> (because the <code>memb_assoc</code> is
-missing), the <code>!</code> symbol negates this and says we only want
-values of <code>FALSE</code>, where <code>memb_assoc</code> <strong>is
-not</strong> missing.</p>
 <div id="exercise-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -938,9 +846,9 @@ to produce this data frame!</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -955,19 +863,21 @@ to produce this data frame!</p>
 </div>
 </section><section><h2 class="section-heading" id="split-apply-combine-data-analysis-and-the-summarize-function">Split-apply-combine data analysis and the summarize() function<a class="anchor" aria-label="anchor" href="#split-apply-combine-data-analysis-and-the-summarize-function"></a></h2>
 <hr class="half-width"><p>Many data analysis tasks can be approached using the
-<em>split-apply-combine</em> paradigm: split the data into groups, apply
-some analysis to each group, and then combine the results.
-<strong><code>dplyr</code></strong> makes this very easy through the use
-of the <code>group_by()</code> function.</p>
+<strong><em>split-apply-combine</em></strong> paradigm: <strong>split
+the data into groups, apply some analysis to each group, and then
+combine the results</strong>. <strong><code>dplyr</code></strong> makes
+this very easy through the use of the <code>group_by()</code>
+function.</p>
 <div class="section level3">
 <h3 id="the-summarize-function">The <code>summarize()</code> function<a class="anchor" aria-label="anchor" href="#the-summarize-function"></a></h3>
 <p><code>group_by()</code> is often used together with
-<code>summarize()</code>, which collapses each group into a single-row
-summary of that group. <code>group_by()</code> takes as arguments the
-column names that contain the <strong>categorical</strong> variables for
-which you want to calculate the summary statistics. So to compute the
-average household size by village:</p>
-<div class="codewrapper sourceCode" id="cb25">
+<code>summarize()</code>, which <strong>collapses each group into a
+single-row summary of that group</strong>. <code>group_by()</code> takes
+as arguments the column names that contain the
+<strong>categorical</strong> variables for which you want to calculate
+the summary statistics. So to compute the average household size by
+village:</p>
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -985,8 +895,10 @@ average household size by village:</p>
 2 God                6.86
 3 Ruaca              7.57</code></pre>
 </div>
-<p>You can also group by multiple columns:</p>
-<div class="codewrapper sourceCode" id="cb27">
+<p>You can also group by multiple columns: In that case we will get the
+<strong>average household size for each combination of village and
+membership in an irrigation association</strong>:</p>
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1021,7 +933,7 @@ average household size by village:</p>
 columns which is indicated by the by two first lines with the
 <code>#</code>. To obtain an ungrouped tibble, use the
 <code>ungroup</code> function:</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1055,10 +967,11 @@ columns which is indicated by the by two first lines with the
 <p>Notice that the second line with the <code>#</code> that previously
 indicated the grouping has disappeared and we now only have a 9x3-tibble
 without grouping. When grouping both by <code>village</code> and
-<code>membr_assoc</code>, we see rows in our table for respondents who
-did not specify whether they were a member of an irrigation association.
-We can exclude those data from our table using a filter step.</p>
-<div class="codewrapper sourceCode" id="cb33">
+<code>membr_assoc</code>, <strong>we see rows in our table for
+respondents who did not specify whether they were a member of an
+irrigation association</strong>. We can exclude those data from our
+table using a filter step.</p>
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1087,12 +1000,12 @@ We can exclude those data from our table using a filter step.</p>
 5 Ruaca    no                   7.18
 6 Ruaca    yes                  9.5 </code></pre>
 </div>
-<p>Once the data are grouped, you can also summarize multiple variables
-at the same time (and not necessarily on the same variable). For
-instance, we could add a column indicating the minimum household size
-for each village for each group (members of an irrigation association vs
-not):</p>
-<div class="codewrapper sourceCode" id="cb36">
+<p>Once the data are grouped, <strong>you can also summarize multiple
+variables at the same time</strong> (and not necessarily on the same
+variable). For instance, we could add a column indicating the
+<strong>minimum household size for each village for each group</strong>
+(members of an irrigation association vs not):</p>
+<div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1123,9 +1036,10 @@ not):</p>
 6 Ruaca    yes                  9.5           5</code></pre>
 </div>
 <p>It is sometimes useful to rearrange the result of a query to inspect
-the values. For instance, we can sort on <code>min_membrs</code> to put
-the group with the smallest household first:</p>
-<div class="codewrapper sourceCode" id="cb39">
+the values. For instance, <strong>we can sort on
+<code>min_membrs</code></strong> to put the group with the smallest
+household first:</p>
+<div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1156,10 +1070,10 @@ the group with the smallest household first:</p>
 5 God      yes                  8             5
 6 Ruaca    yes                  9.5           5</code></pre>
 </div>
-<p>To sort in descending order, we need to add the <code>desc()</code>
-function. If we want to sort the results by decreasing order of minimum
-household size:</p>
-<div class="codewrapper sourceCode" id="cb42">
+<p>To sort in <strong>descending order</strong>, we need to add the
+<code>desc()</code> function. If we want to sort the results by
+decreasing order of minimum household size:</p>
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1193,12 +1107,12 @@ household size:</p>
 </div>
 <div class="section level3">
 <h3 id="counting">Counting<a class="anchor" aria-label="anchor" href="#counting"></a></h3>
-<p>When working with data, we often want to know the number of
-observations found for each factor or combination of factors. For this
-task, <strong><code>dplyr</code></strong> provides <code>count()</code>.
-For example, if we wanted to count the number of rows of data for each
-village, we would do:</p>
-<div class="codewrapper sourceCode" id="cb45">
+<p>When working with data, we often want to <strong>know the number of
+observations found for each factor or combination of factors</strong>.
+For this task, <strong><code>dplyr</code></strong> provides
+<code>count()</code>. For example, if we wanted to count the number of
+rows of data for each village, we would do:</p>
+<div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1217,7 +1131,7 @@ village, we would do:</p>
 </div>
 <p>For convenience, <code>count()</code> provides the <code>sort</code>
 argument to get results in decreasing order:</p>
-<div class="codewrapper sourceCode" id="cb47">
+<div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1253,9 +1167,9 @@ represented?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb49">
+<div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1295,9 +1209,9 @@ add the number of observations (hint: see <code>?n</code>).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb51">
+<div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1342,9 +1256,9 @@ add the number of observations (hint: see <code>?n</code>).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb53">
+<div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1457,8 +1371,8 @@ with subsets of data.</li>
   "url": "https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/04-dplyr.html",
   "identifier": "https://bham-carpentries.github.io/2026-02-24-rsocialscientists/instructor/04-dplyr.html",
   "dateCreated": "2017-05-25",
-  "dateModified": "2026-02-23",
-  "datePublished": "2026-02-23"
+  "dateModified": "2026-02-24",
+  "datePublished": "2026-02-24"
 }
 
   </script><script>
