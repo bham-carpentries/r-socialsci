@@ -337,7 +337,7 @@ Load the data and the tidyverse package in a code chunk with `include: false`:
 
 ```{r}
 #| echo: false
-#| label: package-data
+#| label: package-data-2
 #| message: false
 #| purl: false
 
