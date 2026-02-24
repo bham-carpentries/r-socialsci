@@ -65,6 +65,7 @@ episodes:
 - 03-starting-with-data.Rmd
 - 04-dplyr.Rmd
 - 05-ggplot2.Rmd
+- 06-tidyr.Rmd
 
 # Information for Learners
 learners: 
